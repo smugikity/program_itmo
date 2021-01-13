@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="lab5-06.01.191:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a30a24f7-0bec-45bd-9b7b-029079641efd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab7-09.05.19/.idea/libraries/jsch_0_1_55.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_51.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_52.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_53.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_8_54.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lab5_06_01_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab5-06.01.191.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab5-06.01.191.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/AbstractBalance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/AbstractBalance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/CollectionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/CollectionManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/Commander.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/Commander.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/Shorty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/Shorty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/Town$Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/Town$Place.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/WalletBalance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/WalletBalance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab5-06.01.191/LabFive/gson-2.8.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LabFive/gson-2.8.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6-25.03.19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6-25.03.19/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6-25.03.19/ZeusMod/ZeusMod.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6-25.03.19/ZeusMod/ZeusMod.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab7-09.05.19/.idea/dataSources/b11ab7cc-c8c7-4271-9e17-ee5e88bd2a5e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab7-09.05.19/.idea/dataSources/b11ab7cc-c8c7-4271-9e17-ee5e88bd2a5e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab7-09.05.19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab7-09.05.19/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab7-09.05.19/Zeus/Zeus.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab7-09.05.19/Zeus/Zeus.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/.idea/dataSources/4326d946-8fab-4119-b5d1-f5d93dcba6a0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab8-15.06.19/.idea/dataSources/4326d946-8fab-4119-b5d1-f5d93dcba6a0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab8-15.06.19/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/mail.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/mail.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/Connection$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/Connection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/ServerSide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/AbstractCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/AddCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/AddIfMinCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/ClearCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/DeleteAccountCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/DeleteAccountCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/HelpCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/ImportCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/InfoCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/LoadCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/LoginCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/ManCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/RegisterCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/RegisterCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/RemoveAllCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/RemoveCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/RemoveGreaterCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/RemoveLastCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/SaveCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/ShowCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/SortCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/UpdateCommand$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/commands/UpdateCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/managers/CollectionManager$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/managers/CollectionManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/managers/DatabaseManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/managers/PasswordManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/managers/Tunnel$localUserInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/server/managers/Tunnel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/tale/LotActions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/tale/Shorty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab8-15.06.19/out/production/ExtendedServer/tale/WalletBalance.class" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>check</find>
+      <find>che</find>
+      <find>add</find>
+      <find>remove_grea</find>
+      <find>info</find>
+      <find>add_if</find>
+      <find>remove</find>
+      <find>remove_all</find>
+      <find>sort</find>
+      <find>help</find>
+      <find>man</find>
+      <find>show</find>
+      <find>reput</find>
+      <find>for</find>
+      <find>add_if_min</find>
+      <find>load</find>
+      <find>iterFor</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1T74U0Qyz6Capgvlk6MxZy72jFl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="lab5-06.01.19" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553537557143" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab6-25.03.19" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\pugalol\Desktop\programming\lab5-06.01.19\src\tale" />
+      <recent name="C:\Users\pugalol\Desktop\programming\lab5-06.01.19\src" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="ls" />
+      <command value="dir" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Tale" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="LabFive.Main" />
+      <module name="lab5-06.01.191" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="lab5-06.01.19" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="lab5-06.01.19" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a30a24f7-0bec-45bd-9b7b-029079641efd" name="Default Changelist" comment="" />
+      <created>1550257661349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550257661349</updated>
+      <workItem from="1550257662598" duration="833000" />
+      <workItem from="1550305662878" duration="386000" />
+      <workItem from="1550307681045" duration="163000" />
+      <workItem from="1550511719876" duration="8930000" />
+      <workItem from="1550562695369" duration="2420000" />
+      <workItem from="1550565120281" duration="27948000" />
+      <workItem from="1550686399451" duration="4658000" />
+      <workItem from="1550732943724" duration="5910000" />
+      <workItem from="1550760782082" duration="6011000" />
+      <workItem from="1550816867208" duration="29612000" />
+      <workItem from="1550926140757" duration="3965000" />
+      <workItem from="1551003300522" duration="7438000" />
+      <workItem from="1551015495572" duration="34000" />
+      <workItem from="1551021284061" duration="68000" />
+      <workItem from="1551022302543" duration="396000" />
+      <workItem from="1551023351778" duration="1850000" />
+      <workItem from="1551039633197" duration="1623000" />
+      <workItem from="1551041320047" duration="1830000" />
+      <workItem from="1551083862608" duration="235000" />
+      <workItem from="1551085791175" duration="9638000" />
+      <workItem from="1551102274132" duration="4388000" />
+      <workItem from="1551166679296" duration="681000" />
+      <workItem from="1551265909849" duration="23000" />
+      <workItem from="1551281193162" duration="3975000" />
+      <workItem from="1551470898883" duration="652000" />
+      <workItem from="1551605915383" duration="17000" />
+      <workItem from="1551628923818" duration="95000" />
+      <workItem from="1552031436753" duration="1633000" />
+      <workItem from="1552035103979" duration="583000" />
+      <workItem from="1552036263017" duration="44000" />
+      <workItem from="1552036330343" duration="816000" />
+      <workItem from="1552037169959" duration="1288000" />
+      <workItem from="1552071332076" duration="393000" />
+      <workItem from="1552132529661" duration="26000" />
+      <workItem from="1552210982908" duration="479000" />
+      <workItem from="1552218407516" duration="485000" />
+      <workItem from="1552224199704" duration="95000" />
+      <workItem from="1552224317081" duration="381000" />
+      <workItem from="1552225294727" duration="57000" />
+      <workItem from="1552232267606" duration="402000" />
+      <workItem from="1552291053051" duration="2578000" />
+      <workItem from="1552295531618" duration="8421000" />
+      <workItem from="1552845968026" duration="140000" />
+      <workItem from="1553238468953" duration="1178000" />
+      <workItem from="1553350153511" duration="14415000" />
+      <workItem from="1553420892323" duration="1650000" />
+      <workItem from="1553425109961" duration="4920000" />
+      <workItem from="1553450001783" duration="1803000" />
+      <workItem from="1553503481135" duration="6600000" />
+      <workItem from="1553534947170" duration="764000" />
+      <workItem from="1553535752120" duration="5000" />
+      <workItem from="1553536014486" duration="22000" />
+      <workItem from="1553536082266" duration="9000" />
+      <workItem from="1553537323861" duration="19000" />
+      <workItem from="1553537532236" duration="52000" />
+      <workItem from="1553537586774" duration="2000" />
+      <workItem from="1553947309421" duration="270000" />
+      <workItem from="1554047426249" duration="106000" />
+      <workItem from="1554047615698" duration="686000" />
+      <workItem from="1554111029663" duration="14000" />
+      <workItem from="1554566381534" duration="218000" />
+      <workItem from="1555250865386" duration="54000" />
+      <workItem from="1557686279114" duration="372000" />
+      <workItem from="1572797813245" duration="176000" />
+      <workItem from="1572807118238" duration="197000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>

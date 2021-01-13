@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="incoming">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/incoming/ru.zip!/" />
+      <root url="jar://$PROJECT_DIR$/incoming/Pokemon.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
