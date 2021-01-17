@@ -40,6 +40,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -81,6 +84,7 @@
       <updated>1610777549706</updated>
       <workItem from="1610777551038" duration="9447000" />
       <workItem from="1610832383347" duration="9129000" />
+      <workItem from="1610844012675" duration="442000" />
     </task>
     <servers />
   </component>
