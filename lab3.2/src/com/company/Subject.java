@@ -1,6 +1,8 @@
 package com.company;
 
-public abstract class Subject implements ExtendMath, Move {
+import java.util.Objects;
+
+public abstract class Subject implements ExtendMath, Moving {
     private String Name;
     private Position Pos;
 
@@ -20,7 +22,12 @@ public abstract class Subject implements ExtendMath, Move {
     static void setWaveLevel(int size) {
         WaveLevel = (short) ExtendMath.clamp(size,0,100);
     }
-
+    public String getName() {
+        return Name;
+    }
+    public void setName(String name) {
+        Name = name;
+    }
     @Override
     public String Move(Action move) {
         if (move==Action.BLOWNAWAY||move==Action.BREAKTHROUGH) {
@@ -56,11 +63,19 @@ public abstract class Subject implements ExtendMath, Move {
         }
         return this.getName()+move.getDes()+" to "+subject.getName();
     }
-
-    public String getName() {
-        return Name;
+    @Override
+    public String toString() {
+        return "Name: " + this.getName();
     }
-    public void setName(String name) {
-        Name = name;
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Subject)) return false;
+        Subject human = (Subject) o;
+        return Objects.equals(this.getName(), human.getName());
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.getName());
     }
 }

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class FishHook extends Subject {
     {
         setName("the fish hook");

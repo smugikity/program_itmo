@@ -5,8 +5,8 @@ public class Mu extends Subject {
         this.setName("Mu");
         System.out.println(getName()+" was created");
     }
-    FishHook hook= new FishHook();
-    void Awake() {
+
+    void Awake(FishHook hook) {
         if (ExtendMath.checkrandom(getWaveLevel())) {
             System.out.println(getName()+" woke up because of the storm and "+hook.Move(Action.HOVER,Position.OVERHER));
         } else {
