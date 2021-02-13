@@ -4,7 +4,7 @@ public class Everybody extends Time {
     static {
         System.out.println("Everybody was created");
     }
-    private String[] places = {"Pushkin","Senaya","Zhelakin","Polenezh","Lykarino","Kaspiretsk","Borisoluga","Myshinyye Nory"};
+    private String[] places = {"Pushkin","Polenezh","Lykarino","Kaspiretsk","Borisoluga","Myshinyye Nory"};
     static boolean searched = false;
     void updateStatus() {
         if (getTime()==23||getTime()==5||getTime()==12||getTime()==17) {

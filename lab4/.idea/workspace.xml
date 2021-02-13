@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="lab4:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -55,6 +60,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Programming-master/lab5-06.01.19/src" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
@@ -84,7 +93,11 @@
       <updated>1610777549706</updated>
       <workItem from="1610777551038" duration="9447000" />
       <workItem from="1610832383347" duration="9129000" />
-      <workItem from="1610844012675" duration="442000" />
+      <workItem from="1610844012675" duration="1139000" />
+      <workItem from="1611583145268" duration="32000" />
+      <workItem from="1611591740560" duration="1047000" />
+      <workItem from="1611592832158" duration="3918000" />
+      <workItem from="1612839729788" duration="24000" />
     </task>
     <servers />
   </component>
@@ -112,30 +125,34 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="395" y="110" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1610843585715" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1610783029199">
+    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1611593144118">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1610783029199" />
-    <state width="1493" height="310" key="GridCell.Tab.0.bottom" timestamp="1610843537403">
+    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1611593144118" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1612839753401">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="310" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1610843537403" />
-    <state width="1493" height="310" key="GridCell.Tab.0.center" timestamp="1610843537403">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1612839753401" />
+    <state width="1493" height="182" key="GridCell.Tab.0.bottom" timestamp="1611597507362">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="310" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1610843537403" />
-    <state width="1493" height="310" key="GridCell.Tab.0.left" timestamp="1610843537403">
+    <state width="1493" height="182" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1611597507362" />
+    <state width="1493" height="182" key="GridCell.Tab.0.center" timestamp="1611597507362">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="310" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1610843537403" />
-    <state width="1493" height="310" key="GridCell.Tab.0.right" timestamp="1610843537403">
+    <state width="1493" height="182" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1611597507362" />
+    <state width="1493" height="182" key="GridCell.Tab.0.left" timestamp="1611597507362">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="310" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1610843537403" />
-    <state x="277" y="77" key="SettingsEditor" timestamp="1610843971278">
+    <state width="1493" height="182" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1611597507362" />
+    <state width="1493" height="182" key="GridCell.Tab.0.right" timestamp="1611597507362">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1610843971278" />
+    <state width="1493" height="182" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1611597507362" />
+    <state x="277" y="13" key="SettingsEditor" timestamp="1611593147103">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1611593147103" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610843856775">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -144,5 +161,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="478" y="31" width="579" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1610832762322" />
+    <state x="209" y="55" width="1118" height="756" key="new project wizard" timestamp="1611592207584">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="209" y="55" width="1118" height="756" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1611592207584" />
   </component>
 </project>
