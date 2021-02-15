@@ -1,12 +1,12 @@
 <People>
     <Person>
-        <id>720244</id>
+        <id></id>
         <name>Sour Plum</name>
         <coordinates>
             <x>690</x>
             <y>931</y>
         </coordinates>
-        <creationdate>14/05/2001</creationdate>
+        <creationdate></creationdate>
         <height>169</height>
         <weight>69</weight>
         <haircolor>black</haircolor>
@@ -19,13 +19,13 @@
         </location>
     </Person>
     <Person>
-        <id>072875</id>
+        <id></id>
         <name>Tree Tomato</name>
         <coordinates>
             <x>978</x>
             <y>655</y>
         </coordinates>
-        <creationdate>05/09/2001</creationdate>
+        <creationdate></creationdate>
         <height>197</height>
         <weight>88</weight>
         <haircolor>white</haircolor>
@@ -38,13 +38,13 @@
         </location>
     </Person>
     <Person>
-        <id>154554</id>
+        <id></id>
         <name>Blood Orange</name>
         <coordinates>
             <x>656</x>
             <y>015</y>
         </coordinates>
-        <creationdate>10/10/1990</creationdate>
+        <creationdate></creationdate>
         <height>177</height>
         <weight>77</weight>
         <haircolor>red</haircolor>
@@ -57,13 +57,13 @@
         </location>
     </Person>
     <Person>
-        <id>154554</id>
+        <id></id>
         <name>White Pitaya</name>
         <coordinates>
             <x>656</x>
             <y>015</y>
         </coordinates>
-        <creationdate>10/10/1990</creationdate>
+        <creationdate></creationdate>
         <height>177</height>
         <weight>77</weight>
         <haircolor>brown</haircolor>
