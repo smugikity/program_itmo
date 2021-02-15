@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="lab5:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -57,10 +62,16 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Programming-master/lab5-06.01.19" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab4" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\bai_tap\program\lab5" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.company" />
     </key>
@@ -89,6 +100,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -108,7 +130,9 @@
       <workItem from="1613170789451" duration="8528000" />
       <workItem from="1613193997095" duration="4950000" />
       <workItem from="1613231052912" duration="7417000" />
-      <workItem from="1613364796297" duration="10935000" />
+      <workItem from="1613364796297" duration="13532000" />
+      <workItem from="1613379646910" duration="4031000" />
+      <workItem from="1613414995424" duration="5140000" />
     </task>
     <servers />
   </component>
@@ -128,50 +152,62 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613376738892">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1613376738892" />
+    <state x="574" y="138" key="#com.intellij.ide.util.MemberChooser" timestamp="1613418043947">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1613418043947" />
+    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613419029472">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1613419029472" />
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613366815362">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1613366815362" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1613364897051">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1613419010681">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1613364897051" />
-    <state width="1493" height="287" key="GridCell.Tab.0.bottom" timestamp="1613375653136">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1613419010681" />
+    <state width="1493" height="187" key="GridCell.Tab.0.bottom" timestamp="1613420140620">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="287" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613375653136" />
-    <state width="1493" height="287" key="GridCell.Tab.0.center" timestamp="1613375653136">
+    <state width="1493" height="187" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613420140620" />
+    <state width="1493" height="187" key="GridCell.Tab.0.center" timestamp="1613420140619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="287" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613375653136" />
-    <state width="1493" height="287" key="GridCell.Tab.0.left" timestamp="1613375653136">
+    <state width="1493" height="187" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1613420140619" />
+    <state width="1493" height="187" key="GridCell.Tab.0.left" timestamp="1613420140619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="287" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613375653136" />
-    <state width="1493" height="287" key="GridCell.Tab.0.right" timestamp="1613375653136">
+    <state width="1493" height="187" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1613420140619" />
+    <state width="1493" height="187" key="GridCell.Tab.0.right" timestamp="1613420140619">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="287" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613375653136" />
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1613367335750">
+    <state width="1493" height="187" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1613420140619" />
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613367335750" />
-    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1613367335749">
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
+    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1613367335749" />
-    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1613367335749">
+    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
+    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1613367335749" />
-    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1613367335749">
+    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
+    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1613367335749" />
-    <state x="277" y="77" key="SettingsEditor" timestamp="1613197050821">
+    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
+    <state x="277" y="13" key="SettingsEditor" timestamp="1613419035409">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613197050821" />
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613419035409" />
     <state x="-6" y="0" width="603" height="870" key="dock-window-1" timestamp="1613374029678">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

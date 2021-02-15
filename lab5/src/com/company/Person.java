@@ -1,9 +1,7 @@
 package com.company;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class Person {
+public class Person implements Comparable<Person> {
     private Long id = generateID();; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name=""; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates=null; //Поле не может быть null
@@ -80,6 +78,9 @@ public class Person {
         return name;
     }
 
+    /**
+     * Display data
+     */
     public void display() {
         System.out.format("id: %9d"+"\nname: "+getName()+"\ncoordinates:\n\tx: "+getCoordinates().getX()
                 +"\n\ty: "+getCoordinates().getY()+"\ncreation date: "+getCreationDate()+"\nheight: "+getHeight()
@@ -87,6 +88,11 @@ public class Person {
                 +getNationality().toString().toLowerCase().replace("_"," ") +" \nlocation:\n\tx: " +getLocation().getX()+"\n\ty: "
                 +getLocation().getY()+"\n\tz: "+getLocation().getZ()+"\n\tname: "+getLocation().getName()+"\nvalue: "+getValue()+"\n",getId());
     }
+
+    /**
+     * Generate a unique ID (8 digits)
+     * @return
+     */
     private long generateID() {
         Boolean checked = false;
         Long idTemp = null;
@@ -99,8 +105,20 @@ public class Person {
         }
         return idTemp;
     }
-    public Double getValue() {
+
+    /**
+     * Value of one instance caculated by sum of all summable variables (numeral variables)
+     * @return
+     */
+    private Double getValue() {
         return getHeight()+getWeight()+getLocation().getX()+getLocation().getY()+getLocation().getZ()+getCoordinates().getX()+getCoordinates().getY();
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        if (o == null || this.getValue()>o.getValue()) return 1;
+        else if (this.equals(o)) return 0;
+        else return -1;
     }
 }
 

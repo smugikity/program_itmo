@@ -4,8 +4,9 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 import javax.xml.parsers.*;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.*;
+
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
@@ -13,21 +14,28 @@ import org.w3c.dom.*;
 import org.xml.sax.*;
 
 public class Reader {
-
     private String[] userCommand = new String[14];
     private String[] splitedUserCommand = new String[2];
     static HashSet<Person> collectionPerson = new HashSet();
     String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     String fileSource;
+    CommandReader r;
     {
         userCommand[0] = "";
     }
 
-
-    public Reader(String fileSource) {
+    /**
+     * Initial the program
+     * @param fileSource input xml file
+     */
+    public Reader(String fileSource, CommandReader r) {
         this.fileSource = fileSource;
         try
         {
+            this.r = r;
+            /**
+             *XML Document builder with file input using InputStreamReader class
+             */
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             InputStreamReader in = new InputStreamReader(new FileInputStream( fileSource ), "utf-8" );
             BufferedReader reader = new BufferedReader(in);
@@ -46,25 +54,29 @@ public class Reader {
             }
             //lets print Employee list information
             in.close();
-            readCommand();
+            //excute main process of program
+            r.readCommand(this);
         }
-        catch (FileNotFoundException fnfe)
+        catch (FileNotFoundException e)
         {
-            System.out.println("No Such File Exists");
+            System.out.println("No such file exist");
         }
-        catch (IOException excpt)
+        catch (IOException e)
         {
             System.out.println("IOException occured");
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
     }
 
-    private Person getPerson(Node node) throws ParseException {
+    /**
+     * Create new person instance with node data from XML file
+     * @param node input node to read
+     * @return person instance
+     */
+    private Person getPerson(Node node) {
         Person person = new Person();
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element element = (Element) node;
@@ -94,12 +106,18 @@ public class Reader {
         return person;
     }
 
-    public String getValue(Element item, String str) {
+    /**
+     * Get value of element by tag name
+     * @param item element
+     * @param str tag name
+     * @return
+     */
+    private String getValue(Element item, String str) {
         NodeList n = item.getElementsByTagName(str);
         return getElementValue(n.item(0));
     }
 
-    public String getElementValue( Node elem ) {
+    private String getElementValue( Node elem ) {
         Node child;
         if( elem != null){
             if (elem.hasChildNodes()){
@@ -112,53 +130,64 @@ public class Reader {
         }
         return "";
     }
-
-    private void readCommand() throws IOException {
-        try (Scanner commandReader = new Scanner(System.in)) {
-            while (!userCommand[0].equals("exit")) {
-                userCommand = appendArray(userCommand, commandReader.nextLine().trim());
-                //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
-                splitedUserCommand = userCommand[0].trim().split(" ", 2);
-                try {
-                    switch (splitedUserCommand[0]) {
-                        case "":
-                            break;
-                        case "help": help(); break;
-                        case "info": info(); break;
-                        case "show": show(); break;
-                        case "add": add(); break;
-                        case "update": update(splitedUserCommand[1]); break;
-                        case "remove_by_id": remove_by_id(splitedUserCommand[1]); break;
-                        case "clear": clear(); break;
-                        case "save": save(); break;
-                        case "execute_script": execute_script(splitedUserCommand[1]); break;
-                        case "add_if_min": add_if_min(splitedUserCommand[1]); break;
-                        case "remove_greater": remove_greater(splitedUserCommand[1]); break;
-                        case "history": history(); break;
-                        case "max_by_location": max_by_location(); break;
-                        case "group_counting_by_coordinates": group_counting_by_coordinates(); break;
-                        case "filter_less_than_height" : filter_less_than_height(splitedUserCommand[1]); break;
-                        case "exit": break;
-                        default: System.out.println("Unidentified command. Type \'help\' for help. :(");
-                    }
-                } catch (ArrayIndexOutOfBoundsException ex) {
-                    System.out.println("Argument missing.");
-                }
-            }
+    /**
+     * Convert XML Document to String (for printWriter into file)
+     * @param doc
+     * @return
+     */
+    private static String toString(Document doc) {
+        try {
+            StringWriter sw = new StringWriter();
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+            transformer.transform(new DOMSource(doc), new StreamResult(sw));
+            return sw.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException("Error converting to String", ex);
         }
     }
 
-    private void filter_less_than_height(String s) {
+    //command control
+
+    /**
+     * Display all person instances with height lower than given value
+     * @param s given height
+     */
+    public void filter_less_than_height(String s) {
         for (Person person: collectionPerson) {
             if (person.getHeight() < Float.parseFloat(s))
                 person.display();
         }
     }
 
-    private void group_counting_by_coordinates() {
+    /**
+     * Idea: Group person elements by their distances (caculated by sum of x, y squares) and show number of elements of each group
+     */
+    public void group_counting_by_coordinates() {
+        HashSet<Person> h = collectionPerson;
+        for (int i=0;!h.isEmpty();i++) {
+            int count = 0;
+            HashSet<Person> tr=new HashSet<>();
+            for (Person p: h) {
+                Double distant = Math.sqrt(Math.pow(p.getCoordinates().getX(),2)+Math.pow(p.getCoordinates().getY(),2));
+                if (distant >= Math.pow(10,i) && distant < Math.pow(10,i+1)) {
+                    count ++;
+                    tr.add(p);
+                }
+            }
+            if (!tr.isEmpty())
+            for (Person p:tr) {
+                h.remove(p);
+            }
+
+            System.out.println("There are "+count+" persons with distance between "+Math.pow(10,i)+" and "+Math.pow(10,i+1));
+        }
     }
 
-    private void max_by_location() {
+    /**
+     * Delete the person with largest location value (sum of x,y,z squares) out of collection
+     */
+    public void max_by_location() {
         Person maxP = null;
         for (Person p: collectionPerson) {
             if (maxP == null || (Math.pow(p.getLocation().getX(),2)+Math.pow(p.getLocation().getY(),2)+Math.pow(p.getLocation().getZ(),2)>
@@ -170,36 +199,66 @@ public class Reader {
         collectionPerson.remove(maxP);
     }
 
-    private void history() {
-        for (int i=0; i<14; i++) {
-            if (userCommand[13-i] != null && userCommand[13-i]!="")
-                System.out.println(userCommand[13-i]);
-        }
+    /**
+     * Display last 14 executed commands
+     */
+    public void history() {
+        r.history();
     }
 
-    private void remove_greater(String s) {
+    /**
+     * Delete all the persons with value larger than given person
+     * @param s given number
+     */
+    public void remove_greater(String s) {
+        Person person = new Person();
+        setData(person);
         for (Person p:collectionPerson) {
-            if (p.getValue() > Double.parseDouble(s)) collectionPerson.remove(p);
+            if (p.compareTo(person)>0) collectionPerson.remove(p);
         }
     }
 
-    private void add_if_min(String s) {
-        Double min = 99999999999999999999.0;
+    /**
+     * Add new person if its value is minimum
+     */
+    public void add_if_min() {
+        Person min=null;
         for (Person p: collectionPerson) {
-            if (p.getValue()<=min) {
-                min = p.getValue();
+            if (p.compareTo(min)<=0||min==null) {
+                min = p;
             }
         }
         Person p = new Person();
         setData(p);
-        if (p.getValue()<min) collectionPerson.add(p);
-        else System.out.println("Value of new person larger than minimun in collection");
+        if (p.compareTo(min)<0) collectionPerson.add(p);
+        else System.out.println("Value of new person larger than minimum in collection");
     }
 
-    private void execute_script(String s) {
+    /**
+     * Import script file and execute it
+     * @param s source file
+     */
+    public void execute_script(String s)  {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(System.getProperty("user.dir")+s),"utf-8" ));
+            while(reader.ready()) {
+                String line = reader.readLine();
+                r.executeCommand(line);
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void save() {
+    /**
+     * Save the collection data into initial XML file using class PrintWriter
+     */
+    public void save() {
         try {
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -262,11 +321,18 @@ public class Reader {
         }
     }
 
-    private void clear() {
+    /**
+     * obviously, clear lmao
+     */
+    public void clear() {
         collectionPerson.clear();
     }
 
-    private void remove_by_id(String s) {
+    /**
+     * Remove element with given ID out of collection
+     * @param s ID
+     */
+    public void remove_by_id(String s) {
         for (Person p: collectionPerson) {
             if (p.getId() == Long.parseLong(s)) {
                 System.out.println("Deleted person with id: "+p.getId());
@@ -277,7 +343,11 @@ public class Reader {
         System.out.println("Didn't find any person with id: "+s);
     }
 
-    private void update(String s) {
+    /**
+     * Change data of person with given ID
+     * @param s
+     */
+    public void update(String s) {
         for (Person p: collectionPerson) {
             if (p.getId()==Long.parseLong(s)) {
                 setData(p);
@@ -286,26 +356,38 @@ public class Reader {
         }
     }
 
-    private void add() {
+    /**
+     * Add new person
+     */
+    public void add() {
         Person p = new Person();
         setData(p);
         collectionPerson.add(p);
     }
 
-    private void show() {
+    /**
+     * Display data of persons in collection
+     */
+    public void show() {
         for (Person person: collectionPerson) {
             person.display();
         }
     }
 
-    private void info() {
+    /**
+     * Basic information of collection
+     */
+    public void info() {
         System.out.println("Type of Collection element: "+collectionPerson.stream().skip
                 (new Random().nextInt(collectionPerson.size())).findFirst().orElse(null).getClass().getName());
         System.out.println("Size: "+collectionPerson.size());
         System.out.println("Initial time: "+timeStamp);
     }
 
-    private void help() {
+    /**
+     * HELP!
+     */
+    public void help() {
         System.out.println("help : вывести справку по доступным командам\n" +
                 "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
                 "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +
@@ -323,14 +405,10 @@ public class Reader {
                 "group_counting_by_coordinates : сгруппировать элементы коллекции по значению поля coordinates, вывести количество элементов в каждой группе\n" +
                 "filter_less_than_height height : вывести элементы, значение поля height которых меньше заданного");
     }
-    private String[] appendArray(String[] oldArray, String value) {
-        String[] newArray = new String[14];
-        newArray[0] = value;
-        for (int i=1; i<14; i++) {
-            newArray[i] = oldArray[i-1];
-        }
-        return newArray;
-    }
+    /**
+     * Manually write data for given person
+     * @param p
+     */
     private void setData(Person p) {
         Scanner commandReader = new Scanner(System.in);
         while (p.getName()=="") {
@@ -343,14 +421,19 @@ public class Reader {
             try {
                 p.setCoordinates(new Coordinates(Double.parseDouble(c[0]), Integer.parseInt(c[1])));
             } catch (NumberFormatException ex) {
+                System.out.println("Wrong number format");
                 p.setCoordinates(null);
             }
         }
-        while (p.getHeight()==null||p.getHeight()<=0) {
+        while (p.getHeight()==null) {
             System.out.println("height (can't be empty, larger than 0): ");
             try {
                 p.setHeight(Float.parseFloat(commandReader.nextLine().trim()));
+                if (p.getHeight()<=0) throw new OverrangedException();
             } catch (NumberFormatException ex) {
+                System.out.println("Wrong number format");
+                p.setHeight(null);
+            } catch (OverrangedException ex) {
                 p.setHeight(null);
             }
         }
@@ -358,7 +441,11 @@ public class Reader {
             System.out.println("weight (can't be empty, larger than 0): ");
             try {
                 p.setWeight(Long.parseLong(commandReader.nextLine().trim()));
+                if (p.getWeight()<=0) throw new OverrangedException();
             } catch (NumberFormatException ex) {
+                System.out.println("Wrong number format");
+                p.setWeight(null);
+            } catch (OverrangedException ex) {
                 p.setWeight(null);
             }
         }
@@ -367,6 +454,7 @@ public class Reader {
             try {
                 p.setHairColor(Color.valueOf(commandReader.nextLine().trim().toUpperCase()));
             } catch (IllegalArgumentException ex) {
+                System.out.println("Wrong color format");
                 p.setHairColor(null);
             }
         }
@@ -375,6 +463,7 @@ public class Reader {
             try {
                 p.setNationality(Country.valueOf(commandReader.nextLine().trim().toUpperCase().replace(" ","_")));
             } catch (IllegalArgumentException ex) {
+                System.out.println("Wrong country format");
                 p.setNationality(null);
             }
         }
@@ -384,19 +473,9 @@ public class Reader {
             try {
                 p.setLocation(new Location(Double.parseDouble(c[0]),Long.parseLong(c[1]),Double.parseDouble(c[2]),c[3]));
             } catch (NumberFormatException ex) {
+                System.out.println("Wrong number format");
                 p.setLocation(null);
             }
-        }
-    }
-    public static String toString(Document doc) {
-        try {
-            StringWriter sw = new StringWriter();
-            TransformerFactory tf = TransformerFactory.newInstance();
-            Transformer transformer = tf.newTransformer();
-            transformer.transform(new DOMSource(doc), new StreamResult(sw));
-            return sw.toString();
-        } catch (Exception ex) {
-            throw new RuntimeException("Error converting to String", ex);
         }
     }
 }
