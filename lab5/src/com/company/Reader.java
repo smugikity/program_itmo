@@ -19,6 +19,7 @@ public class Reader {
     static HashSet<Person> collectionPerson = new HashSet();
     String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     String fileSource;
+    HashSet<String> loadedScript;
     CommandReader r;
     {
         userCommand[0] = "";
@@ -190,8 +191,7 @@ public class Reader {
     public void max_by_location() {
         Person maxP = null;
         for (Person p: collectionPerson) {
-            if (maxP == null || (Math.pow(p.getLocation().getX(),2)+Math.pow(p.getLocation().getY(),2)+Math.pow(p.getLocation().getZ(),2)>
-                    Math.pow(maxP.getLocation().getX(),2)+Math.pow(maxP.getLocation().getY(),2)+Math.pow(maxP.getLocation().getZ(),2))) {
+            if (maxP == null || (Math.pow(p.getLocation().getX(),2)+Math.pow(p.getLocation().getY(),2)+Math.pow(p.getLocation().getZ(),2)>Math.pow(maxP.getLocation().getX(),2)+Math.pow(maxP.getLocation().getY(),2)+Math.pow(maxP.getLocation().getZ(),2))) {
                 maxP = p;
             }
         }
@@ -239,6 +239,8 @@ public class Reader {
      * @param s source file
      */
     public void execute_script(String s)  {
+        if (loadedScript.contains(s)) return;
+        loadedScript.add(s);
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(System.getProperty("user.dir")+s),"utf-8" ));
             while(reader.ready()) {
@@ -253,6 +255,7 @@ public class Reader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        loadedScript.remove(s);
     }
 
     /**
