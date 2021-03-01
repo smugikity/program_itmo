@@ -1,4 +1,4 @@
-package com.company;
+package com.lab5;
 
 public class OverrangedException extends Exception {
     public OverrangedException() {

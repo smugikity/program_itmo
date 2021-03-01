@@ -1,4 +1,4 @@
-package com.company;
+package com.lab5;
 
 public class Location {
     private Double x; //Поле не может быть null

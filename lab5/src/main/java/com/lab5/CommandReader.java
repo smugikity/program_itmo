@@ -1,4 +1,4 @@
-package com.company;
+package com.lab5;
 
 import java.util.Scanner;
 
@@ -14,12 +14,11 @@ public class CommandReader {
      */
     public void executeCommand(String s) {
         //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
-        userCommand = appendArray(userCommand, s.trim());
-        splitedUserCommand = userCommand[0].trim().split(" ", 2);
+        boolean v = true;
+        splitedUserCommand = s.trim().split(" ", 2);
         try {
             switch (splitedUserCommand[0]) {
-                case "":
-                    break;
+                case "": v= false; break;
                 case "help": r.help(); break;
                 case "info": r.info(); break;
                 case "show": r.show(); break;
@@ -36,7 +35,10 @@ public class CommandReader {
                 case "group_counting_by_coordinates": r.group_counting_by_coordinates(); break;
                 case "filter_less_than_height" : r.filter_less_than_height(splitedUserCommand[1]); break;
                 case "exit": break;
-                default: System.out.println("Unidentified command. Type \'help\' for help. :(");
+                default: System.out.println("Unidentified command. Type \'help\' for help. :("); v = false;
+            }
+            if (v) {
+                userCommand = appendArray(userCommand, splitedUserCommand[0]);
             }
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("Argument missing.");

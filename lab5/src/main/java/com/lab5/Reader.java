@@ -1,4 +1,4 @@
-package com.company;
+package com.lab5;
 
 import java.io.*;
 import java.text.*;
@@ -150,8 +150,12 @@ public class Reader {
      * @param s given height
      */
     public void filter_less_than_height(String s) {
+        Float cH;
+        try {cH = Float.parseFloat(s);} catch (NumberFormatException ex) {
+            System.out.println("Height must be a number"); return;
+        }
         for (Person person: collectionPerson) {
-            if (person.getHeight() < Float.parseFloat(s))
+            if (person.getHeight() < cH)
                 person.display();
         }
     }
@@ -331,11 +335,15 @@ public class Reader {
      * @param s ID
      */
     public void remove_by_id(String s) {
+        Long cId;
+        try {cId = Long.parseLong(s);} catch (NumberFormatException ex) {
+            System.out.println("ID must be a number"); return;
+        }
         for (Person p: collectionPerson) {
-            if (p.getId() == Long.parseLong(s)) {
+            if (p.getId() == cId) {
                 System.out.println("Deleted person with id: "+p.getId());
                 collectionPerson.remove(p);
-                break;
+                return;
             }
         }
         System.out.println("Didn't find any person with id: "+s);
@@ -346,12 +354,16 @@ public class Reader {
      * @param s
      */
     public void update(String s) {
-        for (Person p: collectionPerson) {
-            if (p.getId()==Long.parseLong(s)) {
-                setData(p);
-            }
-            else System.out.println("Person with input ID not found");
+        Long cId;
+        try {cId = Long.parseLong(s);} catch (NumberFormatException ex) {
+        System.out.println("ID must be a number"); return;
         }
+        for (Person p: collectionPerson) {
+            if (p.getId() == cId) {
+                setData(p); return;
+            }
+        }
+        System.out.println("Person with input ID not found");
     }
 
     /**
@@ -385,22 +397,22 @@ public class Reader {
      * HELP!
      */
     public void help() {
-        System.out.println("help : вывести справку по доступным командам\n" +
-                "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
-                "show : вывести в стандартный поток вывода все элементы коллекции в строковом представлении\n" +
-                "add {element} : добавить новый элемент в коллекцию\n" +
-                "update id {element} : обновить значение элемента коллекции, id которого равен заданному\n" +
-                "remove_by_id id : удалить элемент из коллекции по его id\n" +
-                "clear : очистить коллекцию\n" +
-                "save : сохранить коллекцию в файл\n" +
-                "execute_script file_name : считать и исполнить скрипт из указанного файла. В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в интерактивном режиме.\n" +
-                "exit : завершить программу (без сохранения в файл)\n" +
-                "add_if_min {element} : добавить новый элемент в коллекцию, если его значение меньше, чем у наименьшего элемента этой коллекции\n" +
-                "remove_greater {element} : удалить из коллекции все элементы, превышающие заданный\n" +
-                "history : вывести последние 14 команд (без их аргументов)\n" +
-                "max_by_location : вывести любой объект из коллекции, значение поля location которого является максимальным\n" +
-                "group_counting_by_coordinates : сгруппировать элементы коллекции по значению поля coordinates, вывести количество элементов в каждой группе\n" +
-                "filter_less_than_height height : вывести элементы, значение поля height которых меньше заданного");
+        System.out.println("help : display help for available commands\n" +
+                "info : print information about the collection (type, date of initialization, number of elements, etc.) to standard output\n" +
+                "show : print all collection items as string to standard output\n" +
+                "add {element} : add a new element to the collection\n" +
+                "update id {element} : update the value of the collection element whose id is equal to the given one\n" +
+                "remove_by_id id : remove an item from the collection by its id\n" +
+                "clear : clear the collection\n" +
+                "save : save the collection to a file\n" +
+                "execute_script file_name : read and execute the script from the specified file. The script contains commands in the same form in which the user enters them interactively.\n" +
+                "exit : exit the program (without saving to file)\n" +
+                "add_if_min {element} : add a new element to the collection if its value is less than the smallest element in this collection\n" +
+                "remove_greater {element} : remove all elements from the collection that are greater than the specified one\n" +
+                "history : display the last 14 commands (without their arguments)\n" +
+                "max_by_location : display any object from the collection, the value of the location field of which is the maximum\n" +
+                "group_counting_by_coordinates : group the elements of the collection by the value of the coordinates field, display the number of elements in each group\n" +
+                "filter_less_than_height height : display elements whose height field value is less than the specified one");
     }
     /**
      * Manually write data for given person

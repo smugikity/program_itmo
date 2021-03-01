@@ -77,7 +77,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -87,9 +87,9 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.lab5-1.0-SNAPSHOT.jar">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <option name="MAIN_CLASS_NAME" value="com.lab5.Main" />
       <module name="lab5" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -99,11 +99,11 @@
       </method>
     </configuration>
     <configuration name="Reader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Reader" />
+      <option name="MAIN_CLASS_NAME" value="com.lab5.Reader" />
       <module name="lab5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.company.*" />
+          <option name="PATTERN" value="com.lab5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,10 +126,15 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/lab5-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
+    <configuration name="lab5-1.0.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/lab5-1.0.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.lab5-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.lab5-1.0.jar" />
+        <item itemvalue="JAR Application.lab5-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Reader" />
       </list>
     </recent_temporary>
@@ -154,7 +159,7 @@
       <workItem from="1613464033136" duration="2557000" />
       <workItem from="1614090388925" duration="44000" />
       <workItem from="1614255162037" duration="591000" />
-      <workItem from="1614618622653" duration="5852000" />
+      <workItem from="1614618622653" duration="9781000" />
     </task>
     <servers />
   </component>
@@ -198,22 +203,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1614621437626" />
-    <state width="1493" height="246" key="GridCell.Tab.0.bottom" timestamp="1614625365963">
+    <state width="1493" height="217" key="GridCell.Tab.0.bottom" timestamp="1614629597276">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
-    <state width="1493" height="246" key="GridCell.Tab.0.center" timestamp="1614625365963">
+    <state width="1493" height="217" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614629597276" />
+    <state width="1493" height="217" key="GridCell.Tab.0.center" timestamp="1614629597276">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
-    <state width="1493" height="246" key="GridCell.Tab.0.left" timestamp="1614625365963">
+    <state width="1493" height="217" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614629597276" />
+    <state width="1493" height="217" key="GridCell.Tab.0.left" timestamp="1614629597276">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
-    <state width="1493" height="246" key="GridCell.Tab.0.right" timestamp="1614625365963">
+    <state width="1493" height="217" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614629597276" />
+    <state width="1493" height="217" key="GridCell.Tab.0.right" timestamp="1614629597276">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="246" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
+    <state width="1493" height="217" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614629597276" />
     <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -230,10 +235,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1614625161176">
+    <state x="277" y="13" key="SettingsEditor" timestamp="1614627823292">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1614625161176" />
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1614627823292" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614619478691">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

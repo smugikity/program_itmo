@@ -1,4 +1,4 @@
-package com.company;
+package com.lab5;
 import java.util.*;
 
 public class Person implements Comparable<Person> {
@@ -86,7 +86,7 @@ public class Person implements Comparable<Person> {
                 +"\n\ty: "+getCoordinates().getY()+"\ncreation date: "+getCreationDate()+"\nheight: "+getHeight()
                 +"\nweight: "+getWeight()+"\nhair color: "+getHairColor().toString().toLowerCase()+"\nnationality: "
                 +getNationality().toString().toLowerCase().replace("_"," ") +" \nlocation:\n\tx: " +getLocation().getX()+"\n\ty: "
-                +getLocation().getY()+"\n\tz: "+getLocation().getZ()+"\n\tname: "+getLocation().getName()+"\nvalue: "+getValue()+"\n",getId());
+                +getLocation().getY()+"\n\tz: "+getLocation().getZ()+"\n\tname: "+getLocation().getName()+"\n\n",getId()); //+"\nvalue: "+getValue()+"\n"
     }
 
     /**
