@@ -69,13 +69,15 @@ public class CommandReader {
             }
         }
     }
+
     /**
-     * Display last 14 executed commands
+     * Display commands typed
+     * @param n number of commands to display
      */
-    public void history() {
-        for (int i=0; i<14; i++) {
-            if (userCommand[13-i] != null && userCommand[13-i]!="")
-                System.out.println(userCommand[13-i]);
+    public void displayHistory(int n) {
+        for (int i=0; i<n; i++) {
+            if (userCommand[n-1-i] != null && userCommand[n-1-i]!="")
+                System.out.println(userCommand[n-1-i]);
         }
     }
 }

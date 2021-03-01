@@ -14,16 +14,11 @@ import org.w3c.dom.*;
 import org.xml.sax.*;
 
 public class Reader {
-    private String[] userCommand = new String[14];
-    private String[] splitedUserCommand = new String[2];
     static HashSet<Person> collectionPerson = new HashSet();
     String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     String fileSource;
     HashSet<String> loadedScript;
     CommandReader r;
-    {
-        userCommand[0] = "";
-    }
 
     /**
      * Initial the program
@@ -38,10 +33,10 @@ public class Reader {
              *XML Document builder with file input using InputStreamReader class
              */
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            InputStreamReader in = new InputStreamReader(new FileInputStream( fileSource ), "utf-8" );
-            BufferedReader reader = new BufferedReader(in);
+            InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), "utf-8" );
+            //BufferedReader reader = new BufferedReader(in);
             //no method to parse XML from a Reader -> wrap the reader in an InputSource (single input source for an XML entity)
-            InputSource input = new InputSource(reader);
+            InputSource input = new InputSource(in);
             Document data = builder.parse(input);
             //normalize
             data.getDocumentElement().normalize();
@@ -203,7 +198,7 @@ public class Reader {
      * Display last 14 executed commands
      */
     public void history() {
-        r.history();
+        r.displayHistory(14);
     }
 
     /**
