@@ -5,6 +5,9 @@
       <artifact name="lab5:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -24,7 +27,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="162d4269-12ce-4410-875d-9ac97ed741ce" name="Default Changelist" comment="" />
+    <list default="true" id="162d4269-12ce-4410-875d-9ac97ed741ce" name="Default Changelist" comment="dd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +50,13 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="autoscrollToSource" value="true" />
   </component>
@@ -63,10 +73,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab4" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -76,7 +87,7 @@
       <recent name="com.company" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JAR Application.lab5-1.0-SNAPSHOT.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="lab5" />
@@ -100,8 +111,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="lab5-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/lab5-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.lab5-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Reader" />
       </list>
@@ -127,7 +154,7 @@
       <workItem from="1613464033136" duration="2557000" />
       <workItem from="1614090388925" duration="44000" />
       <workItem from="1614255162037" duration="591000" />
-      <workItem from="1614618622653" duration="841000" />
+      <workItem from="1614618622653" duration="5852000" />
     </task>
     <servers />
   </component>
@@ -159,30 +186,34 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1613419029472" />
+    <state x="397" y="121" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1614621104123">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="397" y="121" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1536.864@0.0.1536.864" timestamp="1614621104123" />
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613366815362">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1613366815362" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1613419010681">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1614621437626">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1613419010681" />
-    <state width="1493" height="184" key="GridCell.Tab.0.bottom" timestamp="1614619323853">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1614621437626" />
+    <state width="1493" height="246" key="GridCell.Tab.0.bottom" timestamp="1614625365963">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614619323853" />
-    <state width="1493" height="184" key="GridCell.Tab.0.center" timestamp="1614619323853">
+    <state width="1493" height="246" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
+    <state width="1493" height="246" key="GridCell.Tab.0.center" timestamp="1614625365963">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614619323853" />
-    <state width="1493" height="184" key="GridCell.Tab.0.left" timestamp="1614619323853">
+    <state width="1493" height="246" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
+    <state width="1493" height="246" key="GridCell.Tab.0.left" timestamp="1614625365963">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614619323853" />
-    <state width="1493" height="184" key="GridCell.Tab.0.right" timestamp="1614619323853">
+    <state width="1493" height="246" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
+    <state width="1493" height="246" key="GridCell.Tab.0.right" timestamp="1614625365963">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614619323853" />
+    <state width="1493" height="246" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614625365963" />
     <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -199,10 +230,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1613419035409">
+    <state x="277" y="13" key="SettingsEditor" timestamp="1614625161176">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1613419035409" />
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1614625161176" />
+    <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614619478691">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1614619478691" />
     <state x="-6" y="0" width="603" height="870" key="dock-window-1" timestamp="1613374029678">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -211,6 +246,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="-6" y="0" width="484" height="870" key="dock-window-2/0.0.1536.864@0.0.1536.864" timestamp="1613375538552" />
+    <state x="209" y="52" key="new project wizard" timestamp="1614624202723">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="209" y="52" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1614624202723" />
     <state x="425" y="199" key="run.anything.popup" timestamp="1613186204789">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

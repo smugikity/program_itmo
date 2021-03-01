@@ -62,12 +62,12 @@ public class CommandReader {
      */
     public void readCommand(Reader r) {
         this.r = r;
-        try (Scanner commandReader = new Scanner(System.in)) {
+        Scanner commandReader = new Scanner(System.in);
             while (!userCommand[0].equals("exit")) {
                 //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
                 executeCommand(commandReader.nextLine());
             }
-        }
+
     }
 
     /**

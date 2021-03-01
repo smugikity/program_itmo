@@ -376,8 +376,7 @@ public class Reader {
      * Basic information of collection
      */
     public void info() {
-        System.out.println("Type of Collection element: "+collectionPerson.stream().skip
-                (new Random().nextInt(collectionPerson.size())).findFirst().orElse(null).getClass().getName());
+        System.out.println("Type of Collection element: "+collectionPerson.stream().skip(new Random().nextInt(collectionPerson.size())).findFirst().orElse(null).getClass().getName());
         System.out.println("Size: "+collectionPerson.size());
         System.out.println("Initial time: "+timeStamp);
     }
