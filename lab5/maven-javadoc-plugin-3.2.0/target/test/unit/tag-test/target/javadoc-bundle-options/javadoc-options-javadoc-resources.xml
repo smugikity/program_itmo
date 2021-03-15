@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <tags>
+    <tag>
+      <name>todo</name>
+      <head>To do something:</head>
+      <placement>a</placement>
+    </tag>
+    <tag>
+      <name>generatorClass</name>
+      <head>Generator Class:</head>
+      <placement>t</placement>
+    </tag>
+    <tag>
+      <name>version</name>
+    </tag>
+  </tags>
+</javadocOptions>

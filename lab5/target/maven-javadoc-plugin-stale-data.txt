@@ -1,0 +1,18 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\OpenJDK\jdk-8.0.272.10-hotspot\jre\..\bin\javadoc.exe" @options @argfile"
+E:\bai_tap\program\lab5\target\apidocs\allclasses-frame.html = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\allclasses-noframe.html = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\argfile = 1615048504238
+E:\bai_tap\program\lab5\target\apidocs\constant-values.html = 1615048504945
+E:\bai_tap\program\lab5\target\apidocs\deprecated-list.html = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\help-doc.html = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\index-all.html = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\index.html = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\options = 1615048504238
+E:\bai_tap\program\lab5\target\apidocs\overview-tree.html = 1615048504961
+E:\bai_tap\program\lab5\target\apidocs\package-list = 1615048504923
+E:\bai_tap\program\lab5\target\apidocs\script.js = 1615048504977
+E:\bai_tap\program\lab5\target\apidocs\serialized-form.html = 1615048504945
+E:\bai_tap\program\lab5\target\apidocs\stylesheet.css = 1615048504977

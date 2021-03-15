@@ -1,0 +1,15 @@
+-encoding
+'ISO-8859-1'
+-protected
+-quiet
+-sourcepath
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/resources-test/src/main/java;E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/resources-test/src/main/javadoc'
+-charset
+'UTF-8'
+-d
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/target/test/unit/resources-test/target/site/apidocs'
+-docencoding
+'UTF-8'
+-docfilessubdirs
+-windowtitle
+'Maven Javadoc Plugin resources 1.0-SNAPSHOT API'

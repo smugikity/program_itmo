@@ -1,0 +1,4 @@
+subpackages.test
+subpackages.test.excluded
+subpackages.test.included
+subpackages.test.included.exclude

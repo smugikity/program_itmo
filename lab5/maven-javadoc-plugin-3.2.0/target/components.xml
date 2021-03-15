@@ -1,0 +1,33 @@
+<component-set>
+  <components>
+    <component>
+      <role>org.apache.maven.plugins.javadoc.resolver.ResourceResolver</role>
+      <role-hint>default</role-hint>
+      <implementation>org.apache.maven.plugins.javadoc.resolver.ResourceResolver</implementation>
+      <description></description>
+      <isolated-realm>false</isolated-realm>
+      <requirements>
+        <requirement>
+          <role>org.apache.maven.artifact.factory.ArtifactFactory</role>
+          <field-name>artifactFactory</field-name>
+        </requirement>
+        <requirement>
+          <role>org.apache.maven.shared.transfer.artifact.resolve.ArtifactResolver</role>
+          <field-name>resolver</field-name>
+        </requirement>
+        <requirement>
+          <role>org.apache.maven.shared.transfer.dependencies.resolve.DependencyResolver</role>
+          <field-name>dependencyResolver</field-name>
+        </requirement>
+        <requirement>
+          <role>org.apache.maven.artifact.metadata.ArtifactMetadataSource</role>
+          <field-name>artifactMetadataSource</field-name>
+        </requirement>
+        <requirement>
+          <role>org.codehaus.plexus.archiver.manager.ArchiverManager</role>
+          <field-name>archiverManager</field-name>
+        </requirement>
+      </requirements>
+    </component>
+  </components>
+</component-set>

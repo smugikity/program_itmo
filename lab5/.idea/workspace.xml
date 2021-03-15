@@ -53,7 +53,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+        <option name="mavenHome" value="D:\Program Files\JetBrains\IntelliJ IDEA 2020\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -72,12 +72,12 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/maven-javadoc-plugin-3.2.0/pom.xml" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -111,13 +111,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,6 +162,15 @@
       <workItem from="1614090388925" duration="44000" />
       <workItem from="1614255162037" duration="591000" />
       <workItem from="1614618622653" duration="10156000" />
+      <workItem from="1614675582681" duration="271000" />
+      <workItem from="1614676000999" duration="10538000" />
+      <workItem from="1614687788559" duration="471000" />
+      <workItem from="1614692379811" duration="604000" />
+      <workItem from="1614877430495" duration="1603000" />
+      <workItem from="1614984391497" duration="2484000" />
+      <workItem from="1615045725237" duration="1385000" />
+      <workItem from="1615047840467" duration="631000" />
+      <workItem from="1615048833159" duration="347000" />
     </task>
     <servers />
   </component>
@@ -179,6 +190,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="249" y="6" key="#Project_Structure" timestamp="1615046673492">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="249" y="6" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1615046673492" />
     <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613376738892">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -187,10 +202,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="574" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1613418043947" />
-    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1613419029472">
+    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614686530618">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1613419029472" />
+    <state x="527" y="229" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.864@0.0.1536.864" timestamp="1614686530618" />
     <state x="397" y="121" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1614621104123">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -199,26 +214,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1613366815362" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1614621437626">
+    <state x="526" y="156" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1615046622671">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1614621437626" />
-    <state width="1493" height="289" key="GridCell.Tab.0.bottom" timestamp="1614630012051">
+    <state x="526" y="156" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864@0.0.1536.864" timestamp="1615046622671" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1615046313269">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="289" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1614630012051" />
-    <state width="1493" height="289" key="GridCell.Tab.0.center" timestamp="1614630012051">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1615046313269" />
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1615046924012">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="289" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1614630012051" />
-    <state width="1493" height="289" key="GridCell.Tab.0.left" timestamp="1614630012051">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1615046924012">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="289" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1614630012051" />
-    <state width="1493" height="289" key="GridCell.Tab.0.right" timestamp="1614630012051">
+    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1615046924012">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="289" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1614630012051" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1615046924012">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
     <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -235,10 +254,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1613378342874" />
-    <state x="277" y="13" key="SettingsEditor" timestamp="1614627823292">
+    <state x="277" y="13" key="SettingsEditor" timestamp="1615045855661">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1614627823292" />
+    <state x="277" y="13" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1615045855661" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1614680930245">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1536.864@0.0.1536.864" timestamp="1614680930245" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614619478691">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -255,9 +278,13 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="209" y="52" key="new project wizard/0.0.1536.864@0.0.1536.864" timestamp="1614624202723" />
-    <state x="425" y="199" key="run.anything.popup" timestamp="1613186204789">
+    <state x="425" y="199" width="672" height="677" key="run.anything.popup" timestamp="1614683687903">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="199" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1613186204789" />
+    <state x="425" y="199" width="672" height="677" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1614683687903" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1614984851642">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1614984851642" />
   </component>
 </project>

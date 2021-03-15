@@ -1,0 +1,17 @@
+-encoding
+'ISO-8859-1'
+-protected
+-quiet
+-sourcepath
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/aggregate-test/project1;E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/aggregate-test/project2'
+-author
+-charset
+'UTF-8'
+-d
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/target/test/unit/aggregate-test/target/site/apidocs'
+-docencoding
+'UTF-8'
+-use
+-version
+-windowtitle
+'Maven Javadoc Plugin Aggregate Test 1.0-SNAPSHOT API'

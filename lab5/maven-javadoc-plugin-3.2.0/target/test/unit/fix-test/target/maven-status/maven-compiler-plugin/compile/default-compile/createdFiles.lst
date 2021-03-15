@@ -1,0 +1,7 @@
+fix\test\ClassWithNoJavadoc.class
+fix\test\ClassWithJavadoc.class
+fix\test\ClassWithJavadoc$InnerClass.class
+fix\test\InterfaceWithJavadoc.class
+fix\test\ClassWithNoJavadoc$InnerClass.class
+fix\test\InterfaceWithNoJavadoc.class
+fix\test\ClassWithJavadoc$MyRuntimeException.class

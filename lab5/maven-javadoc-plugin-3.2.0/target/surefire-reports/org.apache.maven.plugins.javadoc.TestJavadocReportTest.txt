@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: org.apache.maven.plugins.javadoc.TestJavadocReportTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in org.apache.maven.plugins.javadoc.TestJavadocReportTest
+testTestJavadoc(org.apache.maven.plugins.javadoc.TestJavadocReportTest)  Time elapsed: 0.066 s  <<< ERROR!
+org.apache.maven.plugin.MojoExecutionException: An error has occurred in Test Javadoc report generation: Unable to find javadoc command: The environment variable JAVA_HOME is not correctly set.
+	at org.apache.maven.plugins.javadoc.TestJavadocReportTest.testTestJavadoc(TestJavadocReportTest.java:60)
+Caused by: org.apache.maven.reporting.MavenReportException: Unable to find javadoc command: The environment variable JAVA_HOME is not correctly set.
+	at org.apache.maven.plugins.javadoc.TestJavadocReportTest.testTestJavadoc(TestJavadocReportTest.java:60)
+Caused by: java.io.IOException: The environment variable JAVA_HOME is not correctly set.
+	at org.apache.maven.plugins.javadoc.TestJavadocReportTest.testTestJavadoc(TestJavadocReportTest.java:60)
+

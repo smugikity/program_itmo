@@ -23,6 +23,7 @@ public class Reader {
     /**
      * Initial the program
      * @param fileSource input xml file
+     * @param r CommandReader
      */
     public Reader(String fileSource, CommandReader r) {
         this.fileSource = fileSource;
@@ -113,6 +114,11 @@ public class Reader {
         return getElementValue(n.item(0));
     }
 
+    /**
+     * Safe way to get element value from node
+     * @param elem node
+     * @return string value
+     */
     private String getElementValue( Node elem ) {
         Node child;
         if( elem != null){
@@ -151,13 +157,17 @@ public class Reader {
      */
     public void filter_less_than_height(String s) {
         Float cH;
+        Boolean n=true;
         try {cH = Float.parseFloat(s);} catch (NumberFormatException ex) {
             System.out.println("Height must be a number"); return;
         }
         for (Person person: collectionPerson) {
-            if (person.getHeight() < cH)
+            if ((float) person.getHeight() < (float) cH) {
                 person.display();
+                n=false;
+            }
         }
+        if (n) System.out.println("Theres no person with heigh less than "+cH);
     }
 
     /**
@@ -169,7 +179,7 @@ public class Reader {
             int count = 0;
             HashSet<Person> tr=new HashSet<>();
             for (Person p: h) {
-                Double distant = Math.sqrt(Math.pow(p.getCoordinates().getX(),2)+Math.pow(p.getCoordinates().getY(),2));
+                double distant = Math.sqrt(Math.pow(p.getCoordinates().getX(),2)+Math.pow(p.getCoordinates().getY(),2));
                 if (distant >= Math.pow(10,i) && distant < Math.pow(10,i+1)) {
                     count ++;
                     tr.add(p);
@@ -179,7 +189,6 @@ public class Reader {
             for (Person p:tr) {
                 h.remove(p);
             }
-
             System.out.println("There are "+count+" persons with distance between "+Math.pow(10,i)+" and "+Math.pow(10,i+1));
         }
     }
@@ -194,7 +203,7 @@ public class Reader {
                 maxP = p;
             }
         }
-        System.out.println("Deleted person with id: "+maxP.getId());
+        System.out.println("Removed person with id: "+maxP.getId());
         collectionPerson.remove(maxP);
     }
 
@@ -213,7 +222,7 @@ public class Reader {
         Person person = new Person();
         setData(person);
         for (Person p:collectionPerson) {
-            if (p.compareTo(person)>0) collectionPerson.remove(p);
+            if (p.compareTo(person)>0) {collectionPerson.remove(p);System.out.println("Removed person "+p.getName()+" successfully with id "+p.getId());}
         }
     }
 
@@ -229,7 +238,7 @@ public class Reader {
         }
         Person p = new Person();
         setData(p);
-        if (p.compareTo(min)<0) collectionPerson.add(p);
+        if (p.compareTo(min)<0) {collectionPerson.add(p);System.out.println("Added person "+p.getName()+" successfully with id "+p.getId());}
         else System.out.println("Value of new person larger than minimum in collection");
     }
 
@@ -246,6 +255,7 @@ public class Reader {
                 String line = reader.readLine();
                 r.executeCommand(line);
             }
+            System.out.println("Script executed");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
@@ -317,6 +327,7 @@ public class Reader {
             writer1.write(toString(document));
             writer1.flush();
             writer1.close();
+            System.out.println("Saved into file "+fileSource);
             //you can also use staff.setAttribute("id", "1") for this
         } catch (ParserConfigurationException | FileNotFoundException ex) {
             ex.printStackTrace();
@@ -328,6 +339,7 @@ public class Reader {
      */
     public void clear() {
         collectionPerson.clear();
+        System.out.println("Collection cleared");
     }
 
     /**
@@ -340,7 +352,7 @@ public class Reader {
             System.out.println("ID must be a number"); return;
         }
         for (Person p: collectionPerson) {
-            if (p.getId() == cId) {
+            if ((long) p.getId() == (long) cId) {
                 System.out.println("Deleted person with id: "+p.getId());
                 collectionPerson.remove(p);
                 return;
@@ -358,9 +370,17 @@ public class Reader {
         try {cId = Long.parseLong(s);} catch (NumberFormatException ex) {
         System.out.println("ID must be a number"); return;
         }
+        //System.out.println(cId);
         for (Person p: collectionPerson) {
-            if (p.getId() == cId) {
-                setData(p); return;
+            //System.out.println(p.getId());
+            if ((long)cId == (long)p.getId()) {
+                collectionPerson.remove(p);
+                p = new Person();
+                p.setId(cId);
+                setData(p);
+                collectionPerson.add(p);
+                System.out.println("Updated person "+p.getName()+" successfully with id "+p.getId());
+                return;
             }
         }
         System.out.println("Person with input ID not found");
@@ -373,6 +393,7 @@ public class Reader {
         Person p = new Person();
         setData(p);
         collectionPerson.add(p);
+        System.out.println("Add person "+p.getName()+" successfully with id "+p.getId());
     }
 
     /**
@@ -419,72 +440,76 @@ public class Reader {
      * @param p
      */
     private void setData(Person p) {
-        Scanner commandReader = new Scanner(System.in);
-        while (p.getName()=="") {
-            System.out.println("name (can't be empty): ");
-            p.setName(commandReader.nextLine());
-        }
-        while (p.getCoordinates()==null) {
-            System.out.println("coordinates (can't be empty, format \"x y\", x double, y integer: ");
-            String[] c = commandReader.nextLine().trim().split(" ",2);
-            try {
-                p.setCoordinates(new Coordinates(Double.parseDouble(c[0]), Integer.parseInt(c[1])));
-            } catch (NumberFormatException ex) {
-                System.out.println("Wrong number format");
-                p.setCoordinates(null);
+        try {
+            Scanner commandReader = new Scanner(System.in);
+            while (p.getName() == "") {
+                System.out.print("name (can't be empty): ");
+                p.setName(commandReader.nextLine());
             }
-        }
-        while (p.getHeight()==null) {
-            System.out.println("height (can't be empty, larger than 0): ");
-            try {
-                p.setHeight(Float.parseFloat(commandReader.nextLine().trim()));
-                if (p.getHeight()<=0) throw new OverrangedException();
-            } catch (NumberFormatException ex) {
-                System.out.println("Wrong number format");
-                p.setHeight(null);
-            } catch (OverrangedException ex) {
-                p.setHeight(null);
+            while (p.getCoordinates() == null) {
+                System.out.print("coordinates (can't be empty, format \"x y\", x double, y integer: ");
+                String[] c = commandReader.nextLine().trim().split(" ", 2);
+                try {
+                    p.setCoordinates(new Coordinates(Double.parseDouble(c[0]), Integer.parseInt(c[1])));
+                } catch (NumberFormatException ex) {
+                    System.out.println("Wrong number format");
+                    p.setCoordinates(null);
+                }
             }
-        }
-        while (p.getWeight()==null||p.getWeight()<=0) {
-            System.out.println("weight (can't be empty, larger than 0): ");
-            try {
-                p.setWeight(Long.parseLong(commandReader.nextLine().trim()));
-                if (p.getWeight()<=0) throw new OverrangedException();
-            } catch (NumberFormatException ex) {
-                System.out.println("Wrong number format");
-                p.setWeight(null);
-            } catch (OverrangedException ex) {
-                p.setWeight(null);
+            while (p.getHeight() == null) {
+                System.out.print("height (can't be empty, larger than 0): ");
+                try {
+                    p.setHeight(Float.parseFloat(commandReader.nextLine().trim()));
+                    if (p.getHeight() <= 0) throw new OverrangedException();
+                } catch (NumberFormatException ex) {
+                    System.out.println("Wrong number format");
+                    p.setHeight(null);
+                } catch (OverrangedException ex) {
+                    p.setHeight(null);
+                }
             }
-        }
-        while (p.getHairColor()==null) {
-            System.out.println("hair color (could be red, black, white or brown): ");
-            try {
-                p.setHairColor(Color.valueOf(commandReader.nextLine().trim().toUpperCase()));
-            } catch (IllegalArgumentException ex) {
-                System.out.println("Wrong color format");
-                p.setHairColor(null);
+            while (p.getWeight() == null || p.getWeight() <= 0) {
+                System.out.print("weight (can't be empty, larger than 0): ");
+                try {
+                    p.setWeight(Long.parseLong(commandReader.nextLine().trim()));
+                    if (p.getWeight() <= 0) throw new OverrangedException();
+                } catch (NumberFormatException ex) {
+                    System.out.println("Wrong number format");
+                    p.setWeight(null);
+                } catch (OverrangedException ex) {
+                    p.setWeight(null);
+                }
             }
-        }
-        while (p.getNationality()==null) {
-            System.out.println("nationality (could be germany, vatican, thailand or south korea): ");
-            try {
-                p.setNationality(Country.valueOf(commandReader.nextLine().trim().toUpperCase().replace(" ","_")));
-            } catch (IllegalArgumentException ex) {
-                System.out.println("Wrong country format");
-                p.setNationality(null);
+            while (p.getHairColor() == null) {
+                System.out.print("hair color (could be red, black, white or brown): ");
+                try {
+                    p.setHairColor(Color.valueOf(commandReader.nextLine().trim().toUpperCase()));
+                } catch (IllegalArgumentException ex) {
+                    System.out.println("Wrong color format");
+                    p.setHairColor(null);
+                }
             }
-        }
-        while (p.getLocation()==null) {
-            System.out.println("coordinates (can't be empty, format \"x y z name\", x double, y long, z double): ");
-            String[] c = commandReader.nextLine().trim().split(" ",4);
-            try {
-                p.setLocation(new Location(Double.parseDouble(c[0]),Long.parseLong(c[1]),Double.parseDouble(c[2]),c[3]));
-            } catch (NumberFormatException ex) {
-                System.out.println("Wrong number format");
-                p.setLocation(null);
+            while (p.getNationality() == null) {
+                System.out.print("nationality (could be germany, vatican, thailand or south korea): ");
+                try {
+                    p.setNationality(Country.valueOf(commandReader.nextLine().trim().toUpperCase().replace(" ", "_")));
+                } catch (IllegalArgumentException ex) {
+                    System.out.println("Wrong country format");
+                    p.setNationality(null);
+                }
             }
+            while (p.getLocation() == null) {
+                System.out.print("location (can't be empty, format \"x y z name\", x double, y long, z double): ");
+                String[] c = commandReader.nextLine().trim().split(" ", 4);
+                try {
+                    p.setLocation(new Location(Double.parseDouble(c[0]), Long.parseLong(c[1]), Double.parseDouble(c[2]), c[3]));
+                } catch (NumberFormatException ex) {
+                    System.out.println("Wrong number format");
+                    p.setLocation(null);
+                }
+            }
+        } catch (NoSuchElementException ex) {
+            //Empty here
         }
     }
 }

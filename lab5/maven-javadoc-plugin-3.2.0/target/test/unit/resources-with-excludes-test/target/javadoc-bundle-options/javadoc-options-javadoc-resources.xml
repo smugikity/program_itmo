@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <docfilesSubdirsUsed>true</docfilesSubdirsUsed>
+  <excludedDocfilesSubdirs>test</excludedDocfilesSubdirs>
+  <javadocResourcesDirectory>src/main/javadoc</javadocResourcesDirectory>
+</javadocOptions>

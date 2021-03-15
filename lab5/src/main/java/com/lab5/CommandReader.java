@@ -1,5 +1,6 @@
 package com.lab5;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class CommandReader {
@@ -9,8 +10,8 @@ public class CommandReader {
     {
         userCommand[0] = "";
     }
-     /** Distribute command
-     * @param s
+     /** Distribute command to corresponding method
+     * @param s command as string typed by user
      */
     public void executeCommand(String s) {
         //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
@@ -45,9 +46,9 @@ public class CommandReader {
         }
     }
     /**
-     * Safe way to append new element into array (to not face outofbounds error)
-     * @param oldArray
-     * @param value
+     * Safe way to append new element into array (outofbounds exception)
+     * @param oldArray array to execute
+     * @param value element to add
      * @return new array
      */
     private String[] appendArray(String[] oldArray, String value) {
@@ -58,18 +59,28 @@ public class CommandReader {
         }
         return newArray;
     }
+
     /**
-     * Execute commands from panel
-     * - Main process of program
+     * Scan input from user and parse to executeCommand()
+     * @param r class containing collection
      */
     public void readCommand(Reader r) {
         this.r = r;
         Scanner commandReader = new Scanner(System.in);
-            while (!userCommand[0].equals("exit")) {
-                //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
-                executeCommand(commandReader.nextLine());
-            }
-
+        try {
+        while (!userCommand[0].equals("exit")) {
+            System.out.print("$ ");
+            //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
+            //try {
+            //if (commandReader.hasNextLine())
+            executeCommand(commandReader.nextLine());
+            //} catch (NoSuchElementException ex) {
+            //    System.out.println("stop it");
+            //}
+        }
+        } catch (NoSuchElementException ex) {
+            System.out.println("bye bye");
+        }
     }
 
     /**

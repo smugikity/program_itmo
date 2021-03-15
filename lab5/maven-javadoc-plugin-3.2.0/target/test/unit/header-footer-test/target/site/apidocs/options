@@ -1,0 +1,18 @@
+-encoding
+'ISO-8859-1'
+-protected
+-quiet
+-sourcepath
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/header-footer-test/src/main/java'
+-charset
+'UTF-8'
+-d
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/target/test/unit/header-footer-test/target/site/apidocs'
+-docencoding
+'UTF-8'
+-footer
+'<table border="0" cellpadding="0"> <tr>   <td><img src="{@docRoot}/icon.gif" width="32" /></td>   <td>Copyright &#169; All rights reserved.</td> </tr> </table>'
+-header
+'<table border="0" cellpadding="0"> <tr>   <td><img src="{@docRoot}/icon.gif" width="32" /></td>   <td>Copyright &#169; All rights reserved.</td> </tr> </table>'
+-windowtitle
+'Maven Javadoc Plugin header-footer 1.0-SNAPSHOT API'

@@ -1,10 +1,10 @@
 package com.lab5;
 
 public class Location {
-    private Double x; //Поле не может быть null
-    private Long y; //Поле не может быть null
-    private Double z; //Поле не может быть null
-    private String name; //Поле может быть null
+    private Double x; //Cant be null
+    private Long y; //Cant be null
+    private Double z; //Cant be null
+    private String name; //Cant be null
     public Location(Double x, Long y, Double z, String name) {
         this.x = x;
         this.y = y;

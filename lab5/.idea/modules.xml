@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/lab5.iml" filepath="$PROJECT_DIR$/lab5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maven-javadoc-plugin-3.2.0/maven-javadoc-plugin.iml" filepath="$PROJECT_DIR$/maven-javadoc-plugin-3.2.0/maven-javadoc-plugin.iml" />
     </modules>
   </component>
 </project>

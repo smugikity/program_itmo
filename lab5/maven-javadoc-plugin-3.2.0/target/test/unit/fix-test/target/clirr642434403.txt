@@ -1,0 +1,6 @@
+INFO: 7011: fix.test.ClassWithJavadoc: Method 'public java.lang.String newClassMethod(java.lang.String)' has been added
+INFO: 7011: fix.test.ClassWithJavadoc: Method 'public java.lang.String newInterfaceMethod(java.lang.String)' has been added
+INFO: 7011: fix.test.ClassWithNoJavadoc: Method 'public java.lang.String newClassMethod(java.lang.String)' has been added
+INFO: 7011: fix.test.ClassWithNoJavadoc: Method 'public java.lang.String newInterfaceMethod(java.lang.String)' has been added
+ERROR: 7012: fix.test.InterfaceWithJavadoc: Method 'public java.lang.String newInterfaceMethod(java.lang.String)' has been added to an interface
+ERROR: 7012: fix.test.InterfaceWithNoJavadoc: Method 'public java.lang.String newInterfaceMethod(java.lang.String)' has been added to an interface

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <excludePackageNames>
+    <excludePackageName>subpackages.test.excluded</excludePackageName>
+    <excludePackageName>subpackages.test.included.exclude</excludePackageName>
+  </excludePackageNames>
+</javadocOptions>

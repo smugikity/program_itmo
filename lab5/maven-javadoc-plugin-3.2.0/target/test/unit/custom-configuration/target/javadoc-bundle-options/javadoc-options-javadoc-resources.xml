@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <groups>
+    <group>
+      <title>Core Packages</title>
+      <packages>org.apache.maven.plugins.javadoc.test1</packages>
+    </group>
+    <group>
+      <title>Extension Packages</title>
+      <packages>org.apache.maven.plugins.javadoc.test2</packages>
+    </group>
+  </groups>
+  <tags>
+    <tag>
+      <name>.usage</name>
+      <head>Usage</head>
+      <placement>a</placement>
+    </tag>
+    <tag>
+      <name>.todo</name>
+      <head>To do something:</head>
+      <placement>a</placement>
+    </tag>
+    <tag>
+      <name>.fixme</name>
+      <head>Fixme</head>
+      <placement>a</placement>
+    </tag>
+  </tags>
+  <offlineLinks>
+    <offlineLink>
+      <url>http://java.sun.com/j2se/1.4.2/docs/api</url>
+      <location>E:\bai_tap\program\lab5\maven-javadoc-plugin-3.2.0/src/test/resources/unit/custom-configuration</location>
+    </offlineLink>
+  </offlineLinks>
+  <excludePackageNames>
+    <excludePackageName>*.exclude2</excludePackageName>
+    <excludePackageName>custom.configuration.exclude1.*</excludePackageName>
+  </excludePackageNames>
+</javadocOptions>

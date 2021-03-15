@@ -1,0 +1,22 @@
+-encoding
+'ISO-8859-1'
+-protected
+-quiet
+-source
+'1.6'
+-sourcepath
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/jdk6-test'
+-charset
+'UTF-8'
+-d
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/target/test/unit/jdk6-test/target/site/apidocs'
+-docencoding
+'UTF-8'
+-footer
+'<table border="0" cellpadding="0"> <tr>   <td><img src="{@docRoot}/icon.gif" width="32" /></td>   <td>Footer - Copyright &#169; All rights reserved.</td> </tr> </table>'
+-header
+'<table border="0" cellpadding="0"> <tr>   <td><img src="{@docRoot}/icon.gif" width="32" /></td>   <td>Header - Copyright &#169; All rights reserved.</td> </tr> </table>'
+-top
+'<table border="0" cellpadding="0"> <tr>   <td><img src="{@docRoot}/icon.gif" width="32" /></td>   <td>Top - Copyright &#169; All rights reserved.</td> </tr> </table>'
+-windowtitle
+'Maven Javadoc Plugin Taglet jdk6 1.0-SNAPSHOT API'

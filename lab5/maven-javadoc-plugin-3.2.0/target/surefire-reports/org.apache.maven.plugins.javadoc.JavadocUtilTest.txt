@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.apache.maven.plugins.javadoc.JavadocUtilTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.899 s - in org.apache.maven.plugins.javadoc.JavadocUtilTest

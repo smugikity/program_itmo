@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <tagletArtifacts>
+    <tagletArtifact>
+      <groupId>org.tullmann</groupId>
+      <artifactId>taglets</artifactId>
+      <version>1.0</version>
+    </tagletArtifact>
+  </tagletArtifacts>
+</javadocOptions>

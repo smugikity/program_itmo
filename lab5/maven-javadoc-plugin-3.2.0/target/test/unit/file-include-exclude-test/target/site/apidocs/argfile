@@ -1,0 +1,6 @@
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/file-include-exclude-test/subpackages/test/App.java'
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/file-include-exclude-test/subpackages/test/AppSample.java'
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/file-include-exclude-test/subpackages/test/excluded/ExcludedAppSample.java'
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/file-include-exclude-test/subpackages/test/included/exclude/ExcludedSubApp.java'
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/file-include-exclude-test/subpackages/test/included/IncludedApp.java'
+'E:/bai_tap/program/lab5/maven-javadoc-plugin-3.2.0/src/test/resources/unit/file-include-exclude-test/subpackages/test/included/IncludedAppSample.java'

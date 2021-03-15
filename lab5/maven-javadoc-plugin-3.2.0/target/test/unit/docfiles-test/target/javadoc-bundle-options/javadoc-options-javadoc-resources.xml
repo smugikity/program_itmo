@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <docfilesSubdirsUsed>true</docfilesSubdirsUsed>
+  <excludedDocfilesSubdirs>excluded-dir1:excluded-dir2</excludedDocfilesSubdirs>
+</javadocOptions>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javadocOptions>
+  <docletArtifacts>
+    <docletArtifact>
+      <groupId>umlgraph</groupId>
+      <artifactId>UMLGraph</artifactId>
+      <version>2.1</version>
+    </docletArtifact>
+  </docletArtifacts>
+</javadocOptions>
