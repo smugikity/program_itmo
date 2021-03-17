@@ -17,7 +17,7 @@ public class Reader {
     static HashSet<Person> collectionPerson = new HashSet();
     String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     String fileSource;
-    HashSet<String> loadedScript;
+    HashSet<String> loadedScript = new HashSet<>();
     CommandReader r;
 
     /**
@@ -36,29 +36,35 @@ public class Reader {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), "utf-8" );
             //BufferedReader reader = new BufferedReader(in);
+            if (!in.ready()) {
+                System.out.println("File is empty"); System.exit(0);
+            }
             //no method to parse XML from a Reader -> wrap the reader in an InputSource (single input source for an XML entity)
             InputSource input = new InputSource(in);
+            builder.setErrorHandler(new ParserErrorHandler());
             Document data = builder.parse(input);
             //normalize
             data.getDocumentElement().normalize();
             //get root element (People)
-            System.out.println("Root element: " + data.getDocumentElement().getNodeName());
+            if (data.getDocumentElement().getNodeName() != "People") {
+                System.out.println("File not meet required format. Root file node should be People"); System.exit(0);
+            }
+            //System.out.println("Root element: " + data.getDocumentElement().getNodeName());
             //parse data of Person into HashSet collection
             NodeList nodeList = data.getElementsByTagName("Person");
             //now XML is loaded as Document in memory, lets convert it to Object List
             for (int i = 0; i < nodeList.getLength(); i++) {
-                collectionPerson.add(getPerson(nodeList.item(i)));
+                Person p = getPerson(nodeList.item(i));
+                if (p != null) collectionPerson.add(p);
             }
             //lets print Employee list information
             in.close();
             //excute main process of program
             r.readCommand(this);
-        }
-        catch (FileNotFoundException e)
+        } catch (FileNotFoundException e)
         {
             System.out.println("No such file exist");
-        }
-        catch (IOException e)
+        } catch (IOException e)
         {
             System.out.println("IOException occured");
         } catch (ParserConfigurationException e) {
@@ -74,33 +80,41 @@ public class Reader {
      * @return person instance
      */
     private Person getPerson(Node node) {
-        Person person = new Person();
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            Element element = (Element) node;
-            //person.setId(Long.parseLong(getValue(element,"id")));
-            person.setName(getValue(element,"name"));
-            //creation date
-            //person.setCreationDate(new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").parse(getValue(element,"creationdate")));
-            person.setHeight(Float.parseFloat(getValue(element,"height")));
-            person.setWeight(Long.parseLong(getValue(element,"weight")));
-            person.setHairColor(Color.valueOf(getValue(element,"haircolor").toUpperCase()));
-            person.setNationality(Country.valueOf(getValue(element,"nationality").toUpperCase().replace(" ","_")));
-            //set coordinates
-            Element coordElement = (Element) element.getElementsByTagName("coordinates").item(0);
-            Coordinates coordinates = new Coordinates(
-                    Double.parseDouble(getValue(coordElement,"x")),
-                    Integer.parseInt(getValue(coordElement,"y")));
-            person.setCoordinates(coordinates);
-            //set location
-            Element coordLocation = (Element) element.getElementsByTagName("location").item(0);
-            Location location = new Location(
-                    Double.parseDouble(getValue(coordLocation,"x")),
-                    Long.parseLong(getValue(coordLocation,"y")),
-                    Double.parseDouble(getValue(coordLocation,"z")),
-                    getValue(coordLocation,"name"));
-            person.setLocation(location);
+        try {
+            Person person = new Person();
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element) node;
+                //person.setId(Long.parseLong(getValue(element,"id")));
+                person.setName(getValue(element, "name"));
+                //creation date
+                //person.setCreationDate(new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").parse(getValue(element,"creationdate")));
+                if ((float) Float.parseFloat(getValue(element, "height")) <= 0 || (long) Long.parseLong(getValue(element, "weight")) <=0) {
+                    throw (new OverrangedException("Weight and height need to be larger than 0"));
+                }
+                person.setHeight(Float.parseFloat(getValue(element, "height")));
+                person.setWeight(Long.parseLong(getValue(element, "weight")));
+                person.setHairColor(Color.valueOf(getValue(element, "haircolor").toUpperCase()));
+                person.setNationality(Country.valueOf(getValue(element, "nationality").toUpperCase().replace(" ", "_")));
+                //set coordinates
+                Element coordElement = (Element) element.getElementsByTagName("coordinates").item(0);
+                Coordinates coordinates = new Coordinates(
+                        Double.parseDouble(getValue(coordElement, "x")),
+                        Integer.parseInt(getValue(coordElement, "y")));
+                person.setCoordinates(coordinates);
+                //set location
+                Element coordLocation = (Element) element.getElementsByTagName("location").item(0);
+                Location location = new Location(
+                        Double.parseDouble(getValue(coordLocation, "x")),
+                        Long.parseLong(getValue(coordLocation, "y")),
+                        Double.parseDouble(getValue(coordLocation, "z")),
+                        getValue(coordLocation, "name"));
+                person.setLocation(location);
+            }
+            return person;
+        } catch (NullPointerException | IllegalArgumentException | OverrangedException ex) {
+            ex.printStackTrace();
+            return null;
         }
-        return person;
     }
 
     /**
@@ -174,6 +188,10 @@ public class Reader {
      * Idea: Group person elements by their distances (caculated by sum of x, y squares) and show number of elements of each group
      */
     public void group_counting_by_coordinates() {
+        if (collectionPerson.isEmpty()) {
+            System.out.println("Colletion is empty");
+            return;
+        }
         HashSet<Person> h = collectionPerson;
         for (int i=0;!h.isEmpty();i++) {
             int count = 0;
@@ -197,14 +215,21 @@ public class Reader {
      * Delete the person with largest location value (sum of x,y,z squares) out of collection
      */
     public void max_by_location() {
-        Person maxP = null;
+        if (collectionPerson.isEmpty()) {
+            System.out.println("Collection is empty"); return;
+        }
+        ArrayList<Person> maxP = new ArrayList<Person>();
         for (Person p: collectionPerson) {
-            if (maxP == null || (Math.pow(p.getLocation().getX(),2)+Math.pow(p.getLocation().getY(),2)+Math.pow(p.getLocation().getZ(),2)>Math.pow(maxP.getLocation().getX(),2)+Math.pow(maxP.getLocation().getY(),2)+Math.pow(maxP.getLocation().getZ(),2))) {
-                maxP = p;
+            if (maxP.isEmpty() || p.getLocationValue() > maxP.get(0).getLocationValue()) {
+                maxP.clear();
+                maxP.add(p);
+            } else if (p.getLocationValue() == maxP.get(0).getLocationValue()) {
+                maxP.add(p);
             }
         }
-        System.out.println("Removed person with id: "+maxP.getId());
-        collectionPerson.remove(maxP);
+        for (Person p: maxP) {
+            p.display();
+        }
     }
 
     /**
@@ -250,19 +275,16 @@ public class Reader {
         if (loadedScript.contains(s)) return;
         loadedScript.add(s);
         try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(System.getProperty("user.dir")+s),"utf-8" ));
-            while(reader.ready()) {
-                String line = reader.readLine();
+            Scanner reader = new Scanner(new File(s));
+            while(reader.hasNextLine()) {
+                String line = reader.nextLine();
                 r.executeCommand(line);
             }
-            System.out.println("Script executed");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            //System.out.println("Script executed");
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("IO Exception");
         }
         loadedScript.remove(s);
     }
@@ -322,11 +344,10 @@ public class Reader {
                 nameLocation.appendChild(document.createTextNode(p.getLocation().getName()));
                 location.appendChild(nameLocation);
             }
-            PrintWriter writer1 =null;
-            writer1 = new PrintWriter(new File(fileSource));
-            writer1.write(toString(document));
-            writer1.flush();
-            writer1.close();
+            PrintWriter writer = new PrintWriter(new File(fileSource));
+            writer.write(toString(document));
+            writer.flush();
+            writer.close();
             System.out.println("Saved into file "+fileSource);
             //you can also use staff.setAttribute("id", "1") for this
         } catch (ParserConfigurationException | FileNotFoundException ex) {
@@ -400,6 +421,10 @@ public class Reader {
      * Display data of persons in collection
      */
     public void show() {
+        if (collectionPerson.isEmpty()) {
+            System.out.println("Collection is Empty");
+            return;
+        }
         for (Person person: collectionPerson) {
             person.display();
         }
@@ -460,7 +485,7 @@ public class Reader {
                 System.out.print("height (can't be empty, larger than 0): ");
                 try {
                     p.setHeight(Float.parseFloat(commandReader.nextLine().trim()));
-                    if (p.getHeight() <= 0) throw new OverrangedException();
+                    if (p.getHeight() <= 0) throw new OverrangedException("Height need to be larger than 0");
                 } catch (NumberFormatException ex) {
                     System.out.println("Wrong number format");
                     p.setHeight(null);
@@ -472,7 +497,7 @@ public class Reader {
                 System.out.print("weight (can't be empty, larger than 0): ");
                 try {
                     p.setWeight(Long.parseLong(commandReader.nextLine().trim()));
-                    if (p.getWeight() <= 0) throw new OverrangedException();
+                    if (p.getWeight() <= 0) throw new OverrangedException("Weight need to larger than 0");
                 } catch (NumberFormatException ex) {
                     System.out.println("Wrong number format");
                     p.setWeight(null);

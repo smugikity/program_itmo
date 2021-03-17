@@ -107,6 +107,14 @@ public class Person implements Comparable<Person> {
     }
 
     /**
+     * Value of location caculated by x^2 + y^2 + z^2
+     * @return
+     */
+    public double getLocationValue() {
+        return (Math.pow(getLocation().getX(),2)+Math.pow(getLocation().getY(),2)+Math.pow(getLocation().getZ(),2));
+    }
+
+    /**
      * Value of one instance calculated by sum of all summable variables (numeral variables)
      * @return
      */

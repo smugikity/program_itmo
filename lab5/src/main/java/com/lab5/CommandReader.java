@@ -35,7 +35,7 @@ public class CommandReader {
                 case "max_by_location": r.max_by_location(); break;
                 case "group_counting_by_coordinates": r.group_counting_by_coordinates(); break;
                 case "filter_less_than_height" : r.filter_less_than_height(splitedUserCommand[1]); break;
-                case "exit": break;
+                case "exit": System.exit(1); break;
                 default: System.out.println("Unidentified command. Type \'help\' for help. :("); v = false;
             }
             if (v) {

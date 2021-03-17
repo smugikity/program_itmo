@@ -1,0 +1,4 @@
+execute_script command
+show
+help
+history

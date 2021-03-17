@@ -53,7 +53,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="D:\Program Files\JetBrains\IntelliJ IDEA 2020\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -72,7 +72,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/maven-javadoc-plugin-3.2.0/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -80,18 +80,21 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\bai_tap\program\lab5" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.company" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\bai_tap\program\lab5" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\bai_tap\program\lab5" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.lab5.Main" />
       <module name="lab5" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="PROGRAM_PARAMETERS" value="test.xml" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
@@ -111,19 +114,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="lab5-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/lab5-1.0-SNAPSHOT.jar" />
       <method v="2" />
@@ -132,6 +122,12 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/lab5-1.0.jar" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Reader" />
+      <item itemvalue="JAR Application.lab5-1.0-SNAPSHOT.jar" />
+      <item itemvalue="JAR Application.lab5-1.0.jar" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -171,6 +167,12 @@
       <workItem from="1615045725237" duration="1385000" />
       <workItem from="1615047840467" duration="631000" />
       <workItem from="1615048833159" duration="347000" />
+      <workItem from="1615835668973" duration="8000" />
+      <workItem from="1615835941269" duration="159000" />
+      <workItem from="1615879167100" duration="82000" />
+      <workItem from="1615888616952" duration="238000" />
+      <workItem from="1615890352437" duration="5596000" />
+      <workItem from="1616020415568" duration="367000" />
     </task>
     <servers />
   </component>
@@ -194,10 +196,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="249" y="6" key="#Project_Structure/0.0.1536.864@0.0.1536.864" timestamp="1615046673492" />
-    <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613376738892">
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615894115757">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1613376738892" />
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1615894115757" />
+    <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615893842602">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="526" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1615893842602" />
     <state x="574" y="138" key="#com.intellij.ide.util.MemberChooser" timestamp="1613418043947">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -222,22 +228,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1615046313269" />
-    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1615046924012">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom" timestamp="1615895979169">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
-    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1615046924012">
+    <state width="1493" height="218" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1615895979169" />
+    <state width="1493" height="218" key="GridCell.Tab.0.center" timestamp="1615895979169">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
-    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1615046924012">
+    <state width="1493" height="218" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1615895979169" />
+    <state width="1493" height="218" key="GridCell.Tab.0.left" timestamp="1615895979169">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
-    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1615046924012">
+    <state width="1493" height="218" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1615895979169" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right" timestamp="1615895979169">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1615046924012" />
+    <state width="1493" height="218" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1615895979169" />
     <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1613378342874">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

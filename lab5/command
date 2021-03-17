@@ -1,3 +1,6 @@
 show
 clear
 show
+execute_script command2
+execute_script command3
+
