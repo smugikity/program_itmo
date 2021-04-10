@@ -112,7 +112,7 @@ public class Reader {
             }
             return person;
         } catch (NullPointerException | IllegalArgumentException | OverrangedException ex) {
-            ex.printStackTrace();
+            System.out.println(ex.getMessage()+" not followed defined format");
             return null;
         }
     }
@@ -241,14 +241,15 @@ public class Reader {
 
     /**
      * Delete all the persons with value larger than given person
-     * @param s given number
      */
-    public void remove_greater(String s) {
+    public void remove_greater() {
         Person person = new Person();
         setData(person);
+        boolean none = true;
         for (Person p:collectionPerson) {
-            if (p.compareTo(person)>0) {collectionPerson.remove(p);System.out.println("Removed person "+p.getName()+" successfully with id "+p.getId());}
+            if (p.compareTo(person)>0) {collectionPerson.remove(p);System.out.println("Removed person "+p.getName()+" successfully with id "+p.getId()); none = false;}
         }
+        if (none) System.out.println("No person was removed");
     }
 
     /**
@@ -278,7 +279,7 @@ public class Reader {
             Scanner reader = new Scanner(new File(s));
             while(reader.hasNextLine()) {
                 String line = reader.nextLine();
-                r.executeCommand(line);
+                if (!line.isEmpty()) r.executeCommand(line);
             }
             //System.out.println("Script executed");
         } catch (FileNotFoundException e) {
@@ -434,7 +435,7 @@ public class Reader {
      * Basic information of collection
      */
     public void info() {
-        System.out.println("Type of Collection element: "+collectionPerson.stream().skip(new Random().nextInt(collectionPerson.size())).findFirst().orElse(null).getClass().getName());
+        System.out.println("Type of Collection element: "+Person.class.getName());
         System.out.println("Size: "+collectionPerson.size());
         System.out.println("Initial time: "+timeStamp);
     }
@@ -476,8 +477,8 @@ public class Reader {
                 String[] c = commandReader.nextLine().trim().split(" ", 2);
                 try {
                     p.setCoordinates(new Coordinates(Double.parseDouble(c[0]), Integer.parseInt(c[1])));
-                } catch (NumberFormatException ex) {
-                    System.out.println("Wrong number format");
+                } catch (NumberFormatException | IndexOutOfBoundsException ex) {
+                    System.out.println("Wrong coordinate format");
                     p.setCoordinates(null);
                 }
             }
@@ -528,13 +529,13 @@ public class Reader {
                 String[] c = commandReader.nextLine().trim().split(" ", 4);
                 try {
                     p.setLocation(new Location(Double.parseDouble(c[0]), Long.parseLong(c[1]), Double.parseDouble(c[2]), c[3]));
-                } catch (NumberFormatException ex) {
-                    System.out.println("Wrong number format");
+                } catch (NumberFormatException | IndexOutOfBoundsException ex) {
+                    System.out.println("Wrong location format");
                     p.setLocation(null);
                 }
             }
         } catch (NoSuchElementException ex) {
-            //Empty here
+            System.exit(0);
         }
     }
 }
