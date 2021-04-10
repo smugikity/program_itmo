@@ -1,6 +1,7 @@
 package com.lab5;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.text.*;
 import java.util.*;
 import javax.xml.parsers.*;
@@ -34,7 +35,7 @@ public class Reader {
              *XML Document builder with file input using InputStreamReader class
              */
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), "utf-8" );
+            InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), StandardCharsets.UTF_8);
             //BufferedReader reader = new BufferedReader(in);
             if (!in.ready()) {
                 System.out.println("File is empty"); System.exit(0);
@@ -67,10 +68,8 @@ public class Reader {
         } catch (IOException e)
         {
             System.out.println("IOException occured");
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
+        } catch (ParserConfigurationException | SAXException e) {
+            System.out.println("Parser error");
         }
     }
 
@@ -148,8 +147,7 @@ public class Reader {
     }
     /**
      * Convert XML Document to String (for printWriter into file)
-     * @param doc
-     * @return
+     * @param doc document
      */
     private static String toString(Document doc) {
         try {
@@ -170,13 +168,13 @@ public class Reader {
      * @param s given height
      */
     public void filter_less_than_height(String s) {
-        Float cH;
-        Boolean n=true;
+        float cH;
+        boolean n=true;
         try {cH = Float.parseFloat(s);} catch (NumberFormatException ex) {
             System.out.println("Height must be a number"); return;
         }
         for (Person person: collectionPerson) {
-            if ((float) person.getHeight() < (float) cH) {
+            if ((float) person.getHeight() < cH) {
                 person.display();
                 n=false;
             }
@@ -284,8 +282,6 @@ public class Reader {
             //System.out.println("Script executed");
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-        } catch (IOException e) {
-            System.out.println("IO Exception");
         }
         loadedScript.remove(s);
     }
@@ -369,12 +365,12 @@ public class Reader {
      * @param s ID
      */
     public void remove_by_id(String s) {
-        Long cId;
+        long cId;
         try {cId = Long.parseLong(s);} catch (NumberFormatException ex) {
             System.out.println("ID must be a number"); return;
         }
         for (Person p: collectionPerson) {
-            if ((long) p.getId() == (long) cId) {
+            if ((long) p.getId() == cId) {
                 System.out.println("Deleted person with id: "+p.getId());
                 collectionPerson.remove(p);
                 return;
