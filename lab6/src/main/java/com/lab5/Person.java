@@ -90,6 +90,19 @@ public class Person implements Comparable<Person> {
     }
 
     /**
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return String.format("{id:"+getId()+";name:"+getName()+";coordinates:{x:"+getCoordinates().getX()
+                +";y:"+getCoordinates().getY()+"};creation_date:"+getCreationDate()+";height:"+getHeight()
+                +";weight:"+getWeight()+";hair_color:"+getHairColor().toString().toLowerCase()+";nationality:"
+                +getNationality().toString().toLowerCase().replace("_"," ") +";location:{x:" +getLocation().getX()+";y:"
+                +getLocation().getY()+";z:"+getLocation().getZ()+";name:"+getLocation().getName()+"}}");
+    }
+
+    /**
      * Generate a unique ID (8 digits)
      * @return id as long
      */
@@ -99,7 +112,7 @@ public class Person implements Comparable<Person> {
         while (!checked) {
             checked = true;
             idTemp =Long.valueOf(Math.round(Math.random()*1000000000));
-            for (Person p:Reader.collectionPerson) {
+            for (Person p: Reader.collectionPerson) {
                 if (id==p.getId() || idTemp < 100000000) checked=false;
             }
         }

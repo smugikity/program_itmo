@@ -4,7 +4,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-class ParserErrorHandler implements ErrorHandler {
+public class ParserErrorHandler implements ErrorHandler {
     public void warning(SAXParseException e) throws SAXException {
         show("Warning", e);
         throw (e);
