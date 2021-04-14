@@ -71,9 +71,12 @@ public class ServerCommandReader implements Runnable{
     }
     @Override
     public void run() {
-        try (ObjectInputStream fr = new ObjectInputStream(this.socket.getInputStream());
-            ObjectOutputStream to = new ObjectOutputStream(this.socket.getOutputStream())) {
+        try  {
+            System.out.println("fuckit");
+            ObjectInputStream fr = new ObjectInputStream(this.socket.getInputStream());
+            ObjectOutputStream to = new ObjectOutputStream(this.socket.getOutputStream());
             to.writeObject("Connected.");
+            to.writeObject("Lessgo");
             while (true) {
                 try {
                     String fr_string = (String) fr.readObject();
@@ -112,9 +115,11 @@ public class ServerCommandReader implements Runnable{
                 } catch (SocketException e) {
                     System.out.println(this.socket + " disconnected to server."); //Windows
                     break;
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
                 }
             }
-        } catch (IOException | ClassNotFoundException ex) {
+        } catch (IOException /*|ClassNotFoundException*/ ex) {
             System.err.println(this.socket + " disconnected to server."); //Unix
         }
     }

@@ -4,7 +4,11 @@ import com.lab5.*;
 
 import java.io.*;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -12,29 +16,34 @@ public class Client {
     private static Scanner fromKeyboard;
     private static ObjectOutputStream toServer;
     private static ObjectInputStream fromServer;
-    public static void main(String[] args) {
-        //ClientConnection connection = new ClientConnection();
-        try (Scanner scanner = new Scanner(System.in)) {
+    public static void main(String[] args) throws IOException {
+        try (Scanner scanner = new Scanner(System.in); Selector selector = Selector.open();) {
             fromKeyboard = scanner;
-            while (true) {
+            //while (true) {
                 System.out.println("Connecting ...");
-                try (Socket socket = new Socket(InetAddress.getLocalHost(), 9999)) {
-                    //socket.setSoTimeout(5000);
-                    try (ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                         ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream())) {
-                        toServer = outputStream;
-                        fromServer = inputStream;
-                        launch();
-                    }
+                try {
+                    SocketChannel socketChannel = SocketChannel.open();
+                    socketChannel.connect(new InetSocketAddress("localhost",9999));
+//                    ByteBuffer buf = ByteBuffer.allocate(128);
+//
+//                    int bytesRead = socketChannel.read(buf);
+//                    while (bytesRead != -1) {
+//                        buf.flip();
+//                        while (buf.hasRemaining()) {
+//                            System.out.print((char) buf.get());
+//                        }
+//                        buf.clear();
+//                        bytesRead = socketChannel.read(buf);
+//                    }
                 } catch (IOException e) {
                     System.err.println("No connection. Type 1 to try again, otherwise exit.");
                     switch (fromKeyboard.nextLine()) {
                         case "1":
-                            continue;
+                            //continue;
                         default: System.exit(0);
                     }
                 }
-            }
+            //}
         }
     }
 
