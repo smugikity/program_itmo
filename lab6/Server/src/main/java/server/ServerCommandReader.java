@@ -8,6 +8,7 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.logging.*;
 
 public class ServerCommandReader implements Runnable {
     private ServerReader r;
@@ -15,8 +16,12 @@ public class ServerCommandReader implements Runnable {
     private HashMap<String, Command> availableCommands;
     private String[] cm_splited = new String[2];
     private String[] history = new String[14];
+    private static Logger LOGGER;
 
     public ServerCommandReader(ServerReader reader, Socket socket) {
+        LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+        System.out.println("\n"+socket + " connected to server.");
+        log("\n"+socket + " connected to server.",2);
         this.r = reader;
         this.socket = socket;
         history[0] = "";
@@ -79,6 +84,7 @@ public class ServerCommandReader implements Runnable {
                 }
 
                 System.out.println("Received ["+line +"] from "+this.socket +".");
+                log("Received ["+line +"] from "+this.socket +".",2);
 
                 Command errorCommand = new Command(null) {
                     @Override
@@ -109,8 +115,17 @@ public class ServerCommandReader implements Runnable {
                 } else to.println(errorCommand.execute());
             }
         } catch (IOException ex ) {
-            System.err.println(this.socket+" disconnected to server"); //Unix
+            System.err.println(this.socket+" disconnected to server");//Unix
+            log(this.socket+" disconnected to server",2);
             //System.exit(0);
+        }
+    }
+    private void log(String s, int level) {
+        switch (level) {
+            case 4: LOGGER.severe(s); break;
+            case 3: LOGGER.warning(s); break;
+            case 2: LOGGER.info(s); break;
+            case 1: LOGGER.finest(s); break;
         }
     }
 }

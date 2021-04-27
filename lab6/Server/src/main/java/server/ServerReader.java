@@ -8,15 +8,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+import javax.xml.parsers.*;
 import java.io.*;
-import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -34,7 +27,8 @@ public class ServerReader {
      */
     public ServerReader(String path){
         this.fileSource = path;
-        try (InputStreamReader in = new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8))
+        System.out.println(fileSource);
+        try (InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), StandardCharsets.UTF_8))
         {
             /**
              *XML Document builder with file input using InputStreamReader class
@@ -60,11 +54,9 @@ public class ServerReader {
             in.close();
             //excute main process of program
             //r.readCommand(this);
-        } catch (FileNotFoundException e)
-        {
-            System.err.println("File not found"); System.exit(0);
-        } catch (IOException e)
-        {
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found "+fileSource); System.exit(0);
+        } catch (IOException e) {
             System.err.println("IOException occurred"); System.exit(0);
         } catch (ParserConfigurationException | SAXException e) {
             System.err.println("Parser error"); System.exit(0);

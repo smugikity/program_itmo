@@ -163,14 +163,13 @@ public class Client {
      * @throws IOException
      */
      private static void execute_script(String path, SocketChannel socketChannel) throws SecurityException, IOException {
-        if (filePaths.contains(path)) return;
-        filePaths.add(path);
         File file = new File(path);
         if (!file.exists() | file.length() == 0 | !file.canRead()) {
             write(socketChannel, "self_handled_error Can't read file");
-            filePaths.remove(path);
             return;
         }
+         if (filePaths.contains(path)) return;
+         filePaths.add(path);
         try (BufferedReader inputStreamReader = new BufferedReader(new FileReader(file))) {
             String nextLine;
             while ((nextLine = inputStreamReader.readLine()) != null && !nextLine.trim().equals("")) {
