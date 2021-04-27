@@ -48,13 +48,18 @@ public class Client {
                                 while (command.trim().isEmpty())
                                 {System.out.print("$ ");command = fromKeyboard.nextLine();}
                                 switch_command(command, socketChannel);
+                                TimeUnit.MILLISECONDS.sleep(100);
                             }
                         }
                         keys.remove();
                     }
                 } catch (IOException ex) {
-                System.err.println("No connection."); System.exit(0);
-            }
+                    System.err.println("No connection."); System.exit(0);
+                } catch (NoSuchElementException ex) {
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
         }
     }
 
@@ -186,6 +191,7 @@ public class Client {
         switch (cm_splited[0]) {
             case "exit": System.exit(0); break;
             case "add": write(socketChannel,"add "+setData()); break;
+            case "add_if_min": write(socketChannel,"add_if_min "+setData()); break;
             case "update": write(socketChannel,"update "+cm_splited[1]+","+setData()); break;
             case "remove_greater": write(socketChannel,"remove_greater "+setData()); break;
             case "execute_script": execute_script(cm_splited[1], socketChannel); break;

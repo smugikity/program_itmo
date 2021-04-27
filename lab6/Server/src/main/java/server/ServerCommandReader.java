@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class ServerCommandReader implements Runnable{
+public class ServerCommandReader implements Runnable {
     private ServerReader r;
     private Socket socket;
     private HashMap<String, Command> availableCommands;
@@ -36,13 +36,7 @@ public class ServerCommandReader implements Runnable{
         availableCommands.put("update", new CommandUpdate(r,"update id {element} : update the value of the collection element whose id is equal to the given one"));
         availableCommands.put("exit", new CommandExit(r,"exit : exit the program (without saving to file)"));
     }
-    /** Distribute command to corresponding method
-     * @param s command as string typed by user
-     */
-    public void executeCommand(String s) {
-        //splitedUserCommand[0] is command, splitedUserCommand[1] is parameter
 
-    }
     /**
      * Safe way to append new element into array (outofbounds exception)
      * @param oldArray array to execute
@@ -74,54 +68,49 @@ public class ServerCommandReader implements Runnable{
     @Override
     public void run() {
         try  {
+            socket.setSoTimeout(90*1000);
             PrintWriter to = new PrintWriter(socket.getOutputStream(),true); //autoflush whenever using PrintWriter.println
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             to.println("Connected. Ready to receive commands.");
             while (true) {
-                try {
-                    String line = null;
-                    while(line == null) {
-                        line = in.readLine();
-                    }
-
-                    System.out.println("Received ["+line +"] from "+this.socket +".");
-
-                    Command errorCommand = new Command(null) {
-                        @Override
-                        public String execute() {
-                            return "Wrong format command. Type \"help\" for help.";
-                        }
-                    };
-                    Command selfHandledErrorCommand = new Command(null) {
-                        @Override
-                        public String execute(String s) {
-                            return s;
-                        }
-                    };
-                    //executeCommand(fr_string);
-//                    boolean v = true;
-                    cm_splited = line.trim().split(" ", 2);
-                    if (cm_splited[0].equals("self_handled_error")) {
-                        to.println(cm_splited[1]);
-                    } else if (cm_splited[0].equals("history")) {
-                        to.println(displayHistory(14));
-                        history = appendArray(history,"history");
-                    } else if (availableCommands.containsKey(cm_splited[0])) {
-                        if (cm_splited.length == 1)
-                            to.println(availableCommands.get(cm_splited[0]).execute());
-                        else if (cm_splited.length == 2)
-                            to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1]));
-                        history = appendArray(history, cm_splited[0]);
-                    } else to.println(errorCommand.execute());
-
-                } catch (SocketException e) {
-                    System.out.println(this.socket + " disconnected to server."); //Windows
-                    break;
+                String line = null;
+                while(line == null) {
+                    line = in.readLine();
                 }
+
+                System.out.println("Received ["+line +"] from "+this.socket +".");
+
+                Command errorCommand = new Command(null) {
+                    @Override
+                    public String execute() {
+                        return "Wrong format command. Type \"help\" for help.";
+                    }
+                };
+                Command selfHandledErrorCommand = new Command(null) {
+                    @Override
+                    public String execute(String s) {
+                        return s;
+                    }
+                };
+                //executeCommand(fr_string);
+//                    boolean v = true;
+                cm_splited = line.trim().split(" ", 2);
+                if (cm_splited[0].equals("self_handled_error")) {
+                    to.println(cm_splited[1]);
+                } else if (cm_splited[0].equals("history")) {
+                    to.println(displayHistory(14));
+                    history = appendArray(history,"history");
+                } else if (availableCommands.containsKey(cm_splited[0])) {
+                    if (cm_splited.length == 1)
+                        to.println(availableCommands.get(cm_splited[0]).execute());
+                    else if (cm_splited.length == 2)
+                        to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1]));
+                    history = appendArray(history, cm_splited[0]);
+                } else to.println(errorCommand.execute());
             }
-        } catch (IOException ex) {
-            System.err.println(this.socket + " disconnected to server. buh"); //Unix
-            ex.printStackTrace();
+        } catch (IOException ex ) {
+            System.err.println(this.socket+" disconnected to server"); //Unix
+            //System.exit(0);
         }
     }
 }

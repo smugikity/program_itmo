@@ -10,17 +10,19 @@ public class CommandAddIfMin extends Command {
     }
     @Override
     public synchronized String execute(String data) {
+        Person per = new Person();
+        setData(per,data);
+        if (getCollection().isEmpty()) {
+            getCollection().add(per); return ("Added person "+per.getName()+" successfully with id "+per.getId());
+        }
         Person min=null;
         for (Person p: getCollection()) {
             if (p.compareTo(min)<=0||min==null) {
                 min = p;
             }
         }
-        Person p = new Person();
-        setData(p,data);
-        if (p.compareTo(min)<0) {
-            getCollection().add(p);
-            return ("Added person "+p.getName()+" successfully with id "+p.getId());
+        if (per.compareTo(min)<0) {
+            getCollection().add(per); return ("Added person "+per.getName()+" successfully with id "+per.getId());
         }
         else return ("Value of new person larger than minimum in collection");
     }
