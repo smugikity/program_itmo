@@ -13,60 +13,75 @@ import java.util.concurrent.TimeUnit;
 public class Client {
     private static Scanner fromKeyboard;
     private static Set<String> filePaths = new HashSet<>();
-
-    public static void main(String[] args) throws IOException {
-        try (Scanner scanner = new Scanner(System.in);SocketChannel socketChannel = SocketChannel.open();) {
-            fromKeyboard = scanner;
-            System.out.println("Connecting ...");
-                try {
-                    socketChannel.connect(new InetSocketAddress("localhost", 9999));
-                    Selector selector = Selector.open();
-                    socketChannel.configureBlocking(false);
-                    //Scanner scanner = new Scanner(System.in);
-                    socketChannel.register(selector, SelectionKey.OP_CONNECT | SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-                    while (true) {
-                        selector.select();
-                        Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
-                        while (keys.hasNext()) {
-                            SelectionKey key = keys.next();
-
-                            //(key.isValid() && key.isConnectable()) {
-//                                SocketChannel channel = (SocketChannel) key.channel();
-//                                if (channel.isConnectionPending()) {
-//                                    channel.finishConnect();
-//                                }
-                            if (key.isReadable()) {
-                                ByteBuffer buffer = ByteBuffer.allocate(128);
-                                //StringBuilder message = new StringBuilder();
-                                while (socketChannel.read(buffer) > 0){
-                                    buffer.flip();
-                                    System.out.print(StandardCharsets.UTF_8.decode(buffer).toString());
-                                    buffer.clear();
-                                }
-                                String command = "";
-
-                                while (command.trim().isEmpty())
-                                {System.out.print("$ ");command = fromKeyboard.nextLine();}
-                                switch_command(command, socketChannel);
-                                TimeUnit.MILLISECONDS.sleep(100);
+    public static void main(String[] args) throws InterruptedException {
+        while (true) {
+            try (SocketChannel socketChannel = SocketChannel.open();) {
+                fromKeyboard = new Scanner(System.in);
+                System.out.println("Connecting ...");
+                socketChannel.connect(new InetSocketAddress("localhost",6967));
+                Selector selector = Selector.open();
+                socketChannel.configureBlocking(false);
+                //Scanner scanner = new Scanner(System.in);
+                socketChannel.register(selector, SelectionKey.OP_CONNECT | SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+                while (true) {
+                    selector.select();
+                    Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
+                    while (keys.hasNext()) {
+                        SelectionKey key = keys.next();
+    //                            (key.isValid() && key.isConnectable()) {
+    //                                SocketChannel channel = (SocketChannel) key.channel();
+    //                                if (channel.isConnectionPending()) {
+    //                                    channel.finishConnect();
+    //                                }
+                        if (key.isReadable()) {
+                            ByteBuffer buffer = ByteBuffer.allocate(128);
+                            //StringBuilder message = new StringBuilder();
+                            while (socketChannel.read(buffer) > 0) {
+                                buffer.flip();
+                                System.out.print(StandardCharsets.UTF_8.decode(buffer).toString());
+                                buffer.clear();
                             }
-                        }
-                        keys.remove();
-                    }
-                } catch (IOException ex) {
-                    System.err.println("No connection."); System.exit(0);
-                } catch (NoSuchElementException ex) {
+                            String command = "";
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                            while (command.trim().isEmpty()) {
+                                System.out.print("$ ");
+                                command = fromKeyboard.nextLine();
+                            }
+                            switch_command(command, socketChannel);
+                            TimeUnit.MILLISECONDS.sleep(100);
+                        }
+                    }
+                    keys.remove();
                 }
+            } catch (IOException | InterruptedException ex) {
+                try {
+                    System.err.println("No connection. Type 1 to try again, 0 to exit.");
+                    String re;
+                    Scanner scanner = new Scanner(System.in);
+                    while (!(re = scanner.nextLine().trim()).equals("1")) {
+                        switch (re) {
+                            case "":
+                                System.out.println();
+                                continue;
+                            case "0":
+                                System.exit(0);
+                                break;
+                            default:
+                                System.out.println("Type 1 or 0.");
+                        }
+                    }
+                    continue;
+                } catch (NoSuchElementException e) {System.exit(0);}
+            } catch (NoSuchElementException ex) {
+                System.exit(0);
+            }
         }
     }
 
     private static void write(SocketChannel socketChannel, String content) throws IOException {
-            byte[] bytes = (content + "\n").getBytes(StandardCharsets.UTF_8);
-            ByteBuffer outBuffer = ByteBuffer.wrap(bytes);
-            socketChannel.write(outBuffer);
+        byte[] bytes = (content + "\n").getBytes(StandardCharsets.UTF_8);
+        ByteBuffer outBuffer = ByteBuffer.wrap(bytes);
+        socketChannel.write(outBuffer);
     }
 
 
@@ -162,14 +177,14 @@ public class Client {
      * @throws SecurityException
      * @throws IOException
      */
-     private static void execute_script(String path, SocketChannel socketChannel) throws SecurityException, IOException {
+    private static void execute_script(String path, SocketChannel socketChannel) throws SecurityException, IOException {
         File file = new File(path);
         if (!file.exists() | file.length() == 0 | !file.canRead()) {
             write(socketChannel, "self_handled_error Can't read file");
             return;
         }
-         if (filePaths.contains(path)) return;
-         filePaths.add(path);
+        if (filePaths.contains(path)) return;
+        filePaths.add(path);
         try (BufferedReader inputStreamReader = new BufferedReader(new FileReader(file))) {
             String nextLine;
             while ((nextLine = inputStreamReader.readLine()) != null && !nextLine.trim().equals("")) {
@@ -182,24 +197,27 @@ public class Client {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-     }
+    }
 
     private static void switch_command(String command, SocketChannel socketChannel) throws IOException {
         try {
-        String[] cm_splited = command.trim().split(" ", 2);
-        switch (cm_splited[0]) {
-            case "exit": System.exit(0); break;
-            case "add": write(socketChannel,"add "+setData()); break;
-            case "add_if_min": write(socketChannel,"add_if_min "+setData()); break;
-            case "update": write(socketChannel,"update "+cm_splited[1]+","+setData()); break;
-            case "remove_greater": write(socketChannel,"remove_greater "+setData()); break;
-            case "execute_script": execute_script(cm_splited[1], socketChannel); break;
-            default:
-                write(socketChannel, command);
-        }
+            String[] cm_splited = command.trim().split(" ", 2);
+            switch (cm_splited[0]) {
+                case "exit": System.exit(0); break;
+                case "add": write(socketChannel,"add "+setData()); break;
+                case "add_if_min": write(socketChannel,"add_if_min "+setData()); break;
+                case "update": write(socketChannel,"update "+cm_splited[1]+","+setData()); break;
+                case "remove_greater": write(socketChannel,"remove_greater "+setData()); break;
+                case "execute_script": execute_script(cm_splited[1], socketChannel); break;
+                default:
+                    write(socketChannel, command);
+            }
         } catch (IndexOutOfBoundsException ex) {
             write(socketChannel, "self_handled_error Argument missing");
         }
         return;
     }
 }
+
+
+

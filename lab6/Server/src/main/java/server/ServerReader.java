@@ -28,8 +28,7 @@ public class ServerReader {
     public ServerReader(String path){
         this.fileSource = path;
         System.out.println(fileSource);
-        try (InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), StandardCharsets.UTF_8))
-        {
+        try (InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), StandardCharsets.UTF_8)) {
             /**
              *XML Document builder with file input using InputStreamReader class
              */
@@ -54,7 +53,7 @@ public class ServerReader {
             in.close();
             //excute main process of program
             //r.readCommand(this);
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException | NullPointerException e) {
             System.err.println("File not found "+fileSource); System.exit(0);
         } catch (IOException e) {
             System.err.println("IOException occurred"); System.exit(0);
