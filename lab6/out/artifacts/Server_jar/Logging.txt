@@ -1,3 +1,5 @@
-Apr 27, 2021 1:42:12 PM server.ServerCommandReader log
+May 06, 2021 3:26:03 PM server.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=2116,localport=9999] connected to server.
+Socket[addr=/127.0.0.1,port=11761,localport=6967] connected to server.
+May 06, 2021 3:26:07 PM server.ServerCommandReader log
+INFO: Received [show] from Socket[addr=/127.0.0.1,port=11761,localport=6967].
