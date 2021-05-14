@@ -11,13 +11,12 @@ public class Server {
     private static ServerReader reader;
     static private FileHandler fileTxt;
     static private SimpleFormatter formatterTxt;
-
     static private FileHandler fileHTML;
     static private Formatter formatterHTML;
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(6967)) {
-            reader = new ServerReader(args[0]);
+            reader = new ServerReader("data/lab6.xml");//args[0]!=null?args[0]:
             logger_start();
             System.out.print("Server started." + "\nPort: " + server.getLocalPort() + " / Address: " + InetAddress.getLocalHost() + ".\nWaiting for clients  ");
             Thread loading_cursor = new Thread(() -> {

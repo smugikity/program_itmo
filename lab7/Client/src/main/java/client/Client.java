@@ -1,5 +1,6 @@
 package client;
 
+
 import lab5.legacy.*;
 
 import java.io.BufferedReader;
@@ -13,9 +14,9 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class Client {
+    private static int cacheCommandCount=1;
     private static Scanner fromKeyboard;
     private static Set<String> filePaths = new HashSet<>();
     public static void main(String[] args) throws InterruptedException {
@@ -33,46 +34,46 @@ public class Client {
                     Iterator<SelectionKey> keys = selector.selectedKeys().iterator();
                     while (keys.hasNext()) {
                         SelectionKey key = keys.next();
-    //                            (key.isValid() && key.isConnectable()) {
-    //                                SocketChannel channel = (SocketChannel) key.channel();
-    //                                if (channel.isConnectionPending()) {
-    //                                    channel.finishConnect();
-    //                                }
                         if (key.isReadable()) {
                             ByteBuffer buffer = ByteBuffer.allocate(128);
                             //StringBuilder message = new StringBuilder();
-                            while (socketChannel.read(buffer) > 0) {
+                            String result = "";
+                            while (socketChannel.read(buffer) > 0 || !result.contains("\0")) {
                                 buffer.flip();
-                                System.out.print(StandardCharsets.UTF_8.decode(buffer).toString());
+                                result += StandardCharsets.UTF_8.decode(buffer).toString();
                                 buffer.clear();
                             }
+                            System.out.print(result);
+                            cacheCommandCount--;
+                        }
+                        if (key.isWritable() && cacheCommandCount==0) {
                             String command = "";
-
-                            while (command.trim().isEmpty()) {
+                            //while () {
                                 System.out.print("$ ");
                                 command = fromKeyboard.nextLine();
-                            }
-                            switch_command(command, socketChannel);
-                            TimeUnit.MILLISECONDS.sleep(100);
+                            //}
+                            if (!command.trim().isEmpty()) {switch_command(command, socketChannel);}
                         }
                     }
                     keys.remove();
                 }
-            } catch (IOException | InterruptedException ex) {
+            } catch (IOException ex) {
                 try {
                     System.err.println("No connection. Type 1 to try again, 0 to exit.");
+                    System.out.print("$ ");
                     String re;
                     Scanner scanner = new Scanner(System.in);
                     while (!(re = scanner.nextLine().trim()).equals("1")) {
                         switch (re) {
                             case "":
-                                System.out.println();
+                                System.out.print("$ ");
                                 continue;
                             case "0":
                                 System.exit(0);
                                 break;
                             default:
                                 System.out.println("Type 1 or 0.");
+                                System.out.print("$ ");
                         }
                     }
                     continue;
@@ -195,12 +196,8 @@ public class Client {
             while ((nextLine = inputStreamReader.readLine()) != null && !nextLine.trim().equals("")) {
                 switch_command(nextLine, socketChannel);
             }
-            System.out.println("Loading...");
-            TimeUnit.SECONDS.sleep(1); //delay waiting for execute fully
             filePaths.remove(path);
             return;
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 
@@ -209,13 +206,13 @@ public class Client {
             String[] cm_splited = command.trim().split(" ", 2);
             switch (cm_splited[0]) {
                 case "exit": System.exit(0); break;
-                case "add": write(socketChannel,"add "+setData()); break;
-                case "add_if_min": write(socketChannel,"add_if_min "+setData()); break;
-                case "update": write(socketChannel,"update "+cm_splited[1]+","+setData()); break;
-                case "remove_greater": write(socketChannel,"remove_greater "+setData()); break;
+                case "add": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():("add "+setData()))); break;
+                case "add_if_min": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():("add_if_min "+setData()))); break;
+                case "update": cacheCommandCount++;write(socketChannel,(command.trim().split(",",3).length==3?command.trim():("update "+cm_splited[1]+","+setData()))); break;
+                case "remove_greater": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():("remove_greater "+setData()))); break;
                 case "execute_script": execute_script(cm_splited[1], socketChannel); break;
                 default:
-                    write(socketChannel, command);
+                    cacheCommandCount++;write(socketChannel, command);
             }
         } catch (IndexOutOfBoundsException ex) {
             write(socketChannel, "self_handled_error Argument missing");

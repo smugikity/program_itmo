@@ -2,13 +2,13 @@ package server;
 
 import commands.*;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.HashMap;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-import java.util.logging.*;
+import java.util.logging.Logger;
 
 public class ServerCommandReader implements Runnable {
     private ServerReader r;
@@ -76,7 +76,7 @@ public class ServerCommandReader implements Runnable {
             socket.setSoTimeout(90*1000);
             PrintWriter to = new PrintWriter(socket.getOutputStream(),true); //autoflush whenever using PrintWriter.println
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            to.println("Connected. Ready to receive commands.");
+            to.println("Connected. Ready to receive commands."+'\0');
             while (true) {
                 String line = null;
                 while(line == null) {
@@ -102,17 +102,17 @@ public class ServerCommandReader implements Runnable {
 //                    boolean v = true;
                 cm_splited = line.trim().split(" ", 2);
                 if (cm_splited[0].equals("self_handled_error")) {
-                    to.println(cm_splited[1]);
+                    to.println(cm_splited[1]+'\0');
                 } else if (cm_splited[0].equals("history")) {
-                    to.println(displayHistory(14));
+                    to.println(displayHistory(14)+'\0');
                     history = appendArray(history,"history");
                 } else if (availableCommands.containsKey(cm_splited[0])) {
                     if (cm_splited.length == 1)
-                        to.println(availableCommands.get(cm_splited[0]).execute());
+                        to.println(availableCommands.get(cm_splited[0]).execute()+'\0');
                     else if (cm_splited.length == 2)
-                        to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1]));
+                        to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1])+'\0');
                     history = appendArray(history, cm_splited[0]);
-                } else to.println(errorCommand.execute());
+                } else to.println(errorCommand.execute()+'\0');
             }
         } catch (IOException ex ) {
             System.err.println(this.socket+" disconnected to server");//Unix
