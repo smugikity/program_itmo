@@ -1,10 +1,7 @@
 package commands;
 
-import server.ServerReader;
-
 public class CommandClear extends Command {
-    public CommandClear(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandClear(String des) {
         setDescription(des);
     }
     @Override

@@ -1,10 +1,7 @@
 package commands;
 
-import server.ServerReader;
-
 public class CommandActive extends Command {
-    public CommandActive(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandActive(String des) {
         setDescription(des);
     }
     @Override

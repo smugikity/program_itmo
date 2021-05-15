@@ -7,8 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CommandRegister extends Command{
-    public CommandRegister(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandRegister(String des) {
         setDescription(des);
     }
     @Override

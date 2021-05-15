@@ -1,14 +1,12 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerReader;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class CommandGroupCountingByCoordinates extends  Command{
-    public CommandGroupCountingByCoordinates(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandGroupCountingByCoordinates(String des) {
         setDescription(des);
     }
     @Override

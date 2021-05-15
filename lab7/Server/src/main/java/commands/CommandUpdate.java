@@ -1,11 +1,9 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerReader;
 
 public class CommandUpdate extends Command {
-    public CommandUpdate(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandUpdate(String des) {
         setDescription(des);
     }
     @Override

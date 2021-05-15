@@ -3,7 +3,6 @@ package commands;
 import lab5.legacy.Person;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import server.ServerReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,8 +17,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 public class CommandSave extends Command {
-    public CommandSave(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandSave(String des) {
         setDescription(des);
     }
     @Override

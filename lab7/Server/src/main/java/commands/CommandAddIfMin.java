@@ -1,11 +1,9 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerReader;
 
 public class CommandAddIfMin extends Command {
-    public CommandAddIfMin(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandAddIfMin(String des) {
         setDescription(des);
     }
     @Override

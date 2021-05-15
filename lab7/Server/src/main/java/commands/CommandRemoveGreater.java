@@ -1,11 +1,9 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerReader;
 
 public class CommandRemoveGreater extends Command {
-    public CommandRemoveGreater(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandRemoveGreater(String des) {
         setDescription(des);
     }
     @Override

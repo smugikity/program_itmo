@@ -1,13 +1,11 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerReader;
 
 import java.util.ArrayList;
 
 public class CommandMaxByLocation extends Command {
-    public CommandMaxByLocation(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandMaxByLocation(String des) {
         setDescription(des);
     }
     @Override

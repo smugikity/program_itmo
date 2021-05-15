@@ -1,10 +1,7 @@
 package commands;
 
-import server.ServerReader;
-
 public class CommandReset extends Command {
-    public CommandReset(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandReset(String des) {
         setDescription(des);
     }
     @Override

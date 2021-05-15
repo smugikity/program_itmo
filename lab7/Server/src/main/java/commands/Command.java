@@ -1,21 +1,21 @@
 package commands;
 
 import lab5.legacy.*;
+import server.ServerCommandReader;
 import server.ServerReader;
 
 import java.util.Collection;
 import java.util.Set;
 
 public abstract class Command {
-    public ServerReader serverReader;
+    private ServerCommandReader caller;
     private String description;
     protected String invalidArguments="Error: Invalid arguments";
     protected String sqlException="Error: SQL Exception";
 
-    public Command(ServerReader serverReader) {
-        this.serverReader = serverReader;
+    protected ServerReader getServerReader() {
+        return ServerReader.getInstance();
     }
-
     public synchronized String execute() {
         return "Argument missing.";
     }
@@ -26,8 +26,8 @@ public abstract class Command {
         return execute();
     }
 
-    public ServerReader getServerReader() {
-        return serverReader;
+    public ServerCommandReader getCaller() {
+        return caller;
     }
 
     public String getDescription() {
@@ -38,12 +38,12 @@ public abstract class Command {
         this.description = description;
     }
 
-    public void setServerReader(ServerReader serverReader) {
-        this.serverReader = serverReader;
+    public void setCaller(ServerCommandReader caller) {
+        this.caller = caller;
     }
 
     public Set<Person> getCollection(){
-        return serverReader.getCollectionPerson();
+        return ServerReader.getInstance().getCollectionPerson();
     }
 
     public boolean setData(Person p, String data) {

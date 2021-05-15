@@ -1,10 +1,7 @@
 package commands;
 
-import server.ServerReader;
-
 public class CommandHistory extends Command {
-    public CommandHistory(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandHistory(String des) {
         setDescription(des);
     }
     @Override

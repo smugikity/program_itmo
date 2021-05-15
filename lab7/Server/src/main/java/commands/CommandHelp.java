@@ -1,15 +1,12 @@
 package commands;
 
-import server.ServerReader;
-
 import java.util.Collection;
 import java.util.HashMap;
 
 public class CommandHelp extends Command {
     private HashMap<String, Command> cms;
 
-    public CommandHelp(ServerReader serverReader, String des, HashMap<String, Command> cms) {
-        super(serverReader);
+    public CommandHelp(String des, HashMap<String, Command> cms) {
         setDescription(des);
         this.cms = cms;
     }

@@ -1,10 +1,7 @@
 package commands;
 
-import server.ServerReader;
-
 public class CommandExit extends Command {
-    public CommandExit(ServerReader serverReader, String des) {
-        super(serverReader);
+    public CommandExit(String des) {
         setDescription(des);
     }
     @Override
