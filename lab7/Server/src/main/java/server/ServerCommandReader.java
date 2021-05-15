@@ -2,15 +2,12 @@ package server;
 
 import commands.*;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-public class ServerCommandReader implements Runnable {
+public class ServerCommandReader implements Runnable, Serializable {
     private Socket socket;
     private HashMap<String, Command> availableCommands;
     private String[] cm_splited = new String[2];
@@ -81,10 +78,8 @@ public class ServerCommandReader implements Runnable {
                 while(line == null) {
                     line = in.readLine();
                 }
-
                 System.out.println("Received ["+line +"] from "+this.socket +".");
                 log("Received ["+line +"] from "+this.socket +".",2);
-
                 Command errorCommand = new Command() {
                     @Override
                     public String execute() {
@@ -97,8 +92,6 @@ public class ServerCommandReader implements Runnable {
                         return s;
                     }
                 };
-                //executeCommand(fr_string);
-//                    boolean v = true;
                 cm_splited = line.trim().split(" ", 2);
                 if (cm_splited[0].equals("self_handled_error")) {
                     to.println(cm_splited[1]+'\0');
