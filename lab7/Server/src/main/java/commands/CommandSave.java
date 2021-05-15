@@ -3,7 +3,6 @@ package commands;
 import lab5.legacy.Person;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import server.Server;
 import server.ServerReader;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -24,7 +23,7 @@ public class CommandSave extends Command {
         setDescription(des);
     }
     @Override
-    public String execute() {
+    public synchronized String execute() {
         try {
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();

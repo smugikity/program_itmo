@@ -9,7 +9,7 @@ public class CommandRemoveById extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(String s) {
+    public synchronized String execute(String s) {
         long cId;
         try {cId = Long.parseLong(s);} catch (NumberFormatException ex) {
             return ("ID must be a number");

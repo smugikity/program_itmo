@@ -9,7 +9,7 @@ public class CommandUpdate extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(String s) {
+    public synchronized String execute(String s) {
         String[] d = s.split(",",2);
         Long cId;
         try {cId = Long.parseLong(d[0]);} catch (NumberFormatException ex) {
@@ -21,7 +21,7 @@ public class CommandUpdate extends Command {
                 getCollection().remove(p);
                 p = new Person();
                 p.setId(cId);
-                setData(p, d[1]);
+                if (!setData(p, d[1])) return "Parsing error";
                 getCollection().add(p);
                 return ("Updated person "+p.getName()+" successfully with id "+p.getId());
             }

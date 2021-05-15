@@ -11,18 +11,17 @@ import java.util.HashMap;
 import java.util.logging.Logger;
 
 public class ServerCommandReader implements Runnable {
-    private ServerReader r;
     private Socket socket;
     private HashMap<String, Command> availableCommands;
     private String[] cm_splited = new String[2];
     private String[] history = new String[14];
     private static Logger LOGGER;
 
-    public ServerCommandReader(ServerReader reader, Socket socket) {
+    public ServerCommandReader(Socket socket) {
         LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         System.out.println("\n"+socket + " connected to server.");
         log("\n"+socket + " connected to server.",2);
-        this.r = reader;
+        ServerReader r = ServerReader.getInstance();
         this.socket = socket;
         history[0] = "";
         availableCommands = new HashMap<>();
@@ -106,6 +105,9 @@ public class ServerCommandReader implements Runnable {
                 } else if (cm_splited[0].equals("history")) {
                     to.println(displayHistory(14)+'\0');
                     history = appendArray(history,"history");
+                } else if (cm_splited[0].equals("help")) {
+                    to.println(availableCommands.get("help").execute(availableCommands.values())+'\0');
+                    history = appendArray(history,"help");
                 } else if (availableCommands.containsKey(cm_splited[0])) {
                     if (cm_splited.length == 1)
                         to.println(availableCommands.get(cm_splited[0]).execute()+'\0');

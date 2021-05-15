@@ -8,7 +8,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.*;
 public class Server {
-    private static ServerReader reader;
     static private FileHandler fileTxt;
     static private SimpleFormatter formatterTxt;
     static private FileHandler fileHTML;
@@ -16,7 +15,7 @@ public class Server {
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(6967)) {
-            reader = new ServerReader("data/lab6.xml");//args[0]!=null?args[0]:
+            ServerReader.getInstance().initial("data/lab6.xml");//args[0]!=null?args[0]:
             logger_start();
             System.out.print("Server started." + "\nPort: " + server.getLocalPort() + " / Address: " + InetAddress.getLocalHost() + ".\nWaiting for clients  ");
             Thread loading_cursor = new Thread(() -> {
@@ -36,7 +35,7 @@ public class Server {
             while (true) {
                 Socket socket = server.accept();
                 loading_cursor.interrupt();
-                Runnable r = new ServerCommandReader(reader, socket);
+                Runnable r = new ServerCommandReader(socket);
                 Thread t = new Thread(r);
                 t.start();
             }

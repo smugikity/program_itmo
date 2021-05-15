@@ -1,8 +1,8 @@
 package client;
 
-
 import lab5.legacy.*;
 
+import javax.mail.internet.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -90,12 +90,45 @@ public class Client {
         socketChannel.write(outBuffer);
     }
 
+    private static String setUser(String mode) {
+        String username="";
+        String password="";
+        try {
+            Scanner sc = new Scanner(System.in);
+            while (username.isEmpty()) {
+                try {
+                    System.out.print(mode+": ");
+                    username = sc.nextLine().trim();
+                    if (username.contains("-") || username.contains(",") || username.contains("/") || username.contains(" "))
+                        throw new IllegalCharacterException();
+                    if (!isValidEmailAddress(username)) throw new IllegalCharacterException();
+                } catch (IllegalCharacterException ex) {
+                    System.out.println("Wrong "+mode+" format");
+                    username = "";
+                }
+            }
+            while (password.isEmpty()) {
+                try {
+                    System.out.print("Pass: ");
+                    password = sc.nextLine();
+                    if (password.contains("-") || password.contains(",") || password.contains("/") || password.contains(" "))
+                        throw new IllegalCharacterException();
+                } catch (IllegalCharacterException ex) {
+                    System.out.println("Password can't contain character \"-\", \",\", \"/\", \" \".");
+                    password="";
+                }
+            }
+        } catch (NoSuchElementException e) {
+            System.exit(0);
+        }
+        return username+","+password;
+    }
 
     private static String setData() {
         Person p = new Person();
         try {
             Scanner scan = new Scanner(System.in);
-            while (p.getName().equals("")) {
+            while (p.getName().isEmpty()) {
                 try {
                     System.out.print("Name (can't be empty): ");
                     p.setName(scan.nextLine());
@@ -172,6 +205,7 @@ public class Client {
         } catch(NoSuchElementException ex){
             System.exit(0);
         }
+        //name, coord x, y, height, weight, hair, nationality, location x, y, z, name
         return p.getName() + "," + p.getCoordinates().getX() + "," + p.getCoordinates().getY() + "," + p.getHeight() + "," + p.getWeight() + ","
                 + p.getHairColor().toString() + "," + p.getNationality().toString() + "," + p.getLocation().getX() + "," + p.getLocation().getY()
                 + "," + p.getLocation().getZ() + "," + p.getLocation().getName();
@@ -206,10 +240,14 @@ public class Client {
             String[] cm_splited = command.trim().split(" ", 2);
             switch (cm_splited[0]) {
                 case "exit": System.exit(0); break;
-                case "add": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():("add "+setData()))); break;
-                case "add_if_min": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():("add_if_min "+setData()))); break;
+                case "reset": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setUser("Code")))); break;
+                case "login":
+                case "register": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setUser("Username")))); break;
+                case "add":
+                case "add_if_min":
+                case "remove_greater": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setData()))); break;
                 case "update": cacheCommandCount++;write(socketChannel,(command.trim().split(",",3).length==3?command.trim():("update "+cm_splited[1]+","+setData()))); break;
-                case "remove_greater": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():("remove_greater "+setData()))); break;
+
                 case "execute_script": execute_script(cm_splited[1], socketChannel); break;
                 default:
                     cacheCommandCount++;write(socketChannel, command);
@@ -218,6 +256,16 @@ public class Client {
             write(socketChannel, "self_handled_error Argument missing");
         }
         return;
+    }
+    public static boolean isValidEmailAddress(String email) {
+        boolean result = true;
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException ex) {
+            result = false;
+        }
+        return result;
     }
 }
 

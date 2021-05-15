@@ -1,5 +1,7 @@
 package lab5.legacy;
-import java.util.*;
+
+import java.util.Calendar;
+import java.util.Date;
 
 public class Person implements Comparable<Person> {
     private Long id = generateID(); //Cant be null, have to be unique, automatically generated when instantiated
@@ -11,11 +13,22 @@ public class Person implements Comparable<Person> {
     private Color hairColor=null; //Cant be null
     private Country nationality=null; //Cant be null
     private Location location=null; //Cant be null
+    private int owner_id=0;
 
     public Person(String name, Coordinates coordinates, Float height, Long weight, Color hairColor, Country nationality, Location location) {
         this.name = name;
         this.coordinates = coordinates;
-        this.height = height;
+        this.height = Math.round(height*1000f)/1000f;
+        this.weight = weight;
+        this.hairColor = hairColor;
+        this.nationality = nationality;
+        this.location = location;
+    }
+    public Person(int owner_id, String name, Coordinates coordinates, Float height, Long weight, Color hairColor, Country nationality, Location location) {
+        this.owner_id = owner_id;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.height = Math.round(height*1000f)/1000f;
         this.weight = weight;
         this.hairColor = hairColor;
         this.nationality = nationality;
@@ -39,7 +52,7 @@ public class Person implements Comparable<Person> {
         this.id = id;
     }
     public void setHeight(Float height) {
-        this.height = height;
+        this.height = Math.round(height*1000f)/1000f;
     }
     public void setWeight(Long weight) {
         this.weight = weight;
@@ -77,6 +90,12 @@ public class Person implements Comparable<Person> {
     public String getName() {
         return name;
     }
+    public void setOwner_id(int owner_id) {
+        this.owner_id = owner_id;
+    }
+    public int getOwner_id() {
+        return owner_id;
+    }
 
     /**
      * Display data
@@ -95,7 +114,7 @@ public class Person implements Comparable<Person> {
      */
     @Override
     public String toString() {
-        return String.format("{id:"+getId()+";name:"+getName()+";coordinates:{x:"+getCoordinates().getX()
+        return String.format("{id:"+getId()+",owner id:"+getOwner_id()+",name:"+getName()+";coordinates:{x:"+getCoordinates().getX()
                 +";y:"+getCoordinates().getY()+"};creation_date:"+getCreationDate()+";height:"+getHeight()
                 +";weight:"+getWeight()+";hair_color:"+getHairColor().toString().toLowerCase()+";nationality:"
                 +getNationality().toString().toLowerCase().replace("_"," ") +";location:{x:" +getLocation().getX()+";y:"

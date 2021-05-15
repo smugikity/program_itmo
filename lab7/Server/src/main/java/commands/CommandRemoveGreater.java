@@ -9,9 +9,9 @@ public class CommandRemoveGreater extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(String data) {
+    public synchronized String execute(String data) {
         Person person = new Person();
-        setData(person, data);
+        if (!setData(person,data)) return "Parsing error";
         boolean none = true;
         String result = "";
         for (Person p:getCollection()) {

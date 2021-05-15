@@ -11,7 +11,7 @@ public class CommandAdd extends Command {
     @Override
     public synchronized String execute(String data) {
         Person p = new Person();
-        setData(p,data);
+        if (!setData(p,data)) return "Parsing error";
         getCollection().add(p);
         return ("Add person "+p.getName()+" successfully with id "+p.getId());
     }

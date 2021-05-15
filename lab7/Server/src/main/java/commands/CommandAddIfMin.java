@@ -11,7 +11,7 @@ public class CommandAddIfMin extends Command {
     @Override
     public synchronized String execute(String data) {
         Person per = new Person();
-        setData(per,data);
+        if (!setData(per,data)) return "Parsing error";
         if (getCollection().isEmpty()) {
             getCollection().add(per); return ("Added person "+per.getName()+" successfully with id "+per.getId());
         }

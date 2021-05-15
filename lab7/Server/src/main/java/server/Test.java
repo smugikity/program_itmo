@@ -38,7 +38,6 @@ public class Test {
         }
 
         try (Connection c = DriverManager.getConnection("jdbc:postgresql://localhost:8594/studs",user,password);){
-            Class.forName("org.postgresql.Driver");
             System.out.println("Opened database successfully");
             Scanner sc = new Scanner(System.in);
 //            String sql = "CREATE TABLE COMPANY " +
@@ -53,7 +52,7 @@ public class Test {
                     ResultSetMetaData rsmd = resultSet.getMetaData();
                     int columnsNumber = rsmd.getColumnCount();
                     while (resultSet.next()) {
-                        for (int n=1;n<6;n++)
+                        for (int n=1;n<columnsNumber+1;n++)
                         System.out.print(resultSet.getString(n)+" ");
                         System.out.println();
                     }
