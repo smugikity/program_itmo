@@ -9,6 +9,8 @@ import java.util.Set;
 public abstract class Command {
     public ServerReader serverReader;
     private String description;
+    protected String invalidArguments="Error: Invalid arguments";
+    protected String sqlException="Error: SQL Exception";
 
     public Command(ServerReader serverReader) {
         this.serverReader = serverReader;
