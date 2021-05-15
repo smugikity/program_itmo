@@ -56,7 +56,7 @@ public class Client implements Serializable {
                 }
             } catch (IOException ex) {
                 try {
-                    System.err.println("No connection. Type 1 to try again, 0 to exit.");
+                    System.out.println("No connection. Type 1 to try again, 0 to exit. ");
                     System.out.print("$ ");
                     String re;
                     Scanner scanner = new Scanner(System.in);
@@ -98,7 +98,7 @@ public class Client implements Serializable {
                     username = sc.nextLine().trim();
                     if (username.contains("-") || username.contains(",") || username.contains("/") || username.contains(" "))
                         throw new IllegalCharacterException();
-                    if (!isValidEmailAddress(username)) throw new IllegalCharacterException();
+                    if (mode=="Email" && !isValidEmailAddress(username)) throw new IllegalCharacterException();
                 } catch (IllegalCharacterException ex) {
                     System.out.println("Wrong "+mode+" format");
                     username = "";
@@ -239,12 +239,12 @@ public class Client implements Serializable {
                 case "exit": System.exit(0); break;
                 case "reset": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setUser("Code")))); break;
                 case "login":
-                case "register": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setUser("Username")))); break;
+                case "register": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setUser("Email")))); break;
                 case "add":
                 case "add_if_min":
                 case "remove_greater": cacheCommandCount++;write(socketChannel,(cm_splited.length==2?command.trim():(cm_splited[0]+" "+setData()))); break;
                 case "update": cacheCommandCount++;write(socketChannel,(command.trim().split(",",3).length==3?command.trim():("update "+cm_splited[1]+","+setData()))); break;
-
+                case "send": cacheCommandCount++; write(socketChannel,checkSend(cm_splited[1])); break;
                 case "execute_script": execute_script(cm_splited[1], socketChannel); break;
                 default:
                     cacheCommandCount++;write(socketChannel, command);
@@ -253,6 +253,11 @@ public class Client implements Serializable {
             write(socketChannel, "self_handled_error Argument missing");
         }
         return;
+    }
+    public static String checkSend(String email) {
+        if (isValidEmailAddress(email)) {
+            System.out.println("This could take few seconds...");return "send "+email;}
+        else return "self_handled_error Your email is wrong formatted";
     }
     public static boolean isValidEmailAddress(String email) {
         boolean result = true;

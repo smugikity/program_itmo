@@ -19,7 +19,6 @@ public class ServerReader {
     private static Set<Person> collectionPerson = Collections.synchronizedSet(new HashSet<>());
     public String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     public String fileSource;
-    HashSet<String> loadedScript = new HashSet<>();
     private String DB_URL;
     private String DB_USER;
     private String DB_PASS;
@@ -39,7 +38,6 @@ public class ServerReader {
      * @param path input xml file
      */
     public void initial(String path){
-
 //        this.fileSource = path;
 //        System.out.println(fileSource);
 //        try (InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), StandardCharsets.UTF_8)) {
@@ -74,7 +72,6 @@ public class ServerReader {
 //        } catch (ParserConfigurationException | SAXException e) {
 //            System.err.println("Parser error"); System.exit(0);
 //        }
-
         initialTunnel();
         initialCollection();
     }

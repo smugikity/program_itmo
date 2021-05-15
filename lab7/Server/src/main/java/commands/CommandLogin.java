@@ -1,5 +1,6 @@
 package commands;
 
+import server.ServerCommandReader;
 import server.ServerReader;
 import ultility.Hashing;
 
@@ -13,18 +14,18 @@ public class CommandLogin extends Command{
         setDescription(des);
     }
     @Override
-    public synchronized String execute(String data) {
+    public String execute(String data, ServerCommandReader caller) {
         String[] splitedData = data.split(",");
         if (splitedData.length!=2) return invalidArguments;
         try (Connection connection = ServerReader.getInstance().getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT ID FROM USERS WHERE EMAIL=? AND PASS=?");
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT ID FROM USERS WHERE EMAIL=? AND PASS=?;");
             preparedStatement.setString(1,splitedData[0]);
             preparedStatement.setString(2,Hashing.hashSHA384(splitedData[1]));
             try (ResultSet answer = preparedStatement.executeQuery()) {
-                int userID = 0;
-                while (answer.next()) userID = answer.getInt(1);
-                if (userID != 0) {
-                    login(userID);
+                int id = 0;
+                while (answer.next()) id = answer.getInt(1);
+                if (id != 0) {
+                    login(id, caller);
                     return "Login successfully";
                 } else return "Email or password not match.";
             }
@@ -32,7 +33,5 @@ public class CommandLogin extends Command{
             return sqlException;
         }
     }
-    private void login(int id) {
 
-    }
 }

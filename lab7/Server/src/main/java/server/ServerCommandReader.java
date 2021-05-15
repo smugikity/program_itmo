@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 
 public class ServerCommandReader implements Runnable, Serializable {
     private Socket socket;
+    private int ID=0;
+    private String activationCode="";
     private HashMap<String, Command> availableCommands;
     private String[] cm_splited = new String[2];
     private String[] history = new String[14];
@@ -22,20 +24,27 @@ public class ServerCommandReader implements Runnable, Serializable {
         this.socket = socket;
         history[0] = "";
         availableCommands = new HashMap<>();
-        availableCommands.put("show", new CommandShow("show : print all collection items as string to standard output"));
-        availableCommands.put("add", new CommandAdd("add {element} : add a new element to the collection"));
-        availableCommands.put("add_if_min", new CommandAddIfMin("add_if_min {element} : add a new element to the collection if its value is less than the smallest element in this collection"));
-        availableCommands.put("clear", new CommandClear("clear : clear the collection"));
-        availableCommands.put("filter_less_than_height", new CommandFilterLessThanHeight("filter_less_than_height height : display elements whose height field value is less than the specified one"));
-        availableCommands.put("group_counting_by_coordinates", new CommandGroupCountingByCoordinates("group_counting_by_coordinates : group the elements of the collection by the value of the coordinates field, display the number of elements in each group"));
         availableCommands.put("help", new CommandHelp("help : display help for available commands", availableCommands));
-        availableCommands.put("info", new CommandInfo("info : print information about the collection (type, date of initialization, number of elements, etc.) to standard output"));
-        availableCommands.put("max_by_location", new CommandMaxByLocation("max_by_location : display any object from the collection, the value of the location field of which is the maximum"));
-        availableCommands.put("remove_by_id", new CommandRemoveById("remove_by_id id : remove an item from the collection by its id"));
-        availableCommands.put("remove_greater", new CommandRemoveGreater("remove_greater {element} : remove all elements from the collection that are greater than the specified one"));
-        availableCommands.put("save", new CommandSave("save : save the collection to a file"));
-        availableCommands.put("update", new CommandUpdate("update id {element} : update the value of the collection element whose id is equal to the given one"));
+        availableCommands.put("login", new CommandLogin("login: login to manipulate the collection"));
+        availableCommands.put("register", new CommandRegister("register: register new account"));
+        availableCommands.put("reset", new CommandReset("reset: set new password wth activation code"));
+        availableCommands.put("send", new CommandSend("send: send activation code to your email"));
         availableCommands.put("exit", new CommandExit("exit : exit the program (without saving to file)"));
+    }
+    public HashMap<String, Command> getAvailableCommands() {
+        return availableCommands;
+    }
+    public int getID() {
+        return ID;
+    }
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+    public String getActivationCode() {
+        return activationCode;
+    }
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
     }
 
     /**
@@ -93,21 +102,25 @@ public class ServerCommandReader implements Runnable, Serializable {
                     }
                 };
                 cm_splited = line.trim().split(" ", 2);
-                if (cm_splited[0].equals("self_handled_error")) {
-                    to.println(cm_splited[1]+'\0');
-                } else if (cm_splited[0].equals("history")) {
-                    to.println(displayHistory(14)+'\0');
-                    history = appendArray(history,"history");
-                } else if (cm_splited[0].equals("help")) {
-                    to.println(availableCommands.get("help").execute(availableCommands.values())+'\0');
-                    history = appendArray(history,"help");
-                } else if (availableCommands.containsKey(cm_splited[0])) {
-                    if (cm_splited.length == 1)
-                        to.println(availableCommands.get(cm_splited[0]).execute()+'\0');
-                    else if (cm_splited.length == 2)
-                        to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1])+'\0');
-                    history = appendArray(history, cm_splited[0]);
-                } else to.println(errorCommand.execute()+'\0');
+                switch (cm_splited[0]){
+                    case "self_handled_error": to.println(cm_splited[1]+'\0'); break;
+                    case "history": to.println(displayHistory(14)+'\0'); history = appendArray(history,"history"); break;
+                    case "help": to.println(availableCommands.get("help").execute(availableCommands.values())+'\0');
+                        history = appendArray(history,"help"); break;
+                    case "login":
+                    case "reset":
+                    case "send":
+                    case "register": to.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");
+                        history = appendArray(history,"help"); break;
+                    default:
+                        if (availableCommands.containsKey(cm_splited[0])) {
+                            if (cm_splited.length == 1)
+                            to.println(availableCommands.get(cm_splited[0]).execute()+'\0');
+                            else if (cm_splited.length == 2)
+                            to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1])+'\0');
+                            history = appendArray(history, cm_splited[0]);
+                        } else to.println(errorCommand.execute()+'\0');
+                }
             }
         } catch (IOException ex ) {
             System.err.println(this.socket+" disconnected to server");//Unix

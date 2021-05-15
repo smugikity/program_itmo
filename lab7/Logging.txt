@@ -1,19 +1,9 @@
-May 15, 2021 10:49:57 PM server.ServerCommandReader log
+May 16, 2021 2:42:29 AM server.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=9082,localport=6967] connected to server.
-May 15, 2021 10:50:01 PM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:08 PM server.ServerCommandReader log
-INFO: Received [info] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:08 PM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:08 PM server.ServerCommandReader log
-INFO: Received [history] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:14 PM server.ServerCommandReader log
-INFO: Received [ok] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:17 PM server.ServerCommandReader log
-INFO: Received [bruh] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:35 PM server.ServerCommandReader log
-INFO: Received [add daw,2.0,3,2.0,3,RED,THAILAND,2.0,4,5.0,dwa] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
-May 15, 2021 10:50:37 PM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=9082,localport=6967].
+Socket[addr=/127.0.0.1,port=12294,localport=6967] connected to server.
+May 16, 2021 2:42:43 AM server.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=12294,localport=6967].
+May 16, 2021 2:42:46 AM server.ServerCommandReader log
+INFO: Received [hhelp] from Socket[addr=/127.0.0.1,port=12294,localport=6967].
+May 16, 2021 2:42:48 AM server.ServerCommandReader log
+INFO: Received [help] from Socket[addr=/127.0.0.1,port=12294,localport=6967].
