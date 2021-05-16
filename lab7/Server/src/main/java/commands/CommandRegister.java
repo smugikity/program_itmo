@@ -28,7 +28,7 @@ public class CommandRegister extends Command{
             return "Registered successfully";
         } else {
             connection.rollback();
-            return "Failed, please try again later";
+            return "Email existed. Please login";
         }
         } catch (SQLException e) {
             e.printStackTrace();

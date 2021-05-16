@@ -21,7 +21,7 @@ public class CommandSave extends Command {
         setDescription(des);
     }
     @Override
-    public synchronized String execute() {
+    public synchronized String execute(String fileSource) {
         try {
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -73,11 +73,11 @@ public class CommandSave extends Command {
                 nameLocation.appendChild(document.createTextNode(p.getLocation().getName()));
                 location.appendChild(nameLocation);
             }
-            PrintWriter writer = new PrintWriter(new File(getServerReader().fileSource));
+            PrintWriter writer = new PrintWriter(new File(fileSource));
             writer.write(xmlToString(document));
             writer.flush();
             writer.close();
-            return ("Saved into file "+getServerReader().fileSource);
+            return ("Saved into file "+fileSource);
             //you can also use staff.setAttribute("id", "1") for this
         } catch (ParserConfigurationException | FileNotFoundException ex) {
             return (ex.toString());

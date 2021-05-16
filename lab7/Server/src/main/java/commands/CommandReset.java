@@ -2,6 +2,7 @@ package commands;
 
 import server.ServerCommandReader;
 import server.ServerReader;
+import ultility.Hashing;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +22,7 @@ public class CommandReset extends Command {
             connection.setAutoCommit(false);
             PreparedStatement statement = connection.prepareStatement("UPDATE USERS SET PASS=? WHERE ID=?;");
             statement.setInt(2,caller.getID());
-            statement.setString(1, splitedData[1]);
+            statement.setString(1, Hashing.hashSHA384(splitedData[1]));
             if (statement.executeUpdate()>0) {
                 connection.commit();
                 return "Password reset successfully";

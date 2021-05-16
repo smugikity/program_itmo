@@ -4,6 +4,9 @@ import lab5.legacy.*;
 import server.ServerCommandReader;
 import server.ServerReader;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
@@ -27,6 +30,7 @@ public abstract class Command {
         return execute();
     }
     public String execute(String arg, ServerCommandReader caller) {return null;}
+    public String execute(ServerCommandReader caller) {return null;}
 
     public ServerCommandReader getCaller() {
         return caller;
@@ -72,6 +76,7 @@ public abstract class Command {
         availableCommands.remove("register");
         availableCommands.remove("reset");
         availableCommands.remove("send");
+        availableCommands.put("logout", new CommandShow("logout: log out"));
         availableCommands.put("show", new CommandShow("show : print all collection items as string to standard output"));
         availableCommands.put("add", new CommandAdd("add {element} : add a new element to the collection"));
         availableCommands.put("add_if_min", new CommandAddIfMin("add_if_min {element} : add a new element to the collection if its value is less than the smallest element in this collection"));
@@ -104,6 +109,27 @@ public abstract class Command {
         availableCommands.remove("remove_greater");
         availableCommands.remove("save");
         availableCommands.remove("update");
+        availableCommands.remove("logout");
+    }
+    protected boolean save() {
+        try (Connection connection = ServerReader.getInstance().getConnection();
+             Statement request = connection.createStatement()) {
+            connection.setAutoCommit(false);
+            request.addBatch("DELETE FROM PEOPLE;");
+            for (Person p: getCollection()) {
+                String result = "INSERT INTO PEOPLE VALUES ("+p.getOwner_id()+",'"+p.getName()+"',"+p.getCoordinates().getX()+","
+                        +p.getCoordinates().getY()+","+p.getHeight()+","+p.getWeight()+",'"+p.getHairColor().toString()+"','"
+                        +p.getNationality().toString()+"',"+p.getLocation().getX()+","+p.getLocation().getY()+","
+                        +p.getLocation().getZ()+",'"+p.getLocation().getName()+"');";
+                request.addBatch(result);
+            }
+            request.executeBatch();
+            connection.commit();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
 
