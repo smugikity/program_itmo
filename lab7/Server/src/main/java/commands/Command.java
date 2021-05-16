@@ -87,7 +87,7 @@ public abstract class Command {
         availableCommands.put("max_by_location", new CommandMaxByLocation("max_by_location : display any object from the collection, the value of the location field of which is the maximum"));
         availableCommands.put("remove_by_id", new CommandRemoveById("remove_by_id id : remove an item from the collection by its id"));
         availableCommands.put("remove_greater", new CommandRemoveGreater("remove_greater {element} : remove all elements from the collection that are greater than the specified one"));
-        availableCommands.put("save", new CommandSave("save : save the collection to a file"));
+        //availableCommands.put("save", new CommandSave("save : save the collection to a file"));
         availableCommands.put("update", new CommandUpdate("update id {element} : update the value of the collection element whose id is equal to the given one"));
     }
     protected void logout(ServerCommandReader caller) {
@@ -107,7 +107,7 @@ public abstract class Command {
         availableCommands.remove("max_by_location");
         availableCommands.remove("remove_by_id");
         availableCommands.remove("remove_greater");
-        availableCommands.remove("save");
+        //availableCommands.remove("save");
         availableCommands.remove("update");
         availableCommands.remove("logout");
     }

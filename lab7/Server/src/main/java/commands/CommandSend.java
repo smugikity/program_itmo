@@ -53,7 +53,7 @@ public class CommandSend extends Command {
             caller.setActivationCode(code);
             message.setText(code);
             Transport.send(message);
-            return "Sent code. Code only work while client is still connected";
+            return "Sent code. Code only work while client is still connected. \"reset\" to reset password.";
         } catch (IOException | NullPointerException | AddressException e) {
             e.printStackTrace();
             return "Error: IOException";
