@@ -78,7 +78,7 @@ public class ServerCommandReader implements Runnable, Serializable {
     @Override
     public void run() {
         try  {
-            socket.setSoTimeout(90*1000);
+            socket.setSoTimeout(120*1000);
             PrintWriter to = new PrintWriter(socket.getOutputStream(),true); //autoflush whenever using PrintWriter.println
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             to.println("Connected. Ready to receive commands."+'\0');
