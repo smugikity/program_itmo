@@ -7,7 +7,7 @@ public class CommandLogout extends Command{
         setDescription(des);
     }
     @Override
-    public String execute(String data, ServerCommandReader caller) {
+    public String execute(ServerCommandReader caller) {
         logout(caller);
         return "Logout successfully";
     }

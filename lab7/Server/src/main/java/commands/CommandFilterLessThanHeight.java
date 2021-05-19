@@ -1,13 +1,14 @@
 package commands;
 
 import lab5.legacy.Person;
+import server.ServerCommandReader;
 
 public class CommandFilterLessThanHeight extends Command {
     public CommandFilterLessThanHeight(String des) {
         setDescription(des);
     }
     @Override
-    public String execute(String s) {
+    public String execute(String s, ServerCommandReader caller) {
         float cH;
         try {cH = Float.parseFloat(s);} catch (NumberFormatException ex) {
             return ("Height must be a number");

@@ -1,6 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
+import server.ServerCommandReader;
 
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class CommandMaxByLocation extends Command {
         setDescription(des);
     }
     @Override
-    public String execute() {
+    public String execute(ServerCommandReader caller) {
         if (getCollection().isEmpty()) {
             return ("Collection is empty");
         }

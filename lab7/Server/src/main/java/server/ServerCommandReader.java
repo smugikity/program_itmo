@@ -123,9 +123,9 @@ public class ServerCommandReader implements Runnable, Serializable {
                             history = appendArray(history,"clear"); break;
                         default:
                                 if (cm_splited.length == 1)
-                                to.println(availableCommands.get(cm_splited[0]).execute()+'\0');
+                                to.println(availableCommands.get(cm_splited[0]).execute(this)+'\0');
                                 else if (cm_splited.length == 2)
-                                to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1])+'\0');
+                                to.println(availableCommands.getOrDefault(cm_splited[0], errorCommand).execute(cm_splited[1],this)+'\0');
                                 history = appendArray(history, cm_splited[0]);
                     }
                 } else to.println(errorCommand.execute()+'\0');

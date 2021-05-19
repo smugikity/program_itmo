@@ -32,6 +32,7 @@ public abstract class Command {
     }
     public String execute(String arg, ServerCommandReader caller) {return null;}
     public String execute(ServerCommandReader caller) {return null;}
+    public String execute(Collection<Command> arg, ServerCommandReader caller) {return null;};
 
     public ServerCommandReader getCaller() {
         return caller;
@@ -78,7 +79,7 @@ public abstract class Command {
         availableCommands.remove("register");
         availableCommands.remove("reset");
         availableCommands.remove("send");
-        availableCommands.put("logout", new CommandShow("logout: log out"));
+        availableCommands.put("logout", new CommandLogout("logout: log out"));
         availableCommands.put("show", new CommandShow("show : print all collection items as string to standard output"));
         availableCommands.put("add", new CommandAdd("add {element} : add a new element to the collection"));
         availableCommands.put("add_if_min", new CommandAddIfMin("add_if_min {element} : add a new element to the collection if its value is less than the smallest element in this collection"));
@@ -93,6 +94,7 @@ public abstract class Command {
         availableCommands.put("update", new CommandUpdate("update id {element} : update the value of the collection element whose id is equal to the given one"));
     }
     protected void logout(ServerCommandReader caller) {
+        Server.getClients().remove(caller.getID());
         caller.setID(0);
         HashMap<String, Command> availableCommands = caller.getAvailableCommands();
         availableCommands.put("login", new CommandLogin("login: login to manipulate the collection"));

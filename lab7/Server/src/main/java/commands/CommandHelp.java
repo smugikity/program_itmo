@@ -1,5 +1,7 @@
 package commands;
 
+import server.ServerCommandReader;
+
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -11,7 +13,7 @@ public class CommandHelp extends Command {
         this.cms = cms;
     }
     @Override
-    public String execute(Collection<Command> avaicm) {
+    public String execute(Collection<Command> avaicm, ServerCommandReader caller) {
         String result="";
         for (Command cm:avaicm) {
             result += cm.getDescription()+"\n";

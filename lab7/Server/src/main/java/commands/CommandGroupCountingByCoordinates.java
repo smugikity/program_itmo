@@ -1,6 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
+import server.ServerCommandReader;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -10,7 +11,7 @@ public class CommandGroupCountingByCoordinates extends  Command{
         setDescription(des);
     }
     @Override
-    public String execute() {
+    public String execute(ServerCommandReader caller) {
         if (getCollection().isEmpty()) {
             return ("Colletion is empty");
         }
