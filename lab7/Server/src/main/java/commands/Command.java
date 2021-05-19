@@ -1,6 +1,7 @@
 package commands;
 
 import lab5.legacy.*;
+import server.Server;
 import server.ServerCommandReader;
 import server.ServerReader;
 
@@ -71,6 +72,7 @@ public abstract class Command {
     }
     protected void login(int id, ServerCommandReader caller) {
         caller.setID(id);
+        Server.getClients().add(id);
         HashMap<String, Command> availableCommands = caller.getAvailableCommands();
         availableCommands.remove("login");
         availableCommands.remove("register");

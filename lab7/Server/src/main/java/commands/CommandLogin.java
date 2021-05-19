@@ -1,5 +1,6 @@
 package commands;
 
+import server.Server;
 import server.ServerCommandReader;
 import server.ServerReader;
 import ultility.Hashing;
@@ -25,8 +26,10 @@ public class CommandLogin extends Command{
                 int id = 0;
                 while (answer.next()) id = answer.getInt(1);
                 if (id != 0) {
-                    login(id, caller);
-                    return "Login successfully";
+                    if (!Server.getClients().contains(id)) {
+                        login(id, caller);
+                        return "Login successfully";
+                    } else return "Account is logged in elsewhere.";
                 } else return "Email or password not match.";
             }
         } catch (SQLException throwables) {

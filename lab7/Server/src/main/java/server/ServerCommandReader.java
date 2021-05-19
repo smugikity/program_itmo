@@ -133,6 +133,7 @@ public class ServerCommandReader implements Runnable, Serializable {
         } catch (IOException ex ) {
             System.err.println(this.socket+" disconnected to server");//Unix
             log(this.socket+" disconnected to server",2);
+            Server.getClients().remove(getID());
             //System.exit(0);
         }
     }

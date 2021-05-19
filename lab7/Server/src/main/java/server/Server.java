@@ -1,17 +1,19 @@
 package server;
 
-import ultility.*;
+import ultility.MyHtmlFormatter;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
 import java.util.logging.*;
 public class Server {
     static private FileHandler fileTxt;
     static private SimpleFormatter formatterTxt;
     static private FileHandler fileHTML;
     static private Formatter formatterHTML;
+    static private HashSet<Integer> clients = new HashSet<Integer>();
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(6967)) {
@@ -76,4 +78,6 @@ public class Server {
             System.exit(0);
         }
     }
+
+    public static HashSet<Integer> getClients() {return clients;}
 }
