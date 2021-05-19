@@ -1,43 +1,17 @@
-May 16, 2021 3:56:44 AM server.ServerCommandReader log
+May 19, 2021 3:14:32 PM server.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=12897,localport=6967] connected to server.
-May 16, 2021 3:56:57 AM server.ServerCommandReader log
-INFO: Received [register 7upnamk@gmail.com,drawga] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:08 AM server.ServerCommandReader log
-INFO: Received [register 8upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:32 AM server.ServerCommandReader log
-INFO: Received [clear] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:43 AM server.ServerCommandReader log
-INFO: Received [login 8upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:45 AM server.ServerCommandReader log
-INFO: Received [clear] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:48 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:54 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:57:58 AM server.ServerCommandReader log
-INFO: Received [help] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:58:04 AM server.ServerCommandReader log
-INFO: Received [filter_less_than_height] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:58:06 AM server.ServerCommandReader log
-INFO: Received [filter_less_than_height 5] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:58:09 AM server.ServerCommandReader log
-INFO: Received [filter_less_than_height 1] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:58:30 AM server.ServerCommandReader log
-INFO: Received [update 238124031,w,2.0,2,1.0,1,RED,THAILAND,2.0,2,2.0,dw] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:58:38 AM server.ServerCommandReader log
-INFO: Received [max_by_location] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:58:45 AM server.ServerCommandReader log
-INFO: Received [group_counting_by_coordinates] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:59:07 AM server.ServerCommandReader log
-INFO: Received [remove_greater 1,1.0,1,2.0,2,RED,THAILAND,2.0,2,2.0,wa] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:59:28 AM server.ServerCommandReader log
-INFO: Received [remove_by_id 906035415] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:59:33 AM server.ServerCommandReader log
-INFO: Received [save ] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:59:45 AM server.ServerCommandReader log
-INFO: Received [save data/lab6.xml] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 3:59:51 AM server.ServerCommandReader log
-INFO: Received [save dwadwa] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
-May 16, 2021 4:00:04 AM server.ServerCommandReader log
-INFO: Received [logout] from Socket[addr=/127.0.0.1,port=12897,localport=6967].
+Socket[addr=/127.0.0.1,port=12620,localport=6967] connected to server.
+May 19, 2021 3:14:48 PM server.ServerCommandReader log
+INFO: Received [register 5dwadwa@gg.ddd,dww] from Socket[addr=/127.0.0.1,port=12620,localport=6967].
+May 19, 2021 3:15:06 PM server.ServerCommandReader log
+INFO: Socket[addr=/127.0.0.1,port=12620,localport=6967] disconnected to server
+May 19, 2021 3:15:07 PM server.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=12634,localport=6967] connected to server.
+May 19, 2021 3:15:21 PM server.ServerCommandReader log
+INFO: Received [register daww@ddd.dd,dddddd.] from Socket[addr=/127.0.0.1,port=12634,localport=6967].
+May 19, 2021 3:15:26 PM server.ServerCommandReader log
+INFO: Socket[addr=/127.0.0.1,port=12634,localport=6967] disconnected to server
+May 19, 2021 3:15:26 PM server.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=12644,localport=6967] connected to server.

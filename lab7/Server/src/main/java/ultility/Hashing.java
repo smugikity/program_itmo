@@ -2,6 +2,7 @@ package ultility;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
 
 public class Hashing {
     public static String hashSHA384(String input)
@@ -20,5 +21,16 @@ public class Hashing {
             System.exit(0);
             return null;
         }
+    }
+
+    public static void main (String [] args) {
+        Scanner scanner = new Scanner(System.in);
+        String rs="";
+        char c;
+        while ((c = (char)scanner.nextByte())!='\n') {
+            rs+=c;
+            System.out.println(c);
+        }
+        System.out.println(rs);
     }
 }

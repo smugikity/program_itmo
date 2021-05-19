@@ -108,10 +108,18 @@ public class Client implements Serializable {
                 try {
                     System.out.print("Pass: ");
                     password = sc.nextLine();
+                    if (password.length()<6)
+                        throw new Exception() {
+                            @Override
+                            public void printStackTrace() {System.out.println("Password need to larger than 6 chars"); }
+                        };
                     if (password.contains("-") || password.contains(",") || password.contains("/") || password.contains(" "))
                         throw new IllegalCharacterException();
                 } catch (IllegalCharacterException ex) {
                     System.out.println("Password can't contain character \"-\", \",\", \"/\", \" \".");
+                    password="";
+                } catch (Exception e) {
+                    e.printStackTrace();
                     password="";
                 }
             }
