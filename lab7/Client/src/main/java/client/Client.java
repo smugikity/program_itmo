@@ -154,24 +154,22 @@ public class Client implements Serializable {
                     p.setCoordinates(null);
                 }
             }
-            while (p.getHeight() == null) {
+            while (p.getHeight() <= 0) {
                 System.out.print("Height (can't be empty, larger than 0): ");
                 try {
                     p.setHeight(Float.parseFloat(scan.nextLine().trim()));
-                    if (p.getHeight() <= 0) throw new OverrangedException();
+                    if ((float) p.getHeight() <= 0) throw new OverrangedException();
                 } catch (NumberFormatException | OverrangedException ex) {
                     System.out.println("Wrong number format");
-                    p.setHeight(null);
                 }
             }
-            while (p.getWeight() == null || p.getWeight() <= 0) {
+            while (p.getWeight() <= 0) {
                 System.out.print("Weight (can't be empty, larger than 0): ");
                 try {
                     p.setWeight(Long.parseLong(scan.nextLine().trim()));
-                    if (p.getWeight() <= 0) throw new OverrangedException();
+                    if (p.getWeight().equals(null) || (long) p.getWeight() <= 0) throw new OverrangedException();
                 } catch (NumberFormatException | OverrangedException ex) {
                     System.out.println("Wrong number format");
-                    p.setWeight(null);
                 }
             }
             while (p.getHairColor() == null) {

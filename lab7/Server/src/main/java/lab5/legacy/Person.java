@@ -8,8 +8,8 @@ public class Person implements Comparable<Person> {
     private String name=""; //Cant be null or empty
     private Coordinates coordinates=null; //Cant be null
     private Date creationDate = Calendar.getInstance().getTime(); //Cant be null, utomatically generated when instantiated
-    private Float height=null; //Cant be null, larger than 0
-    private Long weight=null; //Cant be null, larger than 0
+    private Float height=0f; //Cant be null, larger than 0
+    private Long weight=0l; //Cant be null, larger than 0
     private Color hairColor=null; //Cant be null
     private Country nationality=null; //Cant be null
     private Location location=null; //Cant be null
@@ -52,10 +52,12 @@ public class Person implements Comparable<Person> {
         this.id = id;
     }
     public void setHeight(Float height) {
-        this.height = Math.round(height*1000f)/1000f;
+        if (height.equals(null)) this.height = 0f;
+        else this.height = Math.round(height*1000f)/1000f;
     }
-    public void setWeight(Long weight) {
-        this.weight = weight;
+    public void setWeight(Long weight){
+        if (weight.equals(null)) this.weight = 0l;
+        else this.weight = Math.round(weight*1000f)/1000l;
     }
     public void setNationality(Country nationality) {
         this.nationality = nationality;

@@ -91,7 +91,7 @@ public class ServerReader {
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect(3000);
             int assignedPort = session.setPortForwardingL(6769,"pg",5432);
-            System.out.println("assigned tunnel localhost:"+assignedPort+" -> pg:5432");
+            System.out.println("Assigned tunnel localhost:"+assignedPort+" -> pg:5432");
         } catch (IOException | JSchException e) {
             e.printStackTrace();
             System.exit(0);

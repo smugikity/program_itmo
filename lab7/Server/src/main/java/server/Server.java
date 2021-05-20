@@ -7,13 +7,16 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashSet;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.*;
 public class Server {
     static private FileHandler fileTxt;
     static private SimpleFormatter formatterTxt;
     static private FileHandler fileHTML;
     static private Formatter formatterHTML;
-    static private HashSet<Integer> clients = new HashSet<Integer>();
+    static private HashSet<Integer> clients = new HashSet<>(); //key: socket, long: account id
+    static private ExecutorService service = Executors.newCachedThreadPool();
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(6967)) {
@@ -27,25 +30,28 @@ public class Server {
                     try {
                         Thread.sleep(300);
                     } catch (InterruptedException ex) {
-                        //System.out.print("\b\n");
+                        System.out.println();
                         Thread.currentThread().interrupt();
                     }
                 }
             });
             loading_cursor.setDaemon(true);
             loading_cursor.start();
+            //my thread designed aint a task (run method) cuz itself saves some interacting variables
+            //so basically pool is useless here :/ just fill up following the lab method. bruh
             while (true) {
                 Socket socket = server.accept();
                 loading_cursor.interrupt();
-                Runnable r = new ServerCommandReader(socket);
-                Thread t = new Thread(r);
-                t.start();
+                service.execute(new ServerCommandReader(socket));
             }
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
+            service.shutdown();
             System.exit(0);
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.err.println("No such file exist.");
+            service.shutdown();
+            System.exit(0);
         }
     }
 

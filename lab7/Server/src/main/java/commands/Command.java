@@ -12,27 +12,28 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class Command {
+public abstract class Command implements Executor{
     private ServerCommandReader caller;
     private String description;
     protected String invalidArguments="Error: Invalid arguments";
     protected String sqlException="Error: SQL Exception";
 
-    protected ServerReader getServerReader() {
-        return ServerReader.getInstance();
-    }
+    @Override
     public String execute() {
         return "Argument missing.";
     }
     public String execute(Collection<Command> avaicm) {
         return "Argument missing.";
     }
-    public String execute(String arg) {
-        return execute();
-    }
+    public String execute(String arg) {return null;}
     public String execute(String arg, ServerCommandReader caller) {return null;}
     public String execute(ServerCommandReader caller) {return null;}
-    public String execute(Collection<Command> arg, ServerCommandReader caller) {return null;};
+    public String execute(Collection<Command> arg, ServerCommandReader caller) {return null;}
+
+
+    protected ServerReader getServerReader() {
+        return ServerReader.getInstance();
+    }
 
     public ServerCommandReader getCaller() {
         return caller;
