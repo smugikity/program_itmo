@@ -41,6 +41,7 @@ public class Client implements Serializable {
                                 buffer.clear();
                             }
                             System.out.print(result);
+                            if (cacheCommandCount>0)
                             cacheCommandCount--;
                         }
                         if (key.isWritable() && cacheCommandCount==0) {

@@ -1,4 +1,4 @@
-package server;
+package test;
 
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
