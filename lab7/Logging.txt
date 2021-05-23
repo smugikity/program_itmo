@@ -1,76 +1,13 @@
-May 21, 2021 2:17:12 AM server.ServerCommandReader log
+May 22, 2021 10:44:34 PM server.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=7927,localport=6967] connected to server.
-May 21, 2021 2:17:27 AM server.ServerCommandReader log
-INFO: Received [login 7upnamk@gamil.com,drago123] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:17:31 AM server.ServerCommandReader log
-INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:18:21 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,daw] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:18:23 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:18:33 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,daw] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:18:37 AM server.ServerCommandReader log
-INFO: 
-Socket[addr=/127.0.0.1,port=7943,localport=6967] connected to server.
-May 21, 2021 2:18:46 AM server.ServerCommandReader log
-INFO: Received [login 8upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:18:53 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,daw] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:18:54 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:12 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:17 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:30 AM server.ServerCommandReader log
-INFO: Received [showadd American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,daw] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:33 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:46 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,bruh dak dak lamoa] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:47 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:56 AM server.ServerCommandReader log
-INFO: Received [add American with a glock,2.0,-2,3.0,2,RED,THAILAND,2.0,2,2.3,daw show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:19:57 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:20:09 AM server.ServerCommandReader log
-INFO: Received [info] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:18 AM server.ServerCommandReader log
-INFO: Received [max_by_location] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:21 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:22 AM server.ServerCommandReader log
-INFO: Received [info] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:24 AM server.ServerCommandReader log
-INFO: Received [history] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:29 AM server.ServerCommandReader log
-INFO: Received [history] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:20:38 AM server.ServerCommandReader log
-INFO: Received [help] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:39 AM server.ServerCommandReader log
-INFO: Received [logout] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:42 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:20:45 AM server.ServerCommandReader log
-INFO: Received [help] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:20:48 AM server.ServerCommandReader log
-INFO: Received [help] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:51 AM server.ServerCommandReader log
-INFO: Received [history] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:20:56 AM server.ServerCommandReader log
-INFO: Received [logout] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:20:59 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:21:00 AM server.ServerCommandReader log
-INFO: Received [help] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:21:01 AM server.ServerCommandReader log
-INFO: Received [info] from Socket[addr=/127.0.0.1,port=7943,localport=6967].
-May 21, 2021 2:21:04 AM server.ServerCommandReader log
-INFO: Socket[addr=/127.0.0.1,port=7943,localport=6967] disconnected to server
-May 21, 2021 2:21:19 AM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=7927,localport=6967].
-May 21, 2021 2:21:22 AM server.ServerCommandReader log
-INFO: Socket[addr=/127.0.0.1,port=7927,localport=6967] disconnected to server
+Socket[addr=/127.0.0.1,port=3227,localport=6967] connected to server.
+May 22, 2021 10:44:40 PM server.ServerCommandReader log
+INFO: Received [show] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
+May 22, 2021 10:44:48 PM server.ServerCommandReader log
+INFO: Received [login 7upnakdwa] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
+May 22, 2021 10:44:56 PM server.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
+May 22, 2021 10:45:06 PM server.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
+May 22, 2021 10:45:08 PM server.ServerCommandReader log
+INFO: Received [show] from Socket[addr=/127.0.0.1,port=3227,localport=6967].

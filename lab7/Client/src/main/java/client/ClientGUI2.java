@@ -1,18 +1,12 @@
-package test;
+package client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-public class TestGUI extends Application{
-    public static ResourceBundle bundle;
-    public static String currentLanguage="en";
-    public static Scene scene;
-    public static TestLoginController controller;
+public class ClientGUI2 extends Application {
+    public static String currentLanguage;
     public static Stage stage;
     FXMLLoader loader;
 
@@ -20,14 +14,12 @@ public class TestGUI extends Application{
         Application.launch();
     }
 
-
     @Override
     public void init() {
         loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/login.fxml"));
+        loader.setLocation(getClass().getResource("/main.fxml"));
         currentLanguage="en";
-        bundle = ResourceBundle.getBundle("locale", new Locale(currentLanguage));
-        loader.setResources(bundle);
+        //loader.setResources(ResourceBundle.getBundle("locale", new Locale(currentLanguage)));
     }
 
     @Override
@@ -35,8 +27,7 @@ public class TestGUI extends Application{
         stage = primaryStage;
         primaryStage.setResizable(false);
         primaryStage.setTitle("Client");
-        scene=  new Scene(loader.load());
-        primaryStage.setScene(scene);
+        primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
     }
 }

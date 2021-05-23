@@ -104,6 +104,4 @@ public class TestLoginController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
 }

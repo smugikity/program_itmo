@@ -1,5 +1,7 @@
 package lab5.legacy;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -9,12 +11,14 @@ public class Person implements Comparable<Person> {
     private Coordinates coordinates=null; //Cant be null
     private Date creationDate = Calendar.getInstance().getTime(); //Cant be null, utomatically generated when instantiated
     private Float height=0f; //Cant be null, larger than 0
-    private Long weight=0l; //Cant be null, larger than 0
+    private Long weight= 0L; //Cant be null, larger than 0
     private Color hairColor=null; //Cant be null
     private Country nationality=null; //Cant be null
     private Location location=null; //Cant be null
     private int owner_id=0;
+    SimpleDateFormat formatDate = new SimpleDateFormat("hh:mm:ss");
 
+    //constructor
     public Person(String name, Coordinates coordinates, Float height, Long weight, Color hairColor, Country nationality, Location location) {
         this.name = name;
         this.coordinates = coordinates;
@@ -36,6 +40,8 @@ public class Person implements Comparable<Person> {
     }
     public Person() {
     }
+
+    //get set variables and properties
     public void setCoordinates(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
@@ -98,6 +104,48 @@ public class Person implements Comparable<Person> {
     public int getOwner_id() {
         return owner_id;
     }
+    public void setCol_date(String date) throws ParseException {
+        creationDate=formatDate.parse(date);
+    }
+    public String getCol_date() {
+        return formatDate.format(creationDate);
+    }
+    public void setCol_coord_x(Double x) {
+        getCoordinates().setX(x);
+    }
+    public Double getCol_coord_x() {
+        return getCoordinates().getX();
+    }
+    public void setCol_coord_y(Integer y) {
+        getCoordinates().setY(y);
+    }
+    public Integer getCol_coord_y() {
+        return getCoordinates().getY();
+    }
+    public void setCol_location_x(Double x) {
+        getLocation().setX(x);
+    }
+    public Double getCol_location_x() {
+        return getLocation().getX();
+    }
+    public void setCol_location_y(Long y) {
+        getLocation().setY(y);
+    }
+    public Long getCol_location_y() {
+        return getLocation().getY();
+    }
+    public void setCol_location_z(Double z) {
+        getLocation().setZ(z);
+    }
+    public Double getCol_location_z() {
+        return getLocation().getZ();
+    }
+    public void setCol_location_name(String name) {
+        getLocation().setName(name);
+    }
+    public String getCol_location_name() {
+        return getLocation().getName();
+    }
 
     /**
      * Display data
@@ -130,13 +178,13 @@ public class Person implements Comparable<Person> {
     private long generateID() {
         Boolean checked = false;
         Long idTemp = null;
-        while (!checked) {
-            checked = true;
-            idTemp =Long.valueOf(Math.round(Math.random()*1000000000));
-            for (Person p: Reader.collectionPerson) {
-                if (id==p.getId() || idTemp < 100000000) checked=false;
-            }
-        }
+//        while (!checked) {
+//            checked = true;
+            idTemp =Long.valueOf((long) Math.floor(Math.round(Math.random()*(999999999-100000000))));
+//            for (Person p: Reader.collectionPerson) {
+//                if (id==p.getId() || idTemp < 100000000) checked=false;
+//            }
+//        }
         return idTemp;
     }
 
