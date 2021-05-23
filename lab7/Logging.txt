@@ -1,13 +1,5 @@
-May 22, 2021 10:44:34 PM server.ServerCommandReader log
+May 23, 2021 7:40:26 PM server.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=3227,localport=6967] connected to server.
-May 22, 2021 10:44:40 PM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
-May 22, 2021 10:44:48 PM server.ServerCommandReader log
-INFO: Received [login 7upnakdwa] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
-May 22, 2021 10:44:56 PM server.ServerCommandReader log
-INFO: Received [login 7upnamk@gmail.com] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
-May 22, 2021 10:45:06 PM server.ServerCommandReader log
-INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
-May 22, 2021 10:45:08 PM server.ServerCommandReader log
-INFO: Received [show] from Socket[addr=/127.0.0.1,port=3227,localport=6967].
+Socket[addr=/192.168.193.64,port=13650,localport=6967] connected to server.
+May 23, 2021 7:40:29 PM server.ServerCommandReader log
+INFO: Socket[addr=/192.168.193.64,port=13650,localport=6967] disconnected to server

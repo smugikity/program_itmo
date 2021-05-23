@@ -75,26 +75,6 @@ public class LoginController implements Initializable {
         timeline.play();
     }
 
-//    @FXML
-//    private void handleResetButtonAction() {
-//        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//        alert.setTitle("Reset Dialog");
-//        alert.setHeaderText("Look, an Information Dialog");
-//        alert.setContentText("I have a great message for you!");
-//        alert.showAndWait();
-//
-//        if (!comboBox.getValue().equals(TestGUI.currentLanguage)) {
-//            TestGUI.currentLanguage=comboBox.getValue();
-//            try {
-//                TestGUI.currentLanguage=comboBox.getValue();
-//                TestGUI.stage.close();
-//                TestGUI.stage=changeLanguage(TestGUI.currentLanguage,"/login.fxml","Client");
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
     public static Stage changeLanguage(String locale, String resource, String title) throws IOException {
         Stage stagetmp=new Stage();
         stagetmp.setTitle(title);
