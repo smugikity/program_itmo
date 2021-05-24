@@ -1,9 +1,9 @@
 package commands;
 
 import lab5.legacy.*;
-import server.Server;
-import server.ServerCommandReader;
-import server.ServerReader;
+import main.Server;
+import main.ServerCommandReader;
+import main.ServerReader;
 
 import java.sql.Connection;
 import java.sql.SQLException;

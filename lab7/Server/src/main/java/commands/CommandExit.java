@@ -1,6 +1,6 @@
 package commands;
 
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 public class CommandExit extends Command {
     public CommandExit(String des) {
@@ -8,6 +8,6 @@ public class CommandExit extends Command {
     }
     @Override
     public String execute(ServerCommandReader caller) {
-        return "";
+        return "\1";
     }
 }

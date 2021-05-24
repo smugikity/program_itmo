@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 public class CommandAdd extends Command {
     public CommandAdd(String des) {
@@ -13,7 +13,7 @@ public class CommandAdd extends Command {
         if (!setData(p,data)) return "Parsing error";
         p.setOwner_id(caller.getID());
         getCollection().add(p);
-        if (save()) return ("Add person "+p.getName()+" successfully with id "+p.getId());
+        if (save()) return ("Add person "+p.getName()+" successfully with id "+p.getId()+"\1");
         else return "Error occurred. Please try again";
     }
 }

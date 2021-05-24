@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.Iterator;
 
@@ -17,7 +17,7 @@ public class CommandClear extends Command {
             if (p.getOwner_id()==caller.getID())
             iterator.remove();
         }
-        if (save()) return ("Collection cleared");
+        if (save()) return ("Collection cleared\1");
         else return "Error occurred. Please try again";
     }
 }

@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.Iterator;
 
@@ -33,7 +33,7 @@ public class CommandUpdate extends Command {
             p.setId(cId);
             if (!setData(p, d[1])) return "Parsing error";
             getCollection().add(p);
-            if (save()) return ("Updated person "+p.getName()+" successfully with id "+p.getId());
+            if (save()) return ("Updated person "+p.getName()+" successfully with id "+p.getId()+"\1");
         }
         return ("ID owner or id Person not match");
     }

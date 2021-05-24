@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.ArrayList;
 
@@ -23,10 +23,10 @@ public class CommandMaxByLocation extends Command {
                 maxP.add(p);
             }
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Person p: maxP) {
-            result += p.toString()+"\n";
+            result.append(p.toString()+"\n");
         }
-        return result;
+        return result.toString()+"\1";
     }
 }

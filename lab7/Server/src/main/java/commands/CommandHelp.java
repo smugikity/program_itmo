@@ -1,6 +1,6 @@
 package commands;
 
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.Collection;
 
@@ -11,10 +11,10 @@ public class CommandHelp extends Command {
     }
     @Override
     public String execute(Collection<Command> avaicm, ServerCommandReader caller) {
-        String result="";
+        StringBuilder stringBuilder=new StringBuilder();
         for (Command cm:avaicm) {
-            result += cm.getDescription()+"\n";
+            stringBuilder.append(cm.getDescription()+"\n");
         }
-        return (result);
+        return (stringBuilder.append("\1").toString());
     }
 }

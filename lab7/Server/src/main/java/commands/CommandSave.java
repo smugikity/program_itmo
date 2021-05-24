@@ -3,7 +3,7 @@ package commands;
 import lab5.legacy.Person;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -78,10 +78,10 @@ public class CommandSave extends Command {
             writer.write(xmlToString(document));
             writer.flush();
             writer.close();
-            return ("Saved into file "+fileSource);
+            return ("Saved into file "+fileSource+"\1");
             //you can also use staff.setAttribute("id", "1") for this
         } catch (ParserConfigurationException | FileNotFoundException ex) {
-            return (ex.toString());
+            return (ex.toString())+"";
         }
     }
 

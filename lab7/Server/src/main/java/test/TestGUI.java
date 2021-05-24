@@ -13,7 +13,7 @@ public class TestGUI extends Application{
     public static String currentLanguage="en";
     public static Scene scene;
     public static TestLoginController controller;
-    public static Stage stage;
+
     FXMLLoader loader;
 
     public static void main(String[] args) {
@@ -32,7 +32,6 @@ public class TestGUI extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        stage = primaryStage;
         primaryStage.setResizable(false);
         primaryStage.setTitle("Client");
         scene=  new Scene(loader.load());

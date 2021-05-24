@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +15,7 @@ public class CommandGroupCountingByCoordinates extends  Command{
         if (getCollection().isEmpty()) {
             return ("Colletion is empty");
         }
-        String result = "";
+        StringBuilder result = new StringBuilder();
         Set<Person> h = getCollection();
         for (int i=0;!h.isEmpty();i++) {
             int count = 0;
@@ -31,8 +31,8 @@ public class CommandGroupCountingByCoordinates extends  Command{
                 for (Person p:tr) {
                     h.remove(p);
                 }
-            result += ("There are "+count+" persons with distance between "+Math.pow(10,i)+" and "+Math.pow(10,i+1)+"\n");
+            result.append("There are "+count+" persons with distance between "+Math.pow(10,i)+" and "+Math.pow(10,i+1)+"\n");
         }
-        return result;
+        return result.toString()+"\1";
     }
 }

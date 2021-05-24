@@ -1,6 +1,6 @@
 package commands;
 
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 public class CommandActive extends Command {
     public CommandActive(String des) {

@@ -1,8 +1,8 @@
 package commands;
 
-import server.Server;
-import server.ServerCommandReader;
-import server.ServerReader;
+import main.Server;
+import main.ServerCommandReader;
+import main.ServerReader;
 import ultility.Hashing;
 
 import java.sql.Connection;
@@ -28,7 +28,7 @@ public class CommandLogin extends Command{
                 if (id != 0) {
                     if (!Server.getClients().contains(id)) {
                         login(id, caller);
-                        return "Login successfully";
+                        return "Login successfully\1";
                     } else return "Account is logged in elsewhere.";
                 } else return "Email or password not match.";
             }

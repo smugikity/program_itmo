@@ -1,4 +1,4 @@
-package server;
+package main;
 
 import commands.*;
 
@@ -68,16 +68,16 @@ public class ServerCommandReader implements Runnable, Serializable {
     @Override
     public void run() {
         try  {
-            System.out.println(socket + " connected to server. Handling thread: "+Thread.currentThread().getName());
-            log("\n"+socket + " connected to server.",2);
+            System.out.println(socket + " connected output server. Handling thread: "+Thread.currentThread().getName());
+            log("\n"+socket + " connected output server.",2);
             socket.setSoTimeout(120*1000);
-            PrintWriter to = new PrintWriter(socket.getOutputStream(),true); //autoflush whenever using PrintWriter.println
-            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            to.println("Connected. Ready to receive commands."+'\0');
+            PrintWriter output = new PrintWriter(socket.getOutputStream(),true); //autoflush whenever using PrintWriter.println
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            output.println("Connected. Ready output receive commands."+'\0');
             while (true) {
                 String line = null;
                 while(line == null) {
-                    line = in.readLine();
+                    line = input.readLine();
                 }
                 System.out.println("Received ["+line +"] from "+this.socket +".");
                 log("Received ["+line +"] from "+this.socket +".",2);
@@ -98,56 +98,56 @@ public class ServerCommandReader implements Runnable, Serializable {
                     switch (cm_splited[0]){
 
                         //ESSENTIAL
-                        case "self_handled_error": to.println(cm_splited[1]+'\0'); break;
-                        case "history": to.println(displayHistory(14)+'\0'); history = appendArray(history,"history"); break;
-                        case "help": to.println(availableCommands.get("help").execute(availableCommands.values(),this)+'\0');
+                        case "self_handled_error": output.println(cm_splited[1]+'\0'); break;
+                        case "history": output.println(displayHistory(14)+'\0'); history = appendArray(history,"history"); break;
+                        case "help": output.println(availableCommands.get("help").execute(availableCommands.values(),this)+'\0');
                             history = appendArray(history,"help"); break;
 
                         //ACCOUNT
                         case "login":
                         case "reset":
                         case "send":
-                        case "register": to.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");
+                        case "register": output.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");
                             history = appendArray(history,cm_splited[0]); break;
-                        case "logout": to.println(availableCommands.get(cm_splited[0]).execute(this)+"\0");
+                        case "logout": output.println(availableCommands.get(cm_splited[0]).execute(this)+"\0");
                             history = appendArray(history,cm_splited[0]); break;
 
-                        //WRITE: cant write if concurrent is locked (feel free to READ :/)
+                        //WRITE: cant write if concurrent is locked (feel free output READ :/)
                         case "add":
                         case "add_if_min":
                         case "remove_by_id":
                         case "remove_greater":
                         case "update":
-                            if (lock.isWriteLocked()) to.println("Please try again later. Collection currently in use." +'\0');
+                            if (lock.isWriteLocked()) output.println("Please try again later. Collection currently input use." +'\0');
                             else {
                                 lock.writeLock().lock();
-                                to.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");
+                                output.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");
                                 lock.writeLock().unlock();
                             }
                             history = appendArray(history,cm_splited[0]); break;
                         case "clear":
-                            if (lock.isWriteLocked()) to.println("Please try again later. Collection currently in use."+'\0');
+                            if (lock.isWriteLocked()) output.println("Please try again later. Collection currently input use."+'\0');
                             else {
                                 lock.writeLock().lock();
-                                to.println(availableCommands.get(cm_splited[0]).execute(this)+"\0");
+                                output.println(availableCommands.get(cm_splited[0]).execute(this)+"\0");
                                 lock.writeLock().unlock();
                             }
                             history = appendArray(history,cm_splited[0]); break;
 
                         //READ
                         case "filter_less_than_height":
-                            if (lock.isWriteLocked()) to.println("Please try again later. Collection currently in use."+'\0');
-                            else {to.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");}
+                            if (lock.isWriteLocked()) output.println("Please try again later. Collection currently input use."+'\0');
+                            else {output.println(availableCommands.get(cm_splited[0]).execute(cm_splited[1],this)+"\0");}
                             history = appendArray(history,cm_splited[0]); break;
                         case "group_counting_by_coordinates":
                         case "info":
                         case "max_by_location":
                         case "show":
-                            if (lock.isWriteLocked()) to.println("Please try again later. Collection currently in use."+'\0');
-                            else {to.println(availableCommands.get(cm_splited[0]).execute(this)+"\0"); }
+                            if (lock.isWriteLocked()) output.println("Please try again later. Collection currently input use."+'\0');
+                            else {output.println(availableCommands.get(cm_splited[0]).execute(this)+"\0"); }
                             history = appendArray(history,cm_splited[0]); break;
                     }
-                } else to.println(errorCommand.execute()+'\0');
+                } else output.println(errorCommand.execute()+'\0');
             }
         } catch (IOException ex ) {
             System.err.println(this.socket+" disconnected to server");//Unix

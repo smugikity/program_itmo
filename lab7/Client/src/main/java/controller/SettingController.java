@@ -1,27 +1,20 @@
-package client;
+package controller;
 
+import client.ClientGUI;
+import client.GUIUtility;
 import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -60,47 +53,10 @@ public class SettingController implements Initializable {
             e.printStackTrace();
         }
     }
-    public void changeLanguage(String locale, String resource, String title) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ClientGUI.class.getResource(resource));
-        loader.setResources(ResourceBundle.getBundle("locale", new Locale(locale)));
-        Parent root = loader.load();
-        Scene scene = switchButton.getScene();
-
-        root.translateYProperty().set(-scene.getHeight());
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
-
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateYProperty(),0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.millis(300), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(event->{
-            stackPane.getChildren().remove(pane);
-        });
-        timeline.play();
-    }
 
     @FXML
     protected void handleSwitchButtonAction() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ClientGUI.class.getResource("/login.fxml"));
-        loader.setResources(ResourceBundle.getBundle("locale", new Locale(ClientGUI.currentLanguage)));
-        Parent root = loader.load();
-        Scene scene = switchButton.getScene();
-
-        root.translateXProperty().set(scene.getWidth());
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
-
-        Timeline timeline = new Timeline();
-        KeyValue kv = new KeyValue(root.translateXProperty(),0, Interpolator.EASE_IN);
-        KeyFrame kf = new KeyFrame(Duration.millis(300), kv);
-        timeline.getKeyFrames().add(kf);
-        timeline.setOnFinished(event->{
-            stackPane.getChildren().remove(pane);
-        });
-        timeline.play();
+        GUIUtility.switchAnimation(pane,"login.fxml",1,-300, Interpolator.EASE_IN);
     }
 
     @FXML
@@ -109,7 +65,7 @@ public class SettingController implements Initializable {
             ClientGUI.currentLanguage=localeComboBox.getValue().toString();
             try {
                 ClientGUI.currentLanguage=localeComboBox.getValue().toString();
-                changeLanguage(ClientGUI.currentLanguage,"/setting.fxml","Client");
+                GUIUtility.switchAnimation(pane,"setting.fxml",-1,300, Interpolator.EASE_IN);
             } catch (IOException e) {
                 e.printStackTrace();
             }

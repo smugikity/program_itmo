@@ -57,13 +57,13 @@ public class TestLoginController implements Initializable {
 
         if (!comboBox.getValue().equals(TestGUI.currentLanguage)) {
             TestGUI.currentLanguage=comboBox.getValue();
-            try {
-                TestGUI.currentLanguage=comboBox.getValue();
-                TestGUI.stage.close();
-                TestGUI.stage=changeLanguage(TestGUI.currentLanguage,"/login.fxml","Client");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                TestGUI.currentLanguage=comboBox.getValue();
+//                TestGUI.stage.close();
+//                TestGUI.stage=changeLanguage(TestGUI.currentLanguage,"/login.fxml","Client");
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 

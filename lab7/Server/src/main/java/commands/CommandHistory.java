@@ -1,6 +1,6 @@
 package commands;
 
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 public class CommandHistory extends Command {
     public CommandHistory(String des) {
@@ -8,6 +8,6 @@ public class CommandHistory extends Command {
     }
     @Override
     public String execute(ServerCommandReader caller) {
-        return "";
+        return "\1";
     }
 }

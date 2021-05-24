@@ -1,7 +1,7 @@
 package commands;
 
-import server.ServerCommandReader;
-import server.ServerReader;
+import main.ServerCommandReader;
+import main.ServerReader;
 
 import javax.mail.*;
 import javax.mail.internet.AddressException;
@@ -53,7 +53,7 @@ public class CommandSend extends Command {
             caller.setActivationCode(code);
             message.setText(code);
             Transport.send(message);
-            return "Sent code. Code only work while client is still connected. \"reset\" to reset password.";
+            return "Sent code. Code only work while client is still connected. \"reset\" to reset password.\1";
         } catch (IOException | NullPointerException | AddressException e) {
             e.printStackTrace();
             return "Error: IOException";

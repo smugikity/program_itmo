@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.Iterator;
 
@@ -20,7 +20,7 @@ public class CommandRemoveById extends Command {
             Person p = iterator.next();
             if ((long) p.getId() == cId && p.getOwner_id() == caller.getID()) {
                 iterator.remove();
-                if (save()) return ("Deleted person with id: "+p.getId());
+                if (save()) return ("Deleted person with id: "+p.getId()+"\1");
                 else return "Error occurred. Please try again";
             }
         }

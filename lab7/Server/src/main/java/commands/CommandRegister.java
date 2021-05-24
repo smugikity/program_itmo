@@ -1,7 +1,7 @@
 package commands;
 
-import server.ServerCommandReader;
-import server.ServerReader;
+import main.ServerCommandReader;
+import main.ServerReader;
 import ultility.Hashing;
 
 import java.sql.Connection;
@@ -25,7 +25,7 @@ public class CommandRegister extends Command{
         statement.setString(2, Hashing.hashSHA384(splitedData[1]));
         if (statement.executeUpdate()>0) {
             connection.commit();
-            return "Registered successfully";
+            return "Registered successfully\1";
         } else {
             connection.rollback();
             return "Email existed. Please login";

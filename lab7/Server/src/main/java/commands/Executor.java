@@ -1,6 +1,6 @@
 package commands;
 
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 import java.util.Collection;
 

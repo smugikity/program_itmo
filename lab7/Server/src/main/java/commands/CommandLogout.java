@@ -1,6 +1,6 @@
 package commands;
 
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 public class CommandLogout extends Command{
     public CommandLogout(String des) {
@@ -9,7 +9,7 @@ public class CommandLogout extends Command{
     @Override
     public String execute(ServerCommandReader caller) {
         logout(caller);
-        return "Logout successfully";
+        return "Logout successfully\1";
     }
 
 }

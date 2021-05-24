@@ -1,7 +1,7 @@
 package commands;
 
 import lab5.legacy.Person;
-import server.ServerCommandReader;
+import main.ServerCommandReader;
 
 public class CommandFilterLessThanHeight extends Command {
     public CommandFilterLessThanHeight(String des) {
@@ -13,14 +13,13 @@ public class CommandFilterLessThanHeight extends Command {
         try {cH = Float.parseFloat(s);} catch (NumberFormatException ex) {
             return ("Height must be a number");
         }
-
-        String result = "";
+        StringBuilder stringBuilder = new StringBuilder();
         for (Person p: getCollection()) {
             if ((float) p.getHeight() < cH) {
-                result += p.toString()+"\n";
+                stringBuilder.append(p.toString()+"\n");
             }
         }
-        if (result.isEmpty()) return ("Theres no person with heigh less than "+cH);
-        else return result;
+        if (stringBuilder.toString().isEmpty()) return ("Theres no person with heigh less than "+cH+"");
+        else return stringBuilder.toString()+"\1";
     }
 }
