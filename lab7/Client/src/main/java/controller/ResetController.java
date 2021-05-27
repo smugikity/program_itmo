@@ -26,20 +26,24 @@ public class ResetController {
 
     @FXML
     protected void handleSendButtonAction() {
-        if (GUIUtility.isValidEmailAddress(textField.getText())) {
-            Connection.getInstance().write("send "+textField.getText());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reset Dialog");
-            alert.setHeaderText("Returning message");
-            alert.setContentText(Connection.getInstance().read());
-            alert.showAndWait();
-        } else if (GUIUtility.isValidPassword(passwordField.getText())){
-            Connection.getInstance().write("reset "+textField.getText()+","+passwordField.getText());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Reset Dialog");
-            alert.setHeaderText("Returning message");
-            alert.setContentText(Connection.getInstance().read());
-            alert.showAndWait();
+        try {
+            if (GUIUtility.isValidEmailAddress(textField.getText())) {
+                Connection.getInstance().write("send "+textField.getText());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Reset Dialog");
+                alert.setHeaderText("Returning message");
+                alert.setContentText(Connection.getInstance().read());
+                alert.showAndWait();
+            } else if (GUIUtility.isValidPassword(passwordField.getText())){
+                Connection.getInstance().write("reset "+textField.getText()+","+passwordField.getText());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Reset Dialog");
+                alert.setHeaderText("Returning message");
+                alert.setContentText(Connection.getInstance().read());
+                alert.showAndWait();
+            }
+        } catch (Exception e) {
+            GUIUtility.throwException(e);
         }
     }
     @FXML

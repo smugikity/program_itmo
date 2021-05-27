@@ -19,8 +19,10 @@ public class Server {
     static private ExecutorService service = Executors.newCachedThreadPool();
 
     public static void main(String[] args) {
-        try (ServerSocket server = new ServerSocket(6967)) {
-            ServerReader.getInstance().initial("data/lab6.xml");//args[0]!=null?args[0]:
+        System.out.println("Program requires 2 variables: 2 ports, one for listen clients, one for setting tunnel for ssh." +
+                "\nBy default - port1: 6767, port2: 6769.");
+        try (ServerSocket server = new ServerSocket((args.length>=1)?Integer.parseInt(args[0]):6767)) {
+            ServerReader.getInstance().initial((args.length>=2)?Integer.parseInt(args[1]):6769);//args[0]!=null?args[0]:
             logger_start();
             System.out.print("Server started." + "\nPort: " + server.getLocalPort() + " / Address: " + InetAddress.getLocalHost() + ".\nWaiting for clients  ");
             Thread loading_cursor = new Thread(() -> {
@@ -48,8 +50,9 @@ public class Server {
             System.err.println(ex.getMessage());
             service.shutdown();
             System.exit(0);
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            System.err.println("No such file exist.");
+        } catch (ArrayIndexOutOfBoundsException | NumberFormatException ex) {
+            System.err.println("Program requires 2 variables: 2 ports, one for listen clients, one for setting tunnel for ssh." +
+                    "\n ");
             service.shutdown();
             System.exit(0);
         }

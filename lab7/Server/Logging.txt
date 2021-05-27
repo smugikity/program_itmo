@@ -1,0 +1,7 @@
+May 24, 2021 11:43:45 PM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=11708,localport=6967] connected output server.
+May 24, 2021 11:43:48 PM main.ServerCommandReader log
+INFO: Received [sned] from Socket[addr=/127.0.0.1,port=11708,localport=6967].
+May 24, 2021 11:43:49 PM main.ServerCommandReader log
+INFO: Received [self_handled_error Argument missing] from Socket[addr=/127.0.0.1,port=11708,localport=6967].

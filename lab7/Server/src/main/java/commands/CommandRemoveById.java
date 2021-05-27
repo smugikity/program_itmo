@@ -20,7 +20,7 @@ public class CommandRemoveById extends Command {
             Person p = iterator.next();
             if ((long) p.getId() == cId && p.getOwner_id() == caller.getID()) {
                 iterator.remove();
-                if (save()) return ("Deleted person with id: "+p.getId()+"\1");
+                if (save()) return ("Deleted person with id: "+p.getId()+"");
                 else return "Error occurred. Please try again";
             }
         }

@@ -1,9 +1,7 @@
-May 11, 2021 12:11:37 AM server.ServerCommandReader log
+May 24, 2021 10:15:11 PM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=13965,localport=6967] connected to server.
-May 11, 2021 12:11:41 AM server.ServerCommandReader log
-INFO: Received [dwadwdwadaw] from Socket[addr=/127.0.0.1,port=13965,localport=6967].
-May 11, 2021 12:11:44 AM server.ServerCommandReader log
-INFO: Received [dw] from Socket[addr=/127.0.0.1,port=13965,localport=6967].
-May 11, 2021 12:11:46 AM server.ServerCommandReader log
-INFO: Socket[addr=/127.0.0.1,port=13965,localport=6967] disconnected to server
+Socket[addr=/127.0.0.1,port=9019,localport=6967] connected output server.
+May 24, 2021 10:15:16 PM main.ServerCommandReader log
+INFO: Received [send 7upnamk@gmail.com] from Socket[addr=/127.0.0.1,port=9019,localport=6967].
+May 24, 2021 10:18:00 PM main.ServerCommandReader log
+INFO: Socket[addr=/127.0.0.1,port=9019,localport=6967] disconnected to server

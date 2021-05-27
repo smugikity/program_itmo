@@ -33,6 +33,6 @@ public class CommandGroupCountingByCoordinates extends  Command{
                 }
             result.append("There are "+count+" persons with distance between "+Math.pow(10,i)+" and "+Math.pow(10,i+1)+"\n");
         }
-        return result.toString()+"\1";
+        return result.toString()+"";
     }
 }

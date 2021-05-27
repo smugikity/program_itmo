@@ -20,6 +20,6 @@ public class CommandFilterLessThanHeight extends Command {
             }
         }
         if (stringBuilder.toString().isEmpty()) return ("Theres no person with heigh less than "+cH+"");
-        else return stringBuilder.toString()+"\1";
+        else return stringBuilder.toString()+"";
     }
 }

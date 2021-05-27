@@ -13,7 +13,7 @@ public class CommandAdd extends Command {
         if (!setData(p,data)) return "Parsing error";
         p.setOwner_id(caller.getID());
         getCollection().add(p);
-        if (save()) return ("Add person "+p.getName()+" successfully with id "+p.getId()+"\1");
+        if (save()) return ("Add person "+p.getName()+" successfully with id "+p.getId());
         else return "Error occurred. Please try again";
     }
 }

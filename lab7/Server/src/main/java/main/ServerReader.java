@@ -3,6 +3,7 @@ package main;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import datapack.Pack;
 import lab5.legacy.*;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,12 +17,13 @@ import java.util.*;
 
 public class ServerReader {
 
-    private static Set<Person> collectionPerson = Collections.synchronizedSet(new HashSet<>());
-    public String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
-    public String fileSource;
+    private volatile Set<Person> collectionPerson = Collections.synchronizedSet(new HashSet<>());
+    private volatile Set<Pack> commit;
+    private final String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     private String DB_URL;
     private String DB_USER;
     private String DB_PASS;
+    public Session session;
 
     //singleton
     private static volatile ServerReader instance = new ServerReader();
@@ -35,49 +37,15 @@ public class ServerReader {
     }
     /**
      * Initial the program
-     * @param path input xml file
      */
-    public void initial(String path){
-//        this.fileSource = path;
-//        System.out.println(fileSource);
-//        try (InputStreamReader in = new InputStreamReader(new FileInputStream(fileSource), StandardCharsets.UTF_8)) {
-//            /**
-//             *XML Document builder with file input using InputStreamReader class
-//             */
-//            DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-//            //BufferedReader reader = new BufferedReader(in);
-//            if (!in.ready()) {
-//                System.err.println("File is empty"); System.exit(0);
-//            }
-//            InputSource input = new InputSource(in);
-//            builder.setErrorHandler(new ParserErrorHandler());
-//            Document data = builder.parse(input);
-//            data.getDocumentElement().normalize();
-//            if (data.getDocumentElement().getNodeName() != "People") {
-//                System.err.println("File not meet required format. Root file node should be People"); System.exit(0);
-//            }
-//            System.out.println("Collection loaded. Root element: " + data.getDocumentElement().getNodeName());
-//            NodeList nodeList = data.getElementsByTagName("Person");
-//            for (int i = 0; i < nodeList.getLength(); i++) {
-//                Person p = getPerson(nodeList.item(i));
-//                if (p != null) collectionPerson.add(p);
-//            }
-//            in.close();
-//            //excute main process of program
-//            //r.readCommand(this);
-//        } catch (FileNotFoundException | NullPointerException e) {
-//            System.err.println("File not found "+fileSource); System.exit(0);
-//        } catch (IOException e) {
-//            System.err.println("IOException occurred"); System.exit(0);
-//        } catch (ParserConfigurationException | SAXException e) {
-//            System.err.println("Parser error"); System.exit(0);
-//        }
-        initialTunnel();
+    public void initial(int portL){
+        initialTunnel(portL);
         initialCollection();
     }
 
-    private void initialTunnel() {
+    private void initialTunnel(int portL) {
         //localhost:6769 -> pg:5432 (default by postgres)
+        //
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("db.properties")) {
             Properties properties = System.getProperties();
             properties.load(inputStream);
@@ -85,14 +53,17 @@ public class ServerReader {
             DB_USER = properties.getProperty("DB_USER");
             DB_PASS = properties.getProperty("DB_PASS");
             JSch jsch = new JSch();
-            Session session = jsch.getSession(DB_USER,"se.ifmo.ru",2222);
+            session = jsch.getSession(DB_USER,"se.ifmo.ru",2222);
             session.setPassword(DB_PASS);
             System.out.println("Connected to se.ifmo.ru:2222");
             session.setConfig("StrictHostKeyChecking", "no");
             session.connect(3000);
-            int assignedPort = session.setPortForwardingL(6769,"pg",5432);
+            int assignedPort = session.setPortForwardingL(portL,"pg",5432);
             System.out.println("Assigned tunnel localhost:"+assignedPort+" -> pg:5432");
+            //int assignedPort2 = session.setPortForwardingL(679,"smtp.gmail.com",587);
+            //System.out.println("Assigned tunnel localhost:"+assignedPort2+" -> smtp.gmail.com:587");
         } catch (IOException | JSchException e) {
+            System.out.println("Binded tunnel unsuccessfully, trying again. Error: "+e.getClass().getName());
             e.printStackTrace();
             System.exit(0);
         }
@@ -118,6 +89,12 @@ public class ServerReader {
 
     public Set<Person> getCollectionPerson() {
         return collectionPerson;
+    }
+    public Set<Pack> getCommit() {
+        return commit;
+    }
+    public String getTimeStamp() {
+        return timeStamp;
     }
 
     /**

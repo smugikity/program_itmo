@@ -17,14 +17,14 @@ public class Connection {
     public Connection(String host,int port) {
         try {
             connection = this;
-            Socket socket = new Socket(InetAddress.getLocalHost(),6967);
+            Socket socket = new Socket(InetAddress.getLocalHost(),port);
             socket.setSoTimeout(5000);
             //output = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             output = new PrintWriter(socket.getOutputStream(),true);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             System.out.println("allo"+read());
         } catch (IOException e) {
-            GUIUtility.throwException(e);
+            e.printStackTrace();
             System.exit(0);
         }
     }

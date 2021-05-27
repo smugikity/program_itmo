@@ -9,7 +9,7 @@ public class CommandLogout extends Command{
     @Override
     public String execute(ServerCommandReader caller) {
         logout(caller);
-        return "Logout successfully\1";
+        return "Logout successfully";
     }
 
 }

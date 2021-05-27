@@ -17,7 +17,7 @@ public class CommandClear extends Command {
             if (p.getOwner_id()==caller.getID())
             iterator.remove();
         }
-        if (save()) return ("Collection cleared\1");
+        if (save()) return ("Collection cleared");
         else return "Error occurred. Please try again";
     }
 }

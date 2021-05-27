@@ -12,16 +12,18 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-public class Client implements Serializable {
+public class Client {
     private static int cacheCommandCount=1;
     private static Scanner fromKeyboard;
     private static Set<String> filePaths = new HashSet<>();
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("Program requires 1 variable - 1 port to connect to server." +
+                "\nBy default - port: 6767.");
         while (true) {
             try (SocketChannel socketChannel = SocketChannel.open();) {
                 fromKeyboard = new Scanner(System.in);
                 System.out.println("Connecting ...");
-                socketChannel.connect(new InetSocketAddress("localhost",6967));
+                socketChannel.connect(new InetSocketAddress("localhost",(args.length>=1)?Integer.parseInt(args[0]):6767));
                 Selector selector = Selector.open();
                 socketChannel.configureBlocking(false);
                 //Scanner scanner = new Scanner(System.in);
@@ -78,6 +80,9 @@ public class Client implements Serializable {
                 } catch (NoSuchElementException e) {System.exit(0);}
             } catch (NoSuchElementException ex) {
                 System.exit(0);
+            } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+                System.err.println("Wrong port format");
+                System.exit(0);
             }
         }
     }
@@ -108,7 +113,8 @@ public class Client implements Serializable {
             while (password.isEmpty()) {
                 try {
                     System.out.print("Pass: ");
-                    password = sc.nextLine();
+                    Console cs = System.console();
+                    password = new String(cs.readPassword());
                     if (password.length()<6)
                         throw new Exception() {
                             @Override
@@ -116,7 +122,10 @@ public class Client implements Serializable {
                         };
                     if (password.contains("-") || password.contains(",") || password.contains("/") || password.contains(" "))
                         throw new IllegalCharacterException();
-                } catch (IllegalCharacterException ex) {
+                } catch (NullPointerException e) {
+                    System.exit(0);
+                }
+                catch (IllegalCharacterException ex) {
                     System.out.println("Password can't contain character \"-\", \",\", \"/\", \" \".");
                     password="";
                 } catch (Exception e) {
@@ -124,7 +133,7 @@ public class Client implements Serializable {
                     password="";
                 }
             }
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException | NullPointerException e) {
             System.exit(0);
         }
         return username+","+password;

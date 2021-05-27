@@ -14,7 +14,7 @@ public class CommandAddIfMin extends Command {
         per.setOwner_id(caller.getID());
         if (getCollection().isEmpty()) {
             getCollection().add(per);
-            if (save()) return ("Add person "+per.getName()+" successfully with id "+per.getId()+"\1");
+            if (save()) return ("Add person "+per.getName()+" successfully with id "+per.getId()+"");
             else return "Error occurred. Please try again";
         }
         Person min=null;
@@ -25,7 +25,7 @@ public class CommandAddIfMin extends Command {
         }
         if (per.compareTo(min)<0) {
             getCollection().add(per);
-            if (save()) return ("Add person "+per.getName()+" successfully with id "+per.getId()+"\1");
+            if (save()) return ("Add person "+per.getName()+" successfully with id "+per.getId()+"");
             else return "Error occurred. Please try again";
         }
         else return ("Value of new person larger than minimum in collection");

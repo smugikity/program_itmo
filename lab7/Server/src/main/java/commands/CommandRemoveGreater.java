@@ -25,7 +25,7 @@ public class CommandRemoveGreater extends Command {
         }
         if (result.toString().isEmpty()) return ("No person was removed");
         else {
-            if (save()) return result.toString()+"\1";
+            if (save()) return result.toString()+"";
             else return "Error occurred. Please try again";
         }
     }

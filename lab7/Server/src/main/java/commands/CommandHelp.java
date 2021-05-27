@@ -15,6 +15,6 @@ public class CommandHelp extends Command {
         for (Command cm:avaicm) {
             stringBuilder.append(cm.getDescription()+"\n");
         }
-        return (stringBuilder.append("\1").toString());
+        return (stringBuilder.append("").toString());
     }
 }

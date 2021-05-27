@@ -18,7 +18,14 @@ public class ClientGUI extends Application {
     private FXMLLoader loader;
 
     public static void main(String[] args) {
-        Connection connection = new Connection("localhost",6967);
+        System.out.println("Program requires 1 variable - 1 port to connect to server." +
+                "\nBy default - port: 6767.");
+        try {
+            Connection connection = new Connection("localhost", (args.length >= 1) ? Integer.parseInt(args[0]) : 6767);
+        } catch (NumberFormatException e) {
+            System.out.println("Wrong port format");
+            System.exit(0);
+        }
         Application.launch();
     }
 

@@ -33,7 +33,7 @@ public class CommandUpdate extends Command {
             p.setId(cId);
             if (!setData(p, d[1])) return "Parsing error";
             getCollection().add(p);
-            if (save()) return ("Updated person "+p.getName()+" successfully with id "+p.getId()+"\1");
+            if (save()) return ("Updated person "+p.getName()+" successfully with id "+p.getId()+"");
         }
         return ("ID owner or id Person not match");
     }

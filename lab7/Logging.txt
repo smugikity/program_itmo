@@ -1,3 +1,12 @@
-May 24, 2021 3:06:53 AM main.ServerCommandReader log
+May 28, 2021 1:10:33 AM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=14606,localport=6967] connected output server.
+Socket[addr=/127.0.0.1,port=12179,localport=6767] connected output server.
+May 28, 2021 1:10:40 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/192.168.193.64,port=12194,localport=6767] connected output server.
+May 28, 2021 1:10:43 AM main.ServerCommandReader log
+INFO: Socket[addr=/127.0.0.1,port=12179,localport=6767] disconnected to server
+May 28, 2021 1:10:51 AM main.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/192.168.193.64,port=12194,localport=6767].
+May 28, 2021 1:10:55 AM main.ServerCommandReader log
+INFO: Socket[addr=/192.168.193.64,port=12194,localport=6767] disconnected to server

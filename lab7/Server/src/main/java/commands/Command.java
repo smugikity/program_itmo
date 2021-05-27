@@ -78,8 +78,8 @@ public abstract class Command implements Executor{
         HashMap<String, Command> availableCommands = caller.getAvailableCommands();
         availableCommands.remove("login");
         availableCommands.remove("register");
-        availableCommands.remove("reset");
-        availableCommands.remove("send");
+        //availableCommands.remove("reset");
+        //availableCommands.remove("send");
         availableCommands.put("logout", new CommandLogout("logout: log out"));
         availableCommands.put("show", new CommandShow("show : print all collection items as string to standard output"));
         availableCommands.put("add", new CommandAdd("add {element} : add a new element to the collection"));
@@ -100,8 +100,8 @@ public abstract class Command implements Executor{
         HashMap<String, Command> availableCommands = caller.getAvailableCommands();
         availableCommands.put("login", new CommandLogin("login: login to manipulate the collection"));
         availableCommands.put("register", new CommandRegister("register: register new account"));
-        availableCommands.put("reset", new CommandReset("reset: set new password wth activation code"));
-        availableCommands.put("send", new CommandSend("send: send activation code to your email"));
+        //availableCommands.put("reset", new CommandReset("reset: set new password wth activation code"));
+        //availableCommands.put("send", new CommandSend("send: send activation code to your email"));
         availableCommands.remove("show");
         availableCommands.remove("add");
         availableCommands.remove("add_if_min");

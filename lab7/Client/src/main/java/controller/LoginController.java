@@ -44,24 +44,28 @@ public class LoginController implements Initializable {
 
     @FXML
     protected void handleLoginButtonAction() throws IOException {
-        if (GUIUtility.checkExceptionLogin(textField.getText(),passwordField.getText())) {
-            Connection.getInstance().write("login "+textField.getText()+","+passwordField.getText());
-            String str;
-            if ((str = Connection.getInstance().read()).contains("\1")) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Login Dialog");
-                alert.setHeaderText("Successfully");
-                alert.setContentText(str);
-                alert.showAndWait();
-                GUIUtility.login(textField.getText());
-            } else {
-                Connection.getInstance().write("register "+textField.getText()+","+passwordField.getText());
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Register Dialog");
-                alert.setHeaderText("Account not existed, Register instead");
-                alert.setContentText(Connection.getInstance().read());
-                alert.showAndWait();
+        try {
+            if (GUIUtility.checkExceptionLogin(textField.getText(),passwordField.getText())) {
+                Connection.getInstance().write("login "+textField.getText()+","+passwordField.getText());
+                String str;
+                if ((str = Connection.getInstance().read()).contains("\1")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Login Dialog");
+                    alert.setHeaderText("Successfully");
+                    alert.setContentText(str);
+                    alert.showAndWait();
+                    GUIUtility.login(textField.getText());
+                } else {
+                    Connection.getInstance().write("register "+textField.getText()+","+passwordField.getText());
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Register Dialog");
+                    alert.setHeaderText("Account not existed, Register instead");
+                    alert.setContentText(Connection.getInstance().read());
+                    alert.showAndWait();
+                }
             }
+        } catch (Exception e) {
+            GUIUtility.throwException(e);
         }
     }
 

@@ -39,13 +39,14 @@ public class CommandSend extends Command {
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("mail.properties")) {
             Properties prop = System.getProperties();
             prop.load(inputStream);
-            Session session = Session.getDefaultInstance(prop, new Authenticator() {
+
+            javax.mail.Session sessionM = javax.mail.Session.getDefaultInstance(prop, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(prop.getProperty("sender_email"), prop.getProperty("sender_pass"));
                 }
             });
-            MimeMessage message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(sessionM);
             message.setFrom(new InternetAddress(prop.getProperty("sender_email")));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(data));
             message.setSubject("Activation code");
@@ -53,7 +54,8 @@ public class CommandSend extends Command {
             caller.setActivationCode(code);
             message.setText(code);
             Transport.send(message);
-            return "Sent code. Code only work while client is still connected. \"reset\" to reset password.\1";
+
+            return "Sent code. Code only work while client is still connected. \"reset\" to reset password.";
         } catch (IOException | NullPointerException | AddressException e) {
             e.printStackTrace();
             return "Error: IOException";

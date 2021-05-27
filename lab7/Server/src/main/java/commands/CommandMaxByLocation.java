@@ -27,6 +27,6 @@ public class CommandMaxByLocation extends Command {
         for (Person p: maxP) {
             result.append(p.toString()+"\n");
         }
-        return result.toString()+"\1";
+        return result.toString()+"";
     }
 }

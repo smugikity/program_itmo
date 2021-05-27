@@ -16,6 +16,6 @@ public class CommandShow extends Command {
         for (Person person: getCollection()) {
             result.append(person.toString()+"\n");
         }
-        return result.toString()+"\1";
+        return result.toString()+"";
     }
 }

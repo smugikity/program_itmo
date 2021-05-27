@@ -8,6 +8,6 @@ public class CommandExit extends Command {
     }
     @Override
     public String execute(ServerCommandReader caller) {
-        return "\1";
+        return "";
     }
 }

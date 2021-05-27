@@ -78,7 +78,7 @@ public class CommandSave extends Command {
             writer.write(xmlToString(document));
             writer.flush();
             writer.close();
-            return ("Saved into file "+fileSource+"\1");
+            return ("Saved into file "+fileSource+"");
             //you can also use staff.setAttribute("id", "1") for this
         } catch (ParserConfigurationException | FileNotFoundException ex) {
             return (ex.toString())+"";

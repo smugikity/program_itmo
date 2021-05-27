@@ -163,8 +163,8 @@ public class ServerCommandReader implements Runnable, Serializable {
         availableCommands.put("help", new CommandHelp("help : display help for available commands"));
         availableCommands.put("login", new CommandLogin("login: login to manipulate the collection"));
         availableCommands.put("register", new CommandRegister("register: register new account"));
-        availableCommands.put("reset", new CommandReset("reset: set new password wth activation code"));
-        availableCommands.put("send", new CommandSend("send: send activation code to your email"));
+        //availableCommands.put("reset", new CommandReset("reset: set new password wth activation code"));
+        //availableCommands.put("send", new CommandSend("send: send activation code to your email"));
         availableCommands.put("exit", new CommandExit("exit : exit the program"));
         availableCommands.put("history", new CommandHistory("history : display last 14 commands"));
     }

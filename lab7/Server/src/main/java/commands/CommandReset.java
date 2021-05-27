@@ -25,7 +25,7 @@ public class CommandReset extends Command {
             statement.setString(1, Hashing.hashSHA384(splitedData[1]));
             if (statement.executeUpdate()>0) {
                 connection.commit();
-                return "Password reset successfully\1";
+                return "Password reset successfully";
             } else {
                 connection.rollback();
                 return "Failed, please try again later\0";
