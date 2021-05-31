@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import lab5.legacy.Person;
 import main.ServerCommandReader;
 
@@ -10,9 +12,9 @@ public class CommandMaxByLocation extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(ServerCommandReader caller) {
+    public Pack execute(ServerCommandReader caller) {
         if (getCollection().isEmpty()) {
-            return ("Collection is empty");
+            return new StringPack(true,"Collection is empty");
         }
         ArrayList<Person> maxP = new ArrayList<Person>();
         for (Person p: getCollection()) {
@@ -27,6 +29,6 @@ public class CommandMaxByLocation extends Command {
         for (Person p: maxP) {
             result.append(p.toString()+"\n");
         }
-        return result.toString()+"";
+        return new StringPack(true,result.toString());
     }
 }

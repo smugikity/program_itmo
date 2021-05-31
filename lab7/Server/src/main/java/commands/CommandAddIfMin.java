@@ -1,6 +1,9 @@
 package commands;
 
-import lab5.legacy.Person;
+import datapack.AddPack;
+import datapack.Pack;
+import datapack.StringPack;
+import lab5.legacy.*;
 import main.ServerCommandReader;
 
 public class CommandAddIfMin extends Command {
@@ -8,26 +11,21 @@ public class CommandAddIfMin extends Command {
         setDescription(des);
     }
     @Override
-    public synchronized String execute(String data, ServerCommandReader caller) {
-        Person per = new Person();
-        if (!setData(per,data)) return "Parsing error";
-        per.setOwner_id(caller.getID());
+    public synchronized Pack execute(String data, ServerCommandReader caller) {
+        Person p = new Person();
+        if (!setData(p,data)) return new StringPack(false,"Parsing error");
+        p.setOwner_id(caller.getID());
         if (getCollection().isEmpty()) {
-            getCollection().add(per);
-            if (save()) return ("Add person "+per.getName()+" successfully with id "+per.getId()+"");
-            else return "Error occurred. Please try again";
+            getCollection().add(p);
+            if (save()) return new AddPack(p);
+            else return new StringPack(false,"Error occurred. Please try again");
         }
-        Person min=null;
-        for (Person p: getCollection()) {
-            if (p.compareTo(min)<=0||min==null) {
-                min = p;
-            }
+        Person min=getCollection().stream().min(Person::compareTo).get();
+        if (p.compareTo(min)<0) {
+            getCollection().add(p);
+            if (save()) return new AddPack(p);
+            else return new StringPack(false,"Error occurred. Please try again");
         }
-        if (per.compareTo(min)<0) {
-            getCollection().add(per);
-            if (save()) return ("Add person "+per.getName()+" successfully with id "+per.getId()+"");
-            else return "Error occurred. Please try again";
-        }
-        else return ("Value of new person larger than minimum in collection");
+        else return new StringPack (false,"Value of new person larger than minimum in collection");
     }
 }

@@ -9,7 +9,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -78,17 +77,24 @@ public class GUIUtility {
      * @param axis positive for X, negative for Y
      * @param miliStep
      */
-    public static void switchAnimation(Pane caller, String resource, Integer axis, Integer miliStep, Interpolator interpolator) throws IOException {
+    public static void switchAnimation(Pane caller, String resource, Integer axis, Integer miliStep, Interpolator interpolator, String mode) throws IOException {
+        if (!ClientGUI.currentMode.equals(mode)) {
+            ClientGUI.currentMode = mode;
+            if (mode.equals("Dark mode")) caller.getScene().getStylesheets().add(ClientGUI.class.getResource("/dark-theme.css").toString());
+            else caller.getScene().getStylesheets().remove(ClientGUI.class.getResource("/dark-theme.css").toString());
+        }
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClientGUI.class.getResource("/"+resource));
-        loader.setResources(ResourceBundle.getBundle("locale", new Locale(ClientGUI.currentLanguage)));
+        loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));
         Parent root = loader.load();
         Scene scene = caller.getScene();
+        root.toFront();
 
         if (axis>0) root.translateXProperty().set((miliStep>0?-1:1)*scene.getWidth());
         else root.translateYProperty().set((miliStep>0?-1:1)*scene.getHeight());
-        StackPane stackPane = (StackPane) scene.getRoot();
-        stackPane.getChildren().add(root);
+        Pane pane = (Pane) scene.getRoot();
+        pane.getChildren().add(root);
 
         Timeline timeline = new Timeline();
         KeyValue kv;
@@ -97,12 +103,27 @@ public class GUIUtility {
         KeyFrame kf = new KeyFrame(Duration.millis(Math.abs(miliStep)), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setOnFinished(event->{
-            stackPane.getChildren().remove(caller);
+            pane.getChildren().remove(caller);
         });
         timeline.play();
     }
 
-    public static void login(String email) throws IOException {
+    public static void relocateAnimation(Pane caller, Pane waiter, Integer miliStep, Interpolator interpolator) throws IOException {
+        Scene scene = caller.getScene();
+
+        waiter.toFront();
+        waiter.translateXProperty().set(scene.getWidth());
+        Timeline timeline = new Timeline();
+        KeyValue kv = new KeyValue(caller.translateXProperty(),scene.getWidth(),interpolator);
+        KeyValue kv2 = new KeyValue(waiter.translateXProperty(),830,interpolator);
+        KeyFrame kf = new KeyFrame(Duration.millis(Math.abs(miliStep)), kv);
+        KeyFrame kf2 = new KeyFrame(Duration.millis(Math.abs(miliStep)), kv2);
+        timeline.getKeyFrames().addAll(kf,kf2);
+        timeline.play();
+    }
+
+    public static void login(String email, int id) throws IOException {
+        Connection.getInstance().setID(id);
         ClientGUI.email = email;
         ClientGUI.stage.close();
         ClientGUI.stage = new Stage();
@@ -110,8 +131,10 @@ public class GUIUtility {
         ClientGUI.stage.setResizable(false);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClientGUI.class.getResource("/main.fxml"));
-        loader.setResources(ResourceBundle.getBundle("locale", new Locale(ClientGUI.currentLanguage)));
+        loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));
         ClientGUI.stage.setScene(new Scene(loader.load()));
+        if (ClientGUI.currentMode.equals("Dark mode")) ClientGUI.stage.getScene().getStylesheets().add(ClientGUI.class.getResource("/dark-theme.css").toString());
         ClientGUI.stage.show();
     }
+
 }

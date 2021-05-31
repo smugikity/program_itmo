@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import main.ServerCommandReader;
 import main.ServerReader;
 import ultility.Hashing;
@@ -13,10 +15,10 @@ public class CommandReset extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(String data, ServerCommandReader caller) {
+    public Pack execute(String data, ServerCommandReader caller) {
         String[] splitedData = data.split(",");
-        if (splitedData.length!=2) return invalidArguments;
-        if (!splitedData[0].equals(caller.getActivationCode())) return "Code is not correct\0";
+        if (splitedData.length!=2) return new StringPack(false,invalidArguments);
+        if (!splitedData[0].equals(caller.getActivationCode())) return new StringPack(false,"Code is not correct");
         caller.setActivationCode("");
         try (Connection connection = ServerReader.getInstance().getConnection() ) {
             connection.setAutoCommit(false);
@@ -25,14 +27,14 @@ public class CommandReset extends Command {
             statement.setString(1, Hashing.hashSHA384(splitedData[1]));
             if (statement.executeUpdate()>0) {
                 connection.commit();
-                return "Password reset successfully";
+                return new StringPack(true,"Password reset successfully");
             } else {
                 connection.rollback();
-                return "Failed, please try again later\0";
+                return new StringPack(false,"Failed, please try again later");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            return sqlException;
+            return new StringPack(false,sqlException);
         }
     }
 }

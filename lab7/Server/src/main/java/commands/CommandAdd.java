@@ -1,5 +1,8 @@
 package commands;
 
+import datapack.AddPack;
+import datapack.Pack;
+import datapack.StringPack;
 import lab5.legacy.Person;
 import main.ServerCommandReader;
 
@@ -8,12 +11,12 @@ public class CommandAdd extends Command {
         setDescription(des);
     }
     @Override
-    public synchronized String execute(String data, ServerCommandReader caller) {
+    public synchronized Pack execute(String data, ServerCommandReader caller) {
         Person p = new Person();
-        if (!setData(p,data)) return "Parsing error";
+        if (!setData(p,data)) return new StringPack(false,"Parsing error");
         p.setOwner_id(caller.getID());
         getCollection().add(p);
-        if (save()) return ("Add person "+p.getName()+" successfully with id "+p.getId());
-        else return "Error occurred. Please try again";
+        if (save()) return new AddPack(p);
+        else return new StringPack(false,"Error occurred. Please try again");
     }
 }

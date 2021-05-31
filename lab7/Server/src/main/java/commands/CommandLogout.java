@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import main.ServerCommandReader;
 
 public class CommandLogout extends Command{
@@ -7,9 +9,9 @@ public class CommandLogout extends Command{
         setDescription(des);
     }
     @Override
-    public String execute(ServerCommandReader caller) {
+    public Pack execute(ServerCommandReader caller) {
         logout(caller);
-        return "Logout successfully";
+        return new StringPack(true,"Logout successfully");
     }
 
 }

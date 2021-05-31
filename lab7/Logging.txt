@@ -1,12 +1,7 @@
-May 28, 2021 1:10:33 AM main.ServerCommandReader log
+May 31, 2021 1:57:16 PM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=12179,localport=6767] connected output server.
-May 28, 2021 1:10:40 AM main.ServerCommandReader log
-INFO: 
-Socket[addr=/192.168.193.64,port=12194,localport=6767] connected output server.
-May 28, 2021 1:10:43 AM main.ServerCommandReader log
-INFO: Socket[addr=/127.0.0.1,port=12179,localport=6767] disconnected to server
-May 28, 2021 1:10:51 AM main.ServerCommandReader log
-INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/192.168.193.64,port=12194,localport=6767].
-May 28, 2021 1:10:55 AM main.ServerCommandReader log
-INFO: Socket[addr=/192.168.193.64,port=12194,localport=6767] disconnected to server
+Socket[addr=/127.0.0.1,port=12472,localport=6767] connected output server.
+May 31, 2021 1:57:22 PM main.ServerCommandReader log
+INFO: Received [login test@tt.tt,tttttt] from Socket[addr=/127.0.0.1,port=12472,localport=6767].
+May 31, 2021 1:57:28 PM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=12472,localport=6767].

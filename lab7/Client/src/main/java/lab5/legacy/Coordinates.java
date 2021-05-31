@@ -1,6 +1,8 @@
 package lab5.legacy;
 
-public class Coordinates {
+import java.io.Serializable;
+
+public class Coordinates implements Serializable {
     private double x;
     private int y;
     public Coordinates(double x, int y) {

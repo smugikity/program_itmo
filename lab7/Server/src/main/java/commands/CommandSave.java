@@ -1,9 +1,11 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import lab5.legacy.Person;
+import main.ServerCommandReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import main.ServerCommandReader;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,7 +24,7 @@ public class CommandSave extends Command {
         setDescription(des);
     }
     @Override
-    public synchronized String execute(String fileSource, ServerCommandReader caller) {
+    public synchronized Pack execute(String fileSource, ServerCommandReader caller) {
         try {
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -78,10 +80,10 @@ public class CommandSave extends Command {
             writer.write(xmlToString(document));
             writer.flush();
             writer.close();
-            return ("Saved into file "+fileSource+"");
+            return new StringPack(true,"Saved into file "+fileSource);
             //you can also use staff.setAttribute("id", "1") for this
         } catch (ParserConfigurationException | FileNotFoundException ex) {
-            return (ex.toString())+"";
+            return new StringPack(false,ex.toString());
         }
     }
 

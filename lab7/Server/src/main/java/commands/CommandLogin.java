@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import main.Server;
 import main.ServerCommandReader;
 import main.ServerReader;
@@ -15,9 +17,9 @@ public class CommandLogin extends Command{
         setDescription(des);
     }
     @Override
-    public String execute(String data, ServerCommandReader caller) {
+    public Pack execute(String data, ServerCommandReader caller) {
         String[] splitedData = data.split(",");
-        if (splitedData.length!=2) return invalidArguments;
+        if (splitedData.length!=2) return new StringPack(false,invalidArguments);
         try (Connection connection = ServerReader.getInstance().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT ID FROM USERS WHERE EMAIL=? AND PASS=?;");
             preparedStatement.setString(1,splitedData[0]);
@@ -28,12 +30,12 @@ public class CommandLogin extends Command{
                 if (id != 0) {
                     if (!Server.getClients().contains(id)) {
                         login(id, caller);
-                        return "Login successfully\1";
-                    } else return "Account is logged in elsewhere.";
-                } else return "Email or password not match.";
+                        return new StringPack(true,String.valueOf(id));
+                    } else return new StringPack(false,"Account is logged in elsewhere.");
+                } else return new StringPack(false,"Email or password not match.");
             }
         } catch (SQLException throwables) {
-            return sqlException;
+            return new StringPack(false,sqlException);
         }
     }
 

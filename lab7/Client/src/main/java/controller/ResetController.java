@@ -1,5 +1,6 @@
 package controller;
 
+import client.ClientGUI;
 import client.Connection;
 import client.GUIUtility;
 import javafx.animation.Interpolator;
@@ -28,18 +29,18 @@ public class ResetController {
     protected void handleSendButtonAction() {
         try {
             if (GUIUtility.isValidEmailAddress(textField.getText())) {
-                Connection.getInstance().write("send "+textField.getText());
+                Connection.getInstance().writeLine("send "+textField.getText());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Reset Dialog");
                 alert.setHeaderText("Returning message");
-                alert.setContentText(Connection.getInstance().read());
+                //alert.setContentText(Connection.getInstance().read());
                 alert.showAndWait();
             } else if (GUIUtility.isValidPassword(passwordField.getText())){
-                Connection.getInstance().write("reset "+textField.getText()+","+passwordField.getText());
+                Connection.getInstance().writeLine("reset "+textField.getText()+","+passwordField.getText());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Reset Dialog");
                 alert.setHeaderText("Returning message");
-                alert.setContentText(Connection.getInstance().read());
+                //alert.setContentText(Connection.getInstance().read());
                 alert.showAndWait();
             }
         } catch (Exception e) {
@@ -48,6 +49,6 @@ public class ResetController {
     }
     @FXML
     protected void handleSwitchButtonAction() throws IOException {
-        GUIUtility.switchAnimation(pane,"setting.fxml",1,-300, Interpolator.EASE_IN);
+        GUIUtility.switchAnimation(pane,"setting.fxml",1,-300, Interpolator.EASE_IN, ClientGUI.currentMode);
     }
 }

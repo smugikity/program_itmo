@@ -1,5 +1,8 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
+import datapack.UpdatePack;
 import lab5.legacy.Person;
 import main.ServerCommandReader;
 
@@ -10,12 +13,12 @@ public class CommandUpdate extends Command {
         setDescription(des);
     }
     @Override
-    public synchronized String execute(String s, ServerCommandReader caller) {
+    public synchronized Pack execute(String s, ServerCommandReader caller) {
         String[] d = s.split(",",2);
         Long cId;
         boolean rm = false;
         try {cId = Long.parseLong(d[0]);} catch (NumberFormatException ex) {
-            return ("ID must be a number");
+            return new StringPack(false,"ID must be a number");
         }
         Iterator<Person> iterator = getCollection().iterator();
         while (iterator.hasNext()) {
@@ -31,10 +34,11 @@ public class CommandUpdate extends Command {
         if (rm) {
             Person p = new Person();
             p.setId(cId);
-            if (!setData(p, d[1])) return "Parsing error";
+            p.setOwner_id(caller.getID());
+            if (!setData(p, d[1])) return new StringPack(false,"Parsing error");
             getCollection().add(p);
-            if (save()) return ("Updated person "+p.getName()+" successfully with id "+p.getId()+"");
+            if (save()) return new UpdatePack(p.getId(),p);
         }
-        return ("ID owner or id Person not match");
+        return new StringPack(false,"ID owner or id Person not match");
     }
 }

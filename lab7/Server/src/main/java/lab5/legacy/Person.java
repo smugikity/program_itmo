@@ -1,11 +1,12 @@
 package lab5.legacy;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Person implements Comparable<Person> {
+public class Person implements Serializable,Comparable<Person> {
     private Long id = generateID(); //Cant be null, have to be unique, automatically generated when instantiated
     private String name=""; //Cant be null or empty
     private Coordinates coordinates=null; //Cant be null
@@ -169,6 +170,11 @@ public class Person implements Comparable<Person> {
                 +";weight:"+getWeight()+";hair_color:"+getHairColor().toString().toLowerCase()+";nationality:"
                 +getNationality().toString().toLowerCase().replace("_"," ") +";location:{x:" +getLocation().getX()+";y:"
                 +getLocation().getY()+";z:"+getLocation().getZ()+";name:"+getLocation().getName()+"}}");
+    }
+    public String toStringCSV() {
+        return getName() + "," + getCoordinates().getX() + "," + getCoordinates().getY() + "," + getHeight() + "," + getWeight() + ","
+                + getHairColor().toString() + "," + getNationality().toString() + "," + getLocation().getX() + "," + getLocation().getY()
+                + "," + getLocation().getZ() + "," + getLocation().getName();
     }
 
     /**

@@ -18,7 +18,7 @@ import java.util.*;
 public class ServerReader {
 
     private volatile Set<Person> collectionPerson = Collections.synchronizedSet(new HashSet<>());
-    private volatile Set<Pack> commit;
+    private volatile ArrayList<Pack> commit = new ArrayList<>();
     private final String timeStamp = new SimpleDateFormat("HH:mm:ss:SS dd/MM/yy").format(Calendar.getInstance().getTime());
     private String DB_URL;
     private String DB_USER;
@@ -75,6 +75,7 @@ public class ServerReader {
             ResultSetMetaData rsmd = resultSet.getMetaData();
             int cl = rsmd.getColumnCount();
             while (resultSet.next()) {
+                if (resultSet.getInt(1)!=0)
                 collectionPerson.add(new Person(resultSet.getInt(1),resultSet.getString(2),
                         new Coordinates(resultSet.getDouble(3),resultSet.getInt(4)),resultSet.getFloat(5),
                         resultSet.getLong(6),Color.valueOf(resultSet.getString(7).toUpperCase()),
@@ -90,7 +91,7 @@ public class ServerReader {
     public Set<Person> getCollectionPerson() {
         return collectionPerson;
     }
-    public Set<Pack> getCommit() {
+    public ArrayList<Pack> getCommit() {
         return commit;
     }
     public String getTimeStamp() {

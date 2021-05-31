@@ -1,6 +1,8 @@
 package lab5.legacy;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private Double x; //Cant be null
     private Long y; //Cant be null
     private Double z; //Cant be null

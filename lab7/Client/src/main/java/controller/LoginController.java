@@ -3,6 +3,7 @@ package controller;
 import client.ClientGUI;
 import client.Connection;
 import client.GUIUtility;
+import datapack.StringPack;
 import javafx.animation.Interpolator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,32 +47,35 @@ public class LoginController implements Initializable {
     protected void handleLoginButtonAction() throws IOException {
         try {
             if (GUIUtility.checkExceptionLogin(textField.getText(),passwordField.getText())) {
-                Connection.getInstance().write("login "+textField.getText()+","+passwordField.getText());
-                String str;
-                if ((str = Connection.getInstance().read()).contains("\1")) {
+                Connection.getInstance().writeLine("login "+textField.getText()+","+passwordField.getText());
+                StringPack pack;
+                if ((pack = Connection.getInstance().readForceStringPack()).isSuccess()) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Login Dialog");
                     alert.setHeaderText("Successfully");
-                    alert.setContentText(str);
+                    alert.setContentText("ID User: "+pack.toPrint());
                     alert.showAndWait();
-                    GUIUtility.login(textField.getText());
+                    //toPrint in Login String pack return ID User
+                    GUIUtility.login(textField.getText(),Integer.parseInt(pack.toPrint()));
                 } else {
-                    Connection.getInstance().write("register "+textField.getText()+","+passwordField.getText());
+                    Connection.getInstance().writeLine("register "+textField.getText()+","+passwordField.getText());
+                    pack = Connection.getInstance().readForceStringPack();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Register Dialog");
-                    alert.setHeaderText("Account not existed, Register instead");
-                    alert.setContentText(Connection.getInstance().read());
+                    alert.setHeaderText("Error occured. Tried to register\n"+pack.toPrint());
+                    alert.setContentText(pack.toPrint());
                     alert.showAndWait();
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
             GUIUtility.throwException(e);
         }
     }
 
     @FXML
     protected void handleSwitchButtonAction() throws IOException {
-        GUIUtility.switchAnimation(pane,"reset.fxml",1,-300, Interpolator.EASE_IN);
+        GUIUtility.switchAnimation(pane,"setting.fxml",1,-300, Interpolator.EASE_IN,ClientGUI.currentMode);
     }
 
     public static Stage changeLanguage(String locale, String resource, String title) throws IOException {

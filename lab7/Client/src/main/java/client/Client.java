@@ -52,7 +52,7 @@ public class Client {
                                 System.out.print("$ ");
                                 command = fromKeyboard.nextLine();
                             //}
-                            if (!command.trim().isEmpty()) {switch_command(command, socketChannel);}
+                            if (!command.trim().isEmpty()) switch_command(command, socketChannel);
                         }
                     }
                     keys.remove();

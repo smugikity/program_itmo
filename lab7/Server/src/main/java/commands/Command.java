@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import lab5.legacy.*;
 import main.Server;
 import main.ServerCommandReader;
@@ -19,16 +21,16 @@ public abstract class Command implements Executor{
     protected String sqlException="Error: SQL Exception";
 
     @Override
-    public String execute() {
-        return "Argument missing.";
+    public Pack execute() {
+        return new StringPack(false,"Argument missing.");
     }
-    public String execute(Collection<Command> avaicm) {
-        return "Argument missing.";
+    public Pack execute(Collection<Command> avaicm) {
+        return new StringPack(false,"Argument missing.");
     }
-    public String execute(String arg) {return null;}
-    public String execute(String arg, ServerCommandReader caller) {return null;}
-    public String execute(ServerCommandReader caller) {return null;}
-    public String execute(Collection<Command> arg, ServerCommandReader caller) {return null;}
+    public Pack execute(String arg) {return null;}
+    public Pack execute(String arg, ServerCommandReader caller) {return null;}
+    public Pack execute(ServerCommandReader caller) {return null;}
+    public Pack execute(Collection<Command> arg, ServerCommandReader caller) {return null;}
 
 
     protected ServerReader getServerReader() {

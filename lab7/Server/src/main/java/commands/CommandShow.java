@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import lab5.legacy.Person;
 import main.ServerCommandReader;
 
@@ -8,14 +10,14 @@ public class CommandShow extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(ServerCommandReader caller) {
+    public Pack execute(ServerCommandReader caller) {
         if (getCollection().isEmpty()) {
-            return "Collection is Empty";
+            return new StringPack(true,"Collection is Empty");
         }
         StringBuilder result = new StringBuilder();
         for (Person person: getCollection()) {
             result.append(person.toString()+"\n");
         }
-        return result.toString()+"";
+        return new StringPack(true,result.toString());
     }
 }

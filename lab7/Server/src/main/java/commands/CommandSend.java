@@ -1,5 +1,7 @@
 package commands;
 
+import datapack.Pack;
+import datapack.StringPack;
 import main.ServerCommandReader;
 import main.ServerReader;
 
@@ -21,7 +23,7 @@ public class CommandSend extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(String data, ServerCommandReader caller) {
+    public Pack execute(String data, ServerCommandReader caller) {
         try (Connection connection = ServerReader.getInstance().getConnection()) {
             PreparedStatement statement = connection.prepareStatement("SELECT ID FROM USERS WHERE EMAIL=?;");
             statement.setString(1,data);
@@ -30,11 +32,11 @@ public class CommandSend extends Command {
                 while (answer.next()) id = answer.getInt(1);
                 if (id != 0) {
                     caller.setID(id);
-                } else return "Email not found. Register first";
+                } else return new StringPack(false,"Email not found. Register first");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            return sqlException;
+            return new StringPack(false,sqlException);
         }
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("mail.properties")) {
             Properties prop = System.getProperties();
@@ -55,13 +57,13 @@ public class CommandSend extends Command {
             message.setText(code);
             Transport.send(message);
 
-            return "Sent code. Code only work while client is still connected. \"reset\" to reset password.";
+            return new StringPack(true,"Sent code. Code only work while client is still connected. \"reset\" to reset password.");
         } catch (IOException | NullPointerException | AddressException e) {
             e.printStackTrace();
-            return "Error: IOException";
+            return new StringPack(false,"Error: IOException");
         } catch (MessagingException e) {
             e.printStackTrace();
-            return "Error: Messaging Exception";
+            return new StringPack(false,"Error: Messaging Exception");
         }
     }
     private String generateCode() {

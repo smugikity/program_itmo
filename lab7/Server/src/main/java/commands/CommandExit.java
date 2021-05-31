@@ -1,5 +1,6 @@
 package commands;
 
+import datapack.Pack;
 import main.ServerCommandReader;
 
 public class CommandExit extends Command {
@@ -7,7 +8,7 @@ public class CommandExit extends Command {
         setDescription(des);
     }
     @Override
-    public String execute(ServerCommandReader caller) {
-        return "";
+    public Pack execute(ServerCommandReader caller) {
+        return null;
     }
 }
