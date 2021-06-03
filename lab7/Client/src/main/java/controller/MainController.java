@@ -62,7 +62,7 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<Person, String> col_location_name;
     @FXML
-    private TableColumn<Person, Button> col_delete;
+    private TableColumn<Person, Void> col_delete;
     @FXML
     private Button executeButton;
     @FXML
@@ -206,6 +206,23 @@ public class MainController implements Initializable {
     }
 
     private void editableCols() {
+
+        col_delete.setCellFactory(col -> new TableCell<Person, Void>() {
+            private final Button button;
+            {
+                button = new Button(col_delete.getText());
+                button.setOnAction(evt -> {
+                    if (col.getTableView().getItems().get(getIndex()).getOwner_id()==Connection.getInstance().getID())
+                    Connection.getInstance().writeLine("remove_by_id "+col.getTableView().getItems().get(getIndex()).getId());
+                });
+            }
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                setGraphic(empty ? null : button);
+            }
+        });
+
         col_name.setCellFactory(TextFieldTableCell.forTableColumn());
         col_name.setOnEditCommit((e)->{
             if (!e.getNewValue().equals(e.getOldValue()))

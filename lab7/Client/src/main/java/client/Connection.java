@@ -53,7 +53,6 @@ public class Connection implements Runnable {
             output = new PrintWriter(socket.getOutputStream(),true);
             System.out.println(((StringPack) input.readObject()).toPrint());
             people = FXCollections.observableArrayList(((InitialMegaPack) input.readObject()).getPeople());
-            people.stream().forEach(p-> System.out.println(p.toString()));
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             System.exit(0);

@@ -1,7 +1,97 @@
-May 31, 2021 1:57:16 PM main.ServerCommandReader log
+Jun 04, 2021 1:49:28 AM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=12472,localport=6767] connected output server.
-May 31, 2021 1:57:22 PM main.ServerCommandReader log
-INFO: Received [login test@tt.tt,tttttt] from Socket[addr=/127.0.0.1,port=12472,localport=6767].
-May 31, 2021 1:57:28 PM main.ServerCommandReader log
-INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=12472,localport=6767].
+Socket[addr=/127.0.0.1,port=5191,localport=6767] connected output server.
+Jun 04, 2021 1:49:46 AM main.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:49:57 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 221424477] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:04 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 516074837] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:07 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 422802923] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:28 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 174605182] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:29 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 262392084] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:31 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:32 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 408404845] from Socket[addr=/127.0.0.1,port=5191,localport=6767].
+Jun 04, 2021 1:50:37 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=5211,localport=6767] connected output server.
+Jun 04, 2021 1:50:54 AM main.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:50:54 AM main.ServerCommandReader log
+INFO: Received [register 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:03 AM main.ServerCommandReader log
+INFO: Received [login 8upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:07 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:07 AM main.ServerCommandReader log
+INFO: Socket[addr=/127.0.0.1,port=5191,localport=6767] disconnected to server
+Jun 04, 2021 1:51:09 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 335175851] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:11 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 345350567] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:26 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 801024414] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:27 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:27 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:27 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:27 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:29 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 250377530] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:32 AM main.ServerCommandReader log
+INFO: Received [update 18590168,cc,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:39 AM main.ServerCommandReader log
+INFO: Received [update 571621007,######,0.0,0,1.0,69,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:51:56 AM main.ServerCommandReader log
+INFO: Received [update 571621007,######,0.0,0,5.0,69,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:04 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 18590168] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:08 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 571621007] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:11 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:12 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:12 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:12 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:20 AM main.ServerCommandReader log
+INFO: Received [update 128799301,heloo,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:25 AM main.ServerCommandReader log
+INFO: Received [update 128799301,heloo,0.0,0,69.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:32 AM main.ServerCommandReader log
+INFO: Received [update 796350554,######,0.0,0,53.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:34 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 128799301] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:36 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 299369403] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:52:58 AM main.ServerCommandReader log
+INFO: Received [help] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:16 AM main.ServerCommandReader log
+INFO: Received [help] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:19 AM main.ServerCommandReader log
+INFO: Received [clear] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:22 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:22 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:22 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:23 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:53:45 AM main.ServerCommandReader log
+INFO: Received [history] from Socket[addr=/127.0.0.1,port=5211,localport=6767].
+Jun 04, 2021 1:54:40 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=5301,localport=6767] connected output server.
+Jun 04, 2021 1:54:50 AM main.ServerCommandReader log
+INFO: Received [login test@t.t,tttttt] from Socket[addr=/127.0.0.1,port=5301,localport=6767].
