@@ -32,8 +32,7 @@ public class SettingController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        LOCALES = localeComboBox.getItems();
-        getBundleLocales();
+        localeComboBox.getItems().addAll("en_US","es_SV","ru_RU","sr_RS","uk_UA");
         localeComboBox.setValue(ClientGUI.currentLanguage);
         modeComboBox.getItems().addAll("Light mode","Dark mode");
         modeComboBox.setValue(ClientGUI.currentMode);

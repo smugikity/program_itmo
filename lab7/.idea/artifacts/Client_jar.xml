@@ -3,6 +3,15 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Client_jar</output-path>
     <root id="archive" name="Client.jar">
       <element id="module-output" name="Client" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/src.zip" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx-swt.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.web.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.base.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.fxml.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.media.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.swing.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.controls.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/lib/javafx.graphics.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/javax.mail.jar" path-in-jar="/" />
     </root>
   </artifact>

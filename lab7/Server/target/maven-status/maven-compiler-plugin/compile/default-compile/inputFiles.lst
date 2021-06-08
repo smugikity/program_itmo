@@ -1,13 +1,17 @@
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandAddIfMin.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\Reader.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandHistory.java
+E:\bai_tap\program_itmo\lab7\Server\src\main\java\datapack\InitialMegaPack.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\test\Test.java
+E:\bai_tap\program_itmo\lab7\Server\src\main\java\datapack\Pack.java
+E:\bai_tap\program_itmo\lab7\Server\src\main\java\datapack\StringPack.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\main\ServerReader.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandClear.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandReset.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandFilterLessThanHeight.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandLogout.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\ParserErrorHandler.java
+E:\bai_tap\program_itmo\lab7\Server\src\main\java\datapack\UpdatePack.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\IllegalCharacterException.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\main\ServerCommandReader.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\Location.java
@@ -15,6 +19,7 @@ E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandActive.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandSave.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\Country.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandRemoveGreater.java
+E:\bai_tap\program_itmo\lab7\Server\src\main\java\datapack\AddPack.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\Main.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandRegister.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\lab5\legacy\CommandReader.java
@@ -26,6 +31,7 @@ E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandShow.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandSend.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\ultility\Hashing.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\ultility\MyHtmlFormatter.java
+E:\bai_tap\program_itmo\lab7\Server\src\main\java\datapack\RemovePack.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\test\Test3.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandGroupCountingByCoordinates.java
 E:\bai_tap\program_itmo\lab7\Server\src\main\java\commands\CommandHelp.java

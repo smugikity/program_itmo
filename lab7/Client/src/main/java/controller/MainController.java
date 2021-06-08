@@ -108,8 +108,7 @@ public class MainController implements Initializable {
                 "-fx-text-fill: "+str+";"+"-fx-alignment: "+ TextAlignment.CENTER+";");
         infoLabel.setText("ID User: "+id);
 
-        LOCALES = localeComboBox.getItems();
-        getBundleLocales();
+        localeComboBox.getItems().addAll("en_US","es_SV","ru_RU","sr_RS","uk_UA");
         localeComboBox.setValue(ClientGUI.currentLanguage);
 
         modeComboBox.getItems().addAll("Light mode","Dark mode");

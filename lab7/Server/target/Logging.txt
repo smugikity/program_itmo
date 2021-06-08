@@ -1,0 +1,12 @@
+Jun 08, 2021 5:08:34 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=3630,localport=6767] connected output server.
+Jun 08, 2021 5:11:40 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=3741,localport=6767] connected output server.
+Jun 08, 2021 5:12:19 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=3797,localport=6767] connected output server.
+Jun 08, 2021 5:12:45 AM main.ServerCommandReader log
+INFO: 
+Socket[addr=/127.0.0.1,port=3817,localport=6767] connected output server.
