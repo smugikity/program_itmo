@@ -1,5 +1,6 @@
 package controller;
 
+import client.Cartesian;
 import client.ClientGUI;
 import client.Connection;
 import client.GUIUtility;
@@ -8,13 +9,13 @@ import javafx.animation.Interpolator;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
-import lab5.legacy.Color;
 import lab5.legacy.Country;
 import lab5.legacy.Person;
 
@@ -50,7 +51,7 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<Person, Long> col_weight;
     @FXML
-    private TableColumn<Person, Color> col_color;
+    private TableColumn<Person, lab5.legacy.Color> col_color;
     @FXML
     private TableColumn<Person, Country> col_nation;
     @FXML
@@ -69,6 +70,8 @@ public class MainController implements Initializable {
     private Button createButton;
     @FXML
     private Button unfilterButton;
+    @FXML
+    private Button graphButton;
     @FXML
     private TextArea textArea;
     @FXML
@@ -91,7 +94,12 @@ public class MainController implements Initializable {
     private Button applyButton;
     @FXML
     private Button backButton;
+    private Canvas canvas;
+    private Cartesian cartesian;
     private ObservableList<String> LOCALES;
+    public Cartesian getCartesian() {
+        return cartesian;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Connection.getInstance().setMain(this);
@@ -113,6 +121,13 @@ public class MainController implements Initializable {
 
         modeComboBox.getItems().addAll("Light mode","Dark mode");
         modeComboBox.setValue(ClientGUI.currentMode);
+
+        canvas = new Canvas(1140,550);
+        canvas.setTranslateY(100);
+        canvas.setVisible(false);
+        cartesian = new Cartesian(canvas.getGraphicsContext2D(),Connection.getInstance().getFilteredPeople(),20,20,1100,510,0);
+        borderPane.getChildren().add(canvas);
+        canvas.toBack();
     }
     @FXML
     protected void executeButtonAction() {
@@ -137,7 +152,7 @@ public class MainController implements Initializable {
     @FXML
     protected void settingButtonAction() {
         try {
-            GUIUtility.relocateAnimation(commandBox,settingBox,300, Interpolator.EASE_IN);
+            GUIUtility.relocateAnimation(commandBox,settingBox,300, Interpolator.EASE_IN,830);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -145,10 +160,17 @@ public class MainController implements Initializable {
     @FXML
     protected void commandButtonAction() {
         try {
-            GUIUtility.relocateAnimation(settingBox,commandBox,300, Interpolator.EASE_IN);
+            GUIUtility.relocateAnimation(settingBox,commandBox,300, Interpolator.EASE_IN,830);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    protected void graphButtonAction() throws IOException {
+        if (!canvas.isVisible()||!tableView.isVisible())
+        if (!canvas.isVisible()) {cartesian.load();
+        GUIUtility.relocateAnimation(tableView,canvas,500, Interpolator.EASE_IN,0);}
+        else GUIUtility.relocateAnimation(canvas,tableView,500, Interpolator.EASE_IN,0);
     }
     @FXML
     protected void applyButtonAction() {
@@ -312,4 +334,8 @@ public class MainController implements Initializable {
             e.printStackTrace();
         }
     }
+    private void setTableData() {
+
+    }
+
 }

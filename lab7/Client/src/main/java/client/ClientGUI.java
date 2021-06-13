@@ -34,7 +34,6 @@ public class ClientGUI extends Application {
 
     @Override
     public void init() {
-        //System.out.println("\u0412\u043E\u0439\u0442\u0438/\n\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F");
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/login.fxml"));
         currentLanguage="en_US";

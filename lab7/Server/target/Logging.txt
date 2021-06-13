@@ -1,12 +1,180 @@
-Jun 08, 2021 5:08:34 AM main.ServerCommandReader log
+Jun 08, 2021 5:28:14 AM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=3630,localport=6767] connected output server.
-Jun 08, 2021 5:11:40 AM main.ServerCommandReader log
+Socket[addr=/127.0.0.1,port=4437,localport=6767] connected output server.
+Jun 08, 2021 5:28:46 AM main.ServerCommandReader log
+INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:28:52 AM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:28:59 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:17 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,1.0,1,RED,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:27 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,1,RED,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:30 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,9,RED,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:33 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,9,BLACK,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:39 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,9,BLACK,VATICAN,0.0,33,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:41 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,9,BLACK,VATICAN,1.0,33,0.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:44 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,9,BLACK,VATICAN,1.0,33,445.0,0] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:48 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,0.0,0,58.0,9,BLACK,VATICAN,1.0,33,445.0,lao] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:29:52 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,22.0,0,58.0,9,BLACK,VATICAN,1.0,33,445.0,lao] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:30:00 AM main.ServerCommandReader log
+INFO: Received [update 646909466,lmao dark,22.0,6,58.0,9,BLACK,VATICAN,1.0,33,445.0,lao] from Socket[addr=/127.0.0.1,port=4437,localport=6767].
+Jun 08, 2021 5:30:35 AM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=3741,localport=6767] connected output server.
-Jun 08, 2021 5:12:19 AM main.ServerCommandReader log
+Socket[addr=/127.0.0.1,port=4497,localport=6767] connected output server.
+Jun 08, 2021 5:30:54 AM main.ServerCommandReader log
+INFO: Received [login test@t.t,tttttt] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:02 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:07 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,0.0,0,79.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:10 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,0,79.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:27 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,0,79.0,1,RED,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:32 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,0,79.0,1,RED,VATICAN,22.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:35 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,0,79.0,1,RED,VATICAN,22.0,9,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:38 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,0,79.0,1,RED,VATICAN,22.0,9,11.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:42 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,0,79.0,1,RED,VATICAN,22.0,9,11.0,nuoc ngoai] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:31:46 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,8,79.0,1,RED,VATICAN,22.0,9,11.0,nuoc ngoai] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:34 AM main.ServerCommandReader log
+INFO: Received [update 581638925,######,0.0,0,1.0,1,WHITE,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:37 AM main.ServerCommandReader log
+INFO: Received [update 187881284,ayto,22.0,8,79.0,1,BROWN,VATICAN,22.0,9,11.0,nuoc ngoai] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:42 AM main.ServerCommandReader log
+INFO: Received [update 581638925,suppaman,0.0,0,1.0,1,WHITE,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:45 AM main.ServerCommandReader log
+INFO: Received [update 581638925,suppaman,0.0,5,1.0,1,WHITE,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:48 AM main.ServerCommandReader log
+INFO: Received [update 581638925,suppaman,4.0,5,1.0,1,WHITE,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:51 AM main.ServerCommandReader log
+INFO: Received [update 581638925,suppaman,4.0,5,1.0,1,WHITE,THAILAND,88.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:32:56 AM main.ServerCommandReader log
+INFO: Received [update 569763800,tao tin,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:02 AM main.ServerCommandReader log
+INFO: Received [update 569763800,tao tin,0.0,0,1.0,1,RED,GERMANY,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:09 AM main.ServerCommandReader log
+INFO: Received [update 569763800,tao tin,0.0,0,1.0,1,RED,GERMANY,49.3,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:15 AM main.ServerCommandReader log
+INFO: Received [update 569763800,tao tin,0.0,0,58.6995,1,RED,GERMANY,49.3,0,0.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:18 AM main.ServerCommandReader log
+INFO: Received [update 569763800,tao tin,0.0,0,58.7,1,RED,GERMANY,49.3,0,4.0,0] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:21 AM main.ServerCommandReader log
+INFO: Received [update 569763800,tao tin,0.0,0,58.7,1,RED,GERMANY,49.3,0,4.0,niem tin] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:24 AM main.ServerCommandReader log
+INFO: Received [update 581638925,suppaman,4.0,5,1.0,1,WHITE,THAILAND,88.0,0,0.0,cong san] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:41 AM main.ServerCommandReader log
+INFO: Received [help] from Socket[addr=/127.0.0.1,port=4497,localport=6767].
+Jun 08, 2021 5:33:51 AM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=3797,localport=6767] connected output server.
-Jun 08, 2021 5:12:45 AM main.ServerCommandReader log
+Socket[addr=/127.0.0.1,port=4642,localport=6767] connected output server.
+Jun 08, 2021 5:33:57 AM main.ServerCommandReader log
+INFO: Received [login test@tt.tt,tttttt] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:08 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:13 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:16 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,3333,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:18 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,3333,2.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:21 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,3333,2.0,1,BLACK,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:36 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,3333,2.0,1,BLACK,GERMANY,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:39 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,3333,2.0,1,BLACK,GERMANY,0.0,0,69.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:45 AM main.ServerCommandReader log
+INFO: Received [update 621061526,lenin,222.0,3333,2.0,1,BLACK,GERMANY,0.0,0,69.0,soviet] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:34:49 AM main.ServerCommandReader log
+INFO: Received [help] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:00 AM main.ServerCommandReader log
+INFO: Received [update 529420650,MARX,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:02 AM main.ServerCommandReader log
+INFO: Received [update 529420650,MARX,222.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:05 AM main.ServerCommandReader log
+INFO: Received [update 529420650,MARX,222.0,4,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:08 AM main.ServerCommandReader log
+INFO: Received [update 529420650,MARX,222.0,4,1.0,1,WHITE,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:14 AM main.ServerCommandReader log
+INFO: Received [update 529420650,MARX,222.0,4,1.0,1,WHITE,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:18 AM main.ServerCommandReader log
+INFO: Received [update 529420650,MARX,222.0,4,1.0,1,WHITE,VATICAN,0.0,0,0.0,soviet] from Socket[addr=/127.0.0.1,port=4642,localport=6767].
+Jun 08, 2021 5:35:23 AM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=3817,localport=6767] connected output server.
+Socket[addr=/127.0.0.1,port=4721,localport=6767] connected output server.
+Jun 08, 2021 5:35:49 AM main.ServerCommandReader log
+INFO: Received [login 8upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:35:57 AM main.ServerCommandReader log
+INFO: Received [update 887792579,sike,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:06 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:17 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA BLOCK,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:22 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:40 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:47 AM main.ServerCommandReader log
+INFO: Received [update 887792579,sike,0.0,0,1.0,1,RED,VATICAN,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:52 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,0.0,0,1.0,1,RED,GERMANY,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:56 AM main.ServerCommandReader log
+INFO: Received [update 887792579,sike,0.0,0,1.0,1,RED,VATICAN,0.0,0,22.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:36:58 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,0.0,0,1.0,1,RED,GERMANY,0.0,454,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:00 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,0.0,0,1.0,1,RED,THAILAND,22.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:03 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,0.0,0,1.0,1,RED,THAILAND,0.0,555,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:06 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,0.0,0,1.0,1,RED,GERMANY,22.0,454,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:09 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,0.0,0,1.0,1,RED,THAILAND,885.0,555,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:13 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,0.0,0,1.0,1,WHITE,THAILAND,22.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:21 AM main.ServerCommandReader log
+INFO: Received [update 887792579,sike,0.0,0,1.0,1,BROWN,VATICAN,0.0,0,22.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:25 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,0.0,0,1.0,1,BROWN,GERMANY,22.0,454,0.0,0] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:35 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,0.0,0,1.0,1,WHITE,THAILAND,22.0,0,0.0,emo] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:42 AM main.ServerCommandReader log
+INFO: Received [update 887792579,sike,0.0,0,1.0,1,BROWN,VATICAN,0.0,0,22.0,nu] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:47 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,0.0,0,1.0,1,BROWN,GERMANY,22.0,454,0.0,minecraft] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:53 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,0.0,0,1.0,1,RED,THAILAND,885.0,555,0.0,fortnite] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:37:56 AM main.ServerCommandReader log
+INFO: Received [remove_by_id 887792579] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:02 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,22.0,0,1.0,1,WHITE,THAILAND,22.0,0,0.0,emo] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:04 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,643.0,0,1.0,1,RED,THAILAND,885.0,555,0.0,fortnite] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:07 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,27.0,0,1.0,1,BROWN,GERMANY,22.0,454,0.0,minecraft] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:10 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,643.0,47,1.0,1,RED,THAILAND,885.0,555,0.0,fortnite] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:12 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,27.0,85,1.0,1,BROWN,GERMANY,22.0,454,0.0,minecraft] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:14 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,22.0,446,1.0,1,WHITE,THAILAND,22.0,0,0.0,emo] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:17 AM main.ServerCommandReader log
+INFO: Received [update 418572496,STEVE DA MINER,27.0,85,6.0,1,BROWN,GERMANY,22.0,454,0.0,minecraft] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:20 AM main.ServerCommandReader log
+INFO: Received [update 726198624,Samsung Sam,22.0,446,1.0,5,WHITE,THAILAND,22.0,0,0.0,emo] from Socket[addr=/127.0.0.1,port=4721,localport=6767].
+Jun 08, 2021 5:38:22 AM main.ServerCommandReader log
+INFO: Received [update 79159599,justin bieber,643.0,47,1.0,3,RED,THAILAND,885.0,555,0.0,fortnite] from Socket[addr=/127.0.0.1,port=4721,localport=6767].

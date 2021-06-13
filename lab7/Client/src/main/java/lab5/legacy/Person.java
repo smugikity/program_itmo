@@ -186,7 +186,7 @@ public class Person implements Serializable,Comparable<Person> {
         Long idTemp = null;
 //        while (!checked) {
 //            checked = true;
-            idTemp =Long.valueOf((long) Math.floor(Math.round(Math.random()*(999999999-100000000))));
+            idTemp = (long) Math.floor(Math.round(Math.random() * (999999999 - 100000000)));
 //            for (Person p: Reader.collectionPerson) {
 //                if (id==p.getId() || idTemp < 100000000) checked=false;
 //            }

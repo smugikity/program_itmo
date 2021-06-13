@@ -2,6 +2,7 @@ package client;
 
 import controller.MainController;
 import datapack.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lab5.legacy.Person;
@@ -29,6 +30,9 @@ public class Connection implements Runnable {
     public void setMain(MainController main) {
         this.main = main;
     }
+    public MainController getMain() {
+        return main;
+    }
     private int ID = 0;
     public void setID(int ID) {
         this.ID = ID;
@@ -38,6 +42,9 @@ public class Connection implements Runnable {
     }
     public ObservableList<Person> getPeople() {
         return people;
+    }
+    public ObservableList<Person> getFilteredPeople() {
+        return filteredPeople;
     }
     public void setFilterMode(int i) {filterMode=i;}
     public int getFilterMode() {
@@ -91,10 +98,10 @@ public class Connection implements Runnable {
     private void handlePack(Pack pack) {
         if (pack instanceof AddPack) people.add(((AddPack) pack).getPerson());
         else if (pack instanceof UpdatePack) {
-            people = FXCollections.observableArrayList(people.stream().filter(p->!p.getId().equals(((UpdatePack) pack).getId())).collect(Collectors.toList()));
+            people = FXCollections.observableArrayList(people.stream().filter(p -> !p.getId().equals(((UpdatePack) pack).getId())).collect(Collectors.toList()));
             people.add(((UpdatePack) pack).getPerson());
         } else //if (pack instanceof RemovePack)
-            people = FXCollections.observableArrayList(people.stream().filter(p->!((RemovePack) pack).getId().contains(p.getId())).collect(Collectors.toList()));
+            people = FXCollections.observableArrayList(people.stream().filter(p -> !((RemovePack) pack).getId().contains(p.getId())).collect(Collectors.toList()));
         setTableData(filterMode);
     }
 
@@ -109,10 +116,17 @@ public class Connection implements Runnable {
             if (filterMode == 0) filteredPeople.setAll(people);
             else if (filterMode == -1) {
                 filteredPeople.clear();
-                    filteredPeople.add(people.stream().max(Comparator.comparing(Person::getLocationValue)).get());
+                filteredPeople.add(people.stream().max(Comparator.comparing(Person::getLocationValue)).get());
             } else
-                filteredPeople = FXCollections.observableArrayList(people.stream().filter(p -> p.getHeight() < filterMode).collect(Collectors.toList()));
-            main.getTableView().setItems(filteredPeople);
+                filteredPeople.setAll(people.stream().filter(p -> p.getHeight() < filterMode).collect(Collectors.toList()));
+
+            Platform.runLater(()->{
+                main.getTableView().setItems(filteredPeople);
+                main.getTableView().getColumns().get(0).setVisible(false);
+                main.getTableView().getColumns().get(0).setVisible(true);
+                if (main.getCartesian().getGc().getCanvas().isVisible())
+                main.getCartesian().load();
+            });
         }
     }
 

@@ -5,6 +5,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -78,18 +79,18 @@ public class GUIUtility {
      * @param miliStep
      */
     public static void switchAnimation(Pane caller, String resource, Integer axis, Integer miliStep, Interpolator interpolator, String mode) throws IOException {
-        if (!ClientGUI.currentMode.equals(mode)) {
-            ClientGUI.currentMode = mode;
-            if (mode.equals("Dark mode")) caller.getScene().getStylesheets().add(ClientGUI.class.getResource("/dark-theme.css").toString());
-            else caller.getScene().getStylesheets().remove(ClientGUI.class.getResource("/dark-theme.css").toString());
-        }
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClientGUI.class.getResource("/"+resource));
         loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));
         Parent root = loader.load();
         Scene scene = caller.getScene();
-        root.toFront();
+
+        if (!ClientGUI.currentMode.equals(mode)) {
+            ClientGUI.currentMode = mode;
+            if (mode.equals("Dark mode")) caller.getScene().getStylesheets().add(ClientGUI.class.getResource("/dark-theme.css").toString());
+            else caller.getScene().getStylesheets().remove(ClientGUI.class.getResource("/dark-theme.css").toString());
+        }
 
         if (axis>0) root.translateXProperty().set((miliStep>0?-1:1)*scene.getWidth());
         else root.translateYProperty().set((miliStep>0?-1:1)*scene.getHeight());
@@ -103,22 +104,27 @@ public class GUIUtility {
         KeyFrame kf = new KeyFrame(Duration.millis(Math.abs(miliStep)), kv);
         timeline.getKeyFrames().add(kf);
         timeline.setOnFinished(event->{
-            pane.getChildren().remove(caller);
+            //disable
+            System.out.println("disable caller");
+            caller.setDisable(true);
+            caller.setVisible(false);
         });
         timeline.play();
     }
 
-    public static void relocateAnimation(Pane caller, Pane waiter, Integer miliStep, Interpolator interpolator) throws IOException {
+    public static void relocateAnimation(Node caller, Node waiter, Integer miliStep, Interpolator interpolator, double endX) throws IOException {
         Scene scene = caller.getScene();
-
+        waiter.setDisable(false);
+        waiter.setVisible(true);
         waiter.toFront();
         waiter.translateXProperty().set(scene.getWidth());
         Timeline timeline = new Timeline();
         KeyValue kv = new KeyValue(caller.translateXProperty(),scene.getWidth(),interpolator);
-        KeyValue kv2 = new KeyValue(waiter.translateXProperty(),830,interpolator);
+        KeyValue kv2 = new KeyValue(waiter.translateXProperty(),endX,interpolator);
         KeyFrame kf = new KeyFrame(Duration.millis(Math.abs(miliStep)), kv);
         KeyFrame kf2 = new KeyFrame(Duration.millis(Math.abs(miliStep)), kv2);
         timeline.getKeyFrames().addAll(kf,kf2);
+        timeline.setOnFinished(e->{caller.setVisible(false);caller.setDisable(true);});
         timeline.play();
     }
 
@@ -127,8 +133,8 @@ public class GUIUtility {
         ClientGUI.email = email;
         ClientGUI.stage.close();
         ClientGUI.stage = new Stage();
-        ClientGUI.stage.setTitle("Main window");
-        ClientGUI.stage.setResizable(false);
+        ClientGUI.stage.setTitle("Collection Manager");
+        ClientGUI.stage.setResizable(false  );
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClientGUI.class.getResource("/main.fxml"));
         loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));

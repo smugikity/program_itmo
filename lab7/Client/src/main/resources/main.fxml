@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="controller.MainController">
+
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
 <BorderPane fx:id="borderPane">
    <center>
       <TableView fx:id="tableView" maxWidth="1140.0" prefHeight="550.0" prefWidth="1140.0" BorderPane.alignment="CENTER">
@@ -54,17 +65,22 @@
                               </Label>
                            </children>
                         </VBox>
-                        <Button fx:id="createButton" mnemonicParsing="false" onAction="#createButtonAction" prefHeight="100.0" prefWidth="120.0" text="%main.button.create" />
+                        <Button fx:id="graphButton" mnemonicParsing="false" onAction="#graphButtonAction" prefHeight="100.0" prefWidth="120.0" text="main.button.graph" />
                      </children>
                   </HBox>
                   <HBox>
                      <children>
                         <TextArea fx:id="textArea" maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="320.0" />
-                        <Button fx:id="unfilterButton" mnemonicParsing="false" onAction="#unfilterButtonAction" prefHeight="100.0" prefWidth="120.0" text="%main.button.unfilter">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
+                           <VBox>
+                              <children>
+                              <Button fx:id="unfilterButton" mnemonicParsing="false" onAction="#unfilterButtonAction" prefHeight="50.0" prefWidth="120.0" text="%main.button.unfilter">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Button>
+                                 <Button fx:id="createButton" mnemonicParsing="false" onAction="#createButtonAction" prefHeight="50.0" prefWidth="120.0" text="\%main.button.create" />
+                              </children>
+                           </VBox>
                      </children>
                   </HBox>
                </children>
