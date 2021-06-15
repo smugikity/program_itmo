@@ -16,16 +16,14 @@ import javafx.util.Duration;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class GUIUtility {
     public static boolean checkExceptionLogin(String email, String password) {
         if (!isValidEmailAddress(email)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Login Dialog");
-            alert.setHeaderText("Email error");
-            alert.setContentText("Wrong format email");
+            alert.setTitle(ClientGUI.resourceBundle.getString("login.dialog"));
+            alert.setHeaderText(ClientGUI.resourceBundle.getString("EmailError"));
+            alert.setContentText(ClientGUI.resourceBundle.getString("EmailErrorDes"));
             alert.showAndWait();
             return false;
         }
@@ -35,17 +33,17 @@ public class GUIUtility {
     public static boolean isValidPassword(String password) {
         if (password.length()<6) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Login Dialog");
-            alert.setHeaderText("Length error");
-            alert.setContentText("Password need to larger than 6 chars");
+            alert.setTitle(ClientGUI.resourceBundle.getString("login.dialog"));
+            alert.setHeaderText(ClientGUI.resourceBundle.getString("PasswordError"));
+            alert.setContentText(ClientGUI.resourceBundle.getString("PasswordErrorLengthDes"));
             alert.showAndWait();
             return false;
         }
         if (password.contains("-") || password.contains(",") || password.contains("/") || password.contains(" ")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Login Dialog");
-            alert.setHeaderText("Character error");
-            alert.setContentText("Password can't contain character \"-\", \",\", \"/\", \" \".");
+            alert.setTitle(ClientGUI.resourceBundle.getString("login.dialog"));
+            alert.setHeaderText(ClientGUI.resourceBundle.getString("PasswordError"));
+            alert.setContentText(ClientGUI.resourceBundle.getString("PasswordErrorIllegalDes"));
             alert.showAndWait();
             return false;
         }
@@ -65,7 +63,7 @@ public class GUIUtility {
 
     public static void throwException(Exception e) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+        alert.setTitle(ClientGUI.resourceBundle.getString(e.getClass().getName()));
         alert.setHeaderText(e.getClass().getName());
         alert.setContentText(e.getMessage());
         alert.showAndWait();
@@ -82,7 +80,7 @@ public class GUIUtility {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClientGUI.class.getResource("/"+resource));
-        loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));
+        loader.setResources(ClientGUI.resourceBundle);
         Parent root = loader.load();
         Scene scene = caller.getScene();
 
@@ -133,11 +131,11 @@ public class GUIUtility {
         ClientGUI.email = email;
         ClientGUI.stage.close();
         ClientGUI.stage = new Stage();
-        ClientGUI.stage.setTitle("Collection Manager");
+        ClientGUI.stage.setTitle(ClientGUI.resourceBundle.getString("main.title"));
         ClientGUI.stage.setResizable(false  );
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClientGUI.class.getResource("/main.fxml"));
-        loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));
+        loader.setResources(ClientGUI.resourceBundle);
         ClientGUI.stage.setScene(new Scene(loader.load()));
         if (ClientGUI.currentMode.equals("Dark mode")) ClientGUI.stage.getScene().getStylesheets().add(ClientGUI.class.getResource("/dark-theme.css").toString());
         ClientGUI.stage.show();

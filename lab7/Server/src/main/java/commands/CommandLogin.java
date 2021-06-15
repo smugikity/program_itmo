@@ -2,7 +2,6 @@ package commands;
 
 import datapack.Pack;
 import datapack.StringPack;
-import main.Server;
 import main.ServerCommandReader;
 import main.ServerReader;
 import ultility.Hashing;
@@ -28,10 +27,10 @@ public class CommandLogin extends Command{
                 int id = 0;
                 while (answer.next()) id = answer.getInt(1);
                 if (id != 0) {
-                    if (!Server.getClients().contains(id)) {
+                    //if (!Server.getClients().contains(id)) {
                         login(id, caller);
                         return new StringPack(true,String.valueOf(id));
-                    } else return new StringPack(false,"Account is logged in elsewhere.");
+                    //} else return new StringPack(false,"Account is logged in elsewhere.");
                 } else return new StringPack(false,"Email or password not match.");
             }
         } catch (SQLException throwables) {

@@ -33,7 +33,7 @@ public class SettingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         localeComboBox.getItems().addAll("en_US","es_SV","ru_RU","sr_RS","uk_UA");
-        localeComboBox.setValue(ClientGUI.currentLanguage);
+        localeComboBox.setValue(ClientGUI.getCurrentLanguage());
         modeComboBox.getItems().addAll("Light mode","Dark mode");
         modeComboBox.setValue(ClientGUI.currentMode);
     }
@@ -62,10 +62,9 @@ public class SettingController implements Initializable {
 
     @FXML
     protected void handleApplyButtonAction() {
-        if (!localeComboBox.getValue().equals(ClientGUI.currentLanguage) || !modeComboBox.getValue().equals(ClientGUI.currentMode)) {
+        if (!localeComboBox.getValue().equals(ClientGUI.getCurrentLanguage()) || !modeComboBox.getValue().equals(ClientGUI.currentMode)) {
             try {
-                ClientGUI.currentLanguage=localeComboBox.getValue();
-                System.out.println(ClientGUI.currentLanguage);
+                ClientGUI.setCurrentLanguage(localeComboBox.getValue());
                 GUIUtility.switchAnimation(pane,"setting.fxml",-1,300, Interpolator.EASE_IN,modeComboBox.getValue());
             } catch (IOException e) {
                 e.printStackTrace();

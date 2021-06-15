@@ -1,15 +1,31 @@
-Jun 11, 2021 1:18:18 AM main.ServerCommandReader log
+Jun 15, 2021 2:42:07 PM main.ServerCommandReader log
 INFO: 
-Socket[addr=/127.0.0.1,port=5631,localport=6767] connected output server.
-Jun 11, 2021 1:18:38 AM main.ServerCommandReader log
-INFO: Received [login t@t.t,tttttt] from Socket[addr=/127.0.0.1,port=5631,localport=6767].
-Jun 11, 2021 1:19:21 AM main.ServerCommandReader log
-INFO: 
-Socket[addr=/127.0.0.1,port=5688,localport=6767] connected output server.
-Jun 11, 2021 1:19:30 AM main.ServerCommandReader log
-INFO: Received [login tt@tt.tt,tttttt] from Socket[addr=/127.0.0.1,port=5688,localport=6767].
-Jun 11, 2021 1:20:48 AM main.ServerCommandReader log
-INFO: 
-Socket[addr=/127.0.0.1,port=5723,localport=6767] connected output server.
-Jun 11, 2021 1:20:57 AM main.ServerCommandReader log
-INFO: Received [login 7upnamk@gmail.com,dragon123] from Socket[addr=/127.0.0.1,port=5723,localport=6767].
+Socket[addr=/127.0.0.1,port=4438,localport=6767] connected output server.
+Jun 15, 2021 2:42:17 PM main.ServerCommandReader log
+INFO: Received [login gg@gg.gg,gggggg] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:18 PM main.ServerCommandReader log
+INFO: Received [register gg@gg.gg,gggggg] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:21 PM main.ServerCommandReader log
+INFO: Received [login gg@gg.gg,gggggg] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:28 PM main.ServerCommandReader log
+INFO: Received [add ######,0,0,1,1,RED,THAILAND,0,0,0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:34 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,0.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:40 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,69.0,0,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:46 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,69.0,85,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:49 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,1.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:42:57 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,120.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:43:20 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,150.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:43:28 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,75.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:43:53 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,30.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:43:59 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,50.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].
+Jun 15, 2021 2:44:08 PM main.ServerCommandReader log
+INFO: Received [update 398709237,beamer boi,169.0,85,90.0,1,RED,THAILAND,0.0,0,0.0,0] from Socket[addr=/127.0.0.1,port=4438,localport=6767].

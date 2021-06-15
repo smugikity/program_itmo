@@ -65,7 +65,7 @@
                               </Label>
                            </children>
                         </VBox>
-                        <Button fx:id="graphButton" mnemonicParsing="false" onAction="#graphButtonAction" prefHeight="100.0" prefWidth="120.0" text="main.button.graph" />
+                        <Button fx:id="graphButton" mnemonicParsing="false" onAction="#graphButtonAction" prefHeight="100.0" prefWidth="120.0" text="%main.button.graph" />
                      </children>
                   </HBox>
                   <HBox>
@@ -78,7 +78,7 @@
                                     <Font size="13.0" />
                                  </font>
                               </Button>
-                                 <Button fx:id="createButton" mnemonicParsing="false" onAction="#createButtonAction" prefHeight="50.0" prefWidth="120.0" text="\%main.button.create" />
+                                 <Button fx:id="createButton" mnemonicParsing="false" onAction="#createButtonAction" prefHeight="50.0" prefWidth="120.0" text="%main.button.create" />
                               </children>
                            </VBox>
                      </children>

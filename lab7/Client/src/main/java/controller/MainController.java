@@ -6,7 +6,6 @@ import client.Connection;
 import client.GUIUtility;
 import converter.*;
 import javafx.animation.Interpolator;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -19,12 +18,8 @@ import javafx.scene.text.TextAlignment;
 import lab5.legacy.Country;
 import lab5.legacy.Person;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -96,7 +91,6 @@ public class MainController implements Initializable {
     private Button backButton;
     private Canvas canvas;
     private Cartesian cartesian;
-    private ObservableList<String> LOCALES;
     public Cartesian getCartesian() {
         return cartesian;
     }
@@ -117,7 +111,7 @@ public class MainController implements Initializable {
         infoLabel.setText("ID User: "+id);
 
         localeComboBox.getItems().addAll("en_US","es_SV","ru_RU","sr_RS","uk_UA");
-        localeComboBox.setValue(ClientGUI.currentLanguage);
+        localeComboBox.setValue(ClientGUI.getCurrentLanguage());
 
         modeComboBox.getItems().addAll("Light mode","Dark mode");
         modeComboBox.setValue(ClientGUI.currentMode);
@@ -174,10 +168,9 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void applyButtonAction() {
-        if (!localeComboBox.getValue().equals(ClientGUI.currentLanguage) || !modeComboBox.getValue().equals(ClientGUI.currentMode)) {
+        if (!localeComboBox.getValue().equals(ClientGUI.getCurrentLanguage()) || !modeComboBox.getValue().equals(ClientGUI.currentMode)) {
             try {
-                ClientGUI.currentLanguage=localeComboBox.getValue();
-                System.out.println(ClientGUI.currentLanguage);
+                ClientGUI.setCurrentLanguage(localeComboBox.getValue());
                 GUIUtility.switchAnimation(borderPane,"main.fxml",-1,300, Interpolator.EASE_IN,modeComboBox.getValue());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -193,7 +186,6 @@ public class MainController implements Initializable {
         commandComboBox.getItems().addAll("help","clear","history","info","group_counting_by_coordinates","max_by_location","filter_less_than_height","remove_by_id");
         commandComboBox.setValue("help");
     }
-
 
     private void initCols() {
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -227,7 +219,6 @@ public class MainController implements Initializable {
     }
 
     private void editableCols() {
-
         col_delete.setCellFactory(col -> new TableCell<Person, Void>() {
             private final Button button;
             {
@@ -317,25 +308,4 @@ public class MainController implements Initializable {
             Connection.getInstance().writeLine("update "+p.getId()+","+str[0]+","+str[1]+","+str[2]+","+str[3]+","+str[4]+","+str[5]+","+str[6]+","+str[7]+","+str[8]+","+str[9]+","+str[10]);
         }
     }
-
-    private void getBundleLocales() {
-        try {
-            File f = new File(this.getClass().getResource("/").toURI());
-            final String bundle_prefix = "bundle_";// Bundle name prefix.
-            for (String s : Objects.requireNonNull(f.list(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    return name.startsWith(bundle_prefix);
-                }
-            }))) {
-                LOCALES.add(s.substring(bundle_prefix.length(), s.indexOf('.')));
-            }
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }
-    private void setTableData() {
-
-    }
-
 }

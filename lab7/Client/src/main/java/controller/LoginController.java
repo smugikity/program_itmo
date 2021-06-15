@@ -51,8 +51,8 @@ public class LoginController implements Initializable {
                 StringPack pack;
                 if ((pack = Connection.getInstance().readForceStringPack()).isSuccess()) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Login Dialog");
-                    alert.setHeaderText("Successfully");
+                    alert.setTitle(ClientGUI.resourceBundle.getString("login.dialog"));
+                    alert.setHeaderText(ClientGUI.resourceBundle.getString("inform.successful"));
                     alert.setContentText("ID User: "+pack.toPrint());
                     alert.showAndWait();
                     //toPrint in Login String pack return ID User
@@ -61,9 +61,9 @@ public class LoginController implements Initializable {
                     Connection.getInstance().writeLine("register "+textField.getText()+","+passwordField.getText());
                     pack = Connection.getInstance().readForceStringPack();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Register Dialog");
-                    alert.setHeaderText("Error occured. Tried to register\n"+pack.toPrint());
-                    alert.setContentText(pack.toPrint());
+                    alert.setTitle(ClientGUI.resourceBundle.getString("register.dialog"));
+                    alert.setHeaderText(ClientGUI.resourceBundle.getString("inform.error"));
+                    alert.setContentText(ClientGUI.resourceBundle.getString("inform.tryresgister")+" \n"+pack.toPrint());
                     alert.showAndWait();
                 }
             }

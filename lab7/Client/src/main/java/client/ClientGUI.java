@@ -10,10 +10,18 @@ import java.util.ResourceBundle;
 
 
 public class ClientGUI extends Application {
-    public static String currentLanguage;
+    private static String currentLanguage;
+    public static ResourceBundle resourceBundle;
     public static String currentMode;
     public static Stage stage;
     public static String email="";
+    public static String getCurrentLanguage() {
+        return currentLanguage;
+    }
+    public static void setCurrentLanguage(String currentLanguage) {
+        ClientGUI.currentLanguage = currentLanguage;
+        resourceBundle = ResourceBundle.getBundle("bundle", new Locale(currentLanguage.split("_",2)[0],currentLanguage.split("_",2)[1]));
+    }
 
     private FXMLLoader loader;
 
@@ -36,15 +44,15 @@ public class ClientGUI extends Application {
     public void init() {
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/login.fxml"));
-        currentLanguage="en_US";
+        setCurrentLanguage("en_US");
         currentMode="Light mode";
-        loader.setResources(ResourceBundle.getBundle("bundle", new Locale(ClientGUI.currentLanguage.split("_",2)[0],ClientGUI.currentLanguage.split("_",2)[1])));
+        loader.setResources(resourceBundle);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Client");
+        primaryStage.setTitle(resourceBundle.getString("login.title"));
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();
         stage = primaryStage;
